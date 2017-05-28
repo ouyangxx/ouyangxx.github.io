@@ -1646,18 +1646,18 @@
 <li>绝对路径：以根(/)开头的路径。</li>
 <li>相对路径：不以根(/)开头的路径。</li>
 </ul>
-<h2 id="切换路径"><a href="#切换路径" class="headerlink" title="切换路径"></a>切换路径</h2><p>$ cd /              #切换到根目录</p>
-<p>$ cd                #切换到当前用户工作主目录</p>
-<p>$ cd ~             #切换到当前用户工作主目录</p>
-<p>$ cd -              #撤销上次的cd操作</p>
-<p>$ cd .              #一个点代表当前路径，切换到当前目录下等同于没切换</p>
-<p>$ cd ..             #两个点代表父目录，这里是切换到上级目录</p>
-<p>$ cd ../..          #切换到上两级目录</p>
-<h2 id="查看路径和文件"><a href="#查看路径和文件" class="headerlink" title="查看路径和文件"></a>查看路径和文件</h2><p>$ ls                 #显示当前工作路径下的文件</p>
-<p>$ ls -l              #显示当前工作路径下的文件，包括文件属性</p>
-<p>$ ls -a             #显示当前工作路径下的文件，包括隐藏文件</p>
-<p>$ pwd             #显示当前工作路径</p>
-<p>$ tree             #以树形分布显示当前工作路径下的所有文件</p>
+<h2 id="切换路径"><a href="#切换路径" class="headerlink" title="切换路径"></a>切换路径</h2><p>$ cd /              &nbsp;&nbsp;&nbsp;&nbsp;#切换到根目录</p>
+<p>$ cd                &nbsp;&nbsp;&nbsp;&nbsp;#切换到当前用户工作主目录</p>
+<p>$ cd ~              &nbsp;&nbsp;&nbsp;&nbsp;#切换到当前用户工作主目录</p>
+<p>$ cd -              &nbsp;&nbsp;&nbsp;&nbsp;#撤销上次的cd操作</p>
+<p>$ cd .              &nbsp;&nbsp;&nbsp;&nbsp;#一个点代表当前路径，切换到当前目录下等同于没切换</p>
+<p>$ cd ..             &nbsp;&nbsp;&nbsp;&nbsp;#两个点代表父目录，这里是切换到上级目录</p>
+<p>$ cd ../..          &nbsp;&nbsp;&nbsp;&nbsp;#切换到上两级目录</p>
+<h2 id="查看路径和文件"><a href="#查看路径和文件" class="headerlink" title="查看路径和文件"></a>查看路径和文件</h2><p>$ ls                 &nbsp;&nbsp;&nbsp;&nbsp;#显示当前工作路径下的文件</p>
+<p>$ ls -l              &nbsp;&nbsp;&nbsp;&nbsp;#显示当前工作路径下的文件，包括文件属性</p>
+<p>$ ls -a              &nbsp;&nbsp;&nbsp;&nbsp;#显示当前工作路径下的文件，包括隐藏文件</p>
+<p>$ pwd                &nbsp;&nbsp;&nbsp;&nbsp;#显示当前工作路径</p>
+<p>$ tree               &nbsp;&nbsp;&nbsp;&nbsp;#以树形分布显示当前工作路径下的所有文件</p>
 <h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><p>Linux下有5个查找命令：grep，find，locate，whereis，which</p>
 <h2 id="grep查找"><a href="#grep查找" class="headerlink" title="grep查找"></a>grep查找</h2><p>grep全称Global Regular Expression Print，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
 <p>命令格式：<code>grep [option] pattern filename</code></p>
@@ -1665,20 +1665,19 @@
 <p>pattern：搜索模式，可以是一个要匹配的字符串，或者是一个正则表达式</p>
 <p>option：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">-a   --text   #不要忽略二进制的数据。   </div><div class="line"></div><div class="line">-A&lt;显示行数&gt;   --after-context=&lt;显示行数&gt;   #除了显示符合范本样式的那一列之外，并显示该行之后的内容。   </div><div class="line"></div><div class="line">-b   --byte-offset   #在显示符合样式的那一行之前，标示出该行第一个字符的编号。   </div><div class="line"></div><div class="line">-B&lt;显示行数&gt;   --before-context=&lt;显示行数&gt;   #除了显示符合样式的那一行之外，并显示该行之前的内容。   </div><div class="line"></div><div class="line">-c    --count   #计算符合样式的列数。   </div><div class="line"></div><div class="line">-C&lt;显示行数&gt;   --context=&lt;显示行数&gt;或-&lt;显示行数&gt;   #除了显示符合样式的那一行之外，并显示该行之前后的内容。   </div><div class="line"></div><div class="line">-d &lt;动作&gt;     --directories=&lt;动作&gt;   #当指定要查找的是目录而非文件时，必须使用这项参数，否则grep指令将回报信息并停止动作。   </div><div class="line"></div><div class="line">-e&lt;范本样式&gt;  --regexp=&lt;范本样式&gt;   #指定字符串做为查找文件内容的样式。   </div><div class="line"></div><div class="line">-E      --extended-regexp   #将样式为延伸的普通表示法来使用。   </div><div class="line"></div><div class="line">-f&lt;规则文件&gt;  --file=&lt;规则文件&gt;   #指定规则文件，其内容含有一个或多个规则样式，让grep查找符合规则条件的文件内容，格式为每行一个规则样式。   </div><div class="line"></div><div class="line">-F   --fixed-regexp   #将样式视为固定字符串的列表。   </div><div class="line"></div><div class="line">-G   --basic-regexp   #将样式视为普通的表示法来使用。   </div><div class="line"></div><div class="line">-h   --no-filename   #在显示符合样式的那一行之前，不标示该行所属的文件名称。   </div><div class="line"></div><div class="line">-H   --with-filename   #在显示符合样式的那一行之前，表示该行所属的文件名称。   </div><div class="line"></div><div class="line">-i   --ignore-case   #忽略字符大小写的差别。   </div><div class="line"></div><div class="line">-l   --file-with-matches   #列出文件内容符合指定的样式的文件名称。   </div><div class="line"></div><div class="line">-L   --files-without-match   #列出文件内容不符合指定的样式的文件名称。   </div><div class="line"></div><div class="line">-n   --line-number   #在显示符合样式的那一行之前，标示出该行的列数编号。   </div><div class="line"></div><div class="line">-q   --quiet或--silent   #不显示任何信息。   </div><div class="line"></div><div class="line">-r   --recursive   #此参数的效果和指定“-d recurse”参数相同。   </div><div class="line"></div><div class="line">-s   --no-messages   #不显示错误信息。   </div><div class="line"></div><div class="line">-v   --revert-match   #显示不包含匹配文本的所有行。   </div><div class="line"></div><div class="line">-V   --version   #显示版本信息。   </div><div class="line"></div><div class="line">-w   --word-regexp   #只显示全字符合的列。   </div><div class="line"></div><div class="line">-x   --line-regexp   #只显示全列符合的列。   </div><div class="line"></div><div class="line">-y   #此参数的效果和指定“-i”参数相同。</div></pre></td></tr></table></figure>
-<p>$ grep  cyril  /etc/passwd             #在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
-<p>$ grep  “cyril”  /etc/passwd          #在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
-<p>$ grep  ‘cyril’   /etc/passwd          #在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
-<p>$ grep  ‘test’  file*                          #在当前目录下所有以file开始文件名的文件中查找包含字符串”test”的行</p>
-<p>$ grep  -i  ‘#include’  main.c  hello.c # 在main.c 和hello.c文件中忽略大小写查找包含字符串”#include”的行</p>
-<p>$ grep  ‘#include’  *                            #在当前目录下所有文件中查找包含字符串”#include”的行</p>
+<p>$ grep  cyril  /etc/passwd             &nbsp;&nbsp;&nbsp;&nbsp;#在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
+<p>$ grep  “cyril”  /etc/passwd           &nbsp;&nbsp;&nbsp;&nbsp;#在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
+<p>$ grep  ‘cyril’   /etc/passwd          &nbsp;&nbsp;&nbsp;&nbsp;#在/etc/passwd这个文件中查找包含字符串”cyril”的行</p>
+<p>$ grep  ‘test’  file*                  &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下所有以file开始文件名的文件中查找包含字符串”test”的行</p>
+<p>$ grep  -i  ‘#include’  main.c  hello.c &nbsp;#在main.c 和hello.c文件中忽略大小写查找包含字符串”#include”的行</p>
+<p>$ grep  ‘#include’  *                  &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下所有文件中查找包含字符串”#include”的行</p>
 <p><strong><em>grep递归查找</em></strong></p>
-<p>$ grep  -r  ‘#include’  *                       #在当前目录及子目录下所有文件中查找包含字符串”#include”的行</p>
-<p>$ grep  -l  -r  ‘#include’  *                   #在当前目录及其子目录下查找包含字符串”#include”的行，但是不显示匹配的行，只显示匹配的文件</p>
+<p>$ grep  -r  ‘#include’  *              &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录及子目录下所有文件中查找包含字符串”#include”的行</p>
+<p>$ grep  -l  -r  ‘#include’  *          &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录及其子目录下查找包含字符串”#include”的行，但是不显示匹配的行，只显示匹配的文件</p>
 <p><strong><em>grep使用正则表达式进行匹配</em></strong></p>
-<p>$ ls  -l  | grep  ‘^public’                 #通过管道过滤ls -l输出的内容，只显示以字符串“public”开头的行</p>
-<p>$ grep  -n  ‘goo*g’  readme.txt    #在readme.txt文件中查找一个字符串，这个字符串开头和结尾都是g，但是这两个g之间至少有一个o，像 gog,goog,goog这种，打印匹配的行，同时打印行号</p>
-<p>其实，要用好grep这个工具，就是要写好正则表达式，这里不对grep的所有功能进行实例讲解，只列了几个例子</p>
-<p>感受一下，以后会有专题讲解正则表达式的用法。</p>
+<p>$ ls  -l  | grep  ‘^public’            &nbsp;&nbsp;&nbsp;&nbsp;#通过管道过滤ls -l输出的内容，只显示以字符串“public”开头的行</p>
+<p>$ grep  -n  ‘goo*g’  readme.txt        &nbsp;&nbsp;&nbsp;&nbsp;#在readme.txt文件中查找一个字符串，这个字符串开头和结尾都是g，但是这两个g之间至少有一个o，像 gog,goog,goog这种，打印匹配的行，同时打印行号</p>
+<p>其实，要用好grep这个工具，就是要写好正则表达式，这里不对grep的所有功能进行实例讲解，只列了几个例子<br>感受一下，以后会有专题讲解正则表达式的用法。</p>
 <h2 id="find查找"><a href="#find查找" class="headerlink" title="find查找"></a>find查找</h2><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。</p>
 <p>命令格式：<code>find pathname -option [-print -exec -ok ...]</code>  </p>
 <p>pathname：指定搜索目录，在这个目录里查找</p>
@@ -1696,50 +1695,42 @@
 <p>-mmin n   查找系统中最后N分钟被改变文件数据的文件</p>
 <p>-mtime n  查找系统中最后n*24小时被改变文件数据的文件</p>
 <p><strong><em>find执行shell命令</em></strong></p>
-<p>$ cat readme.txt                                    #打印readme.txt文件的内容</p>
-<p>$ find readme.txt -ok cat {} \;              #打印readme.txt文件的内容</p>
-<p>$ find readme.txt -exec cat {} \;          #打印readme.txt文件的内容</p>
-<p>$ find readme.* | xargs cat                 #打印所有以readme.开始文件名的文件的内容</p>
-<p>之所以能用到xargs这个命令，是由于很多命令不支持|管道来传递参数，而日常工作中又有这个需求，所以就有</p>
-<p>了xargs命令。xargs 可以读入 stdin 的数据，并且以<strong>空白字符或换行字符</strong>作为分隔符，将 stdin 的数据分隔成为 </p>
-<p>arguments。这里xargs读入了readme.*文件的内容而不是文件名，然后cat将文件内容给打印出来了。</p>
+<p>$ cat readme.txt                            &nbsp;&nbsp;&nbsp;&nbsp;#打印readme.txt文件的内容</p>
+<p>$ find readme.txt -ok cat {} \;             &nbsp;&nbsp;&nbsp;&nbsp;#打印readme.txt文件的内容</p>
+<p>$ find readme.txt -exec cat {} \;           &nbsp;&nbsp;&nbsp;&nbsp;#打印readme.txt文件的内容</p>
+<p>$ find readme.* | xargs cat                 &nbsp;&nbsp;&nbsp;&nbsp;#打印所有以readme.开始文件名的文件的内容</p>
+<p>之所以能用到xargs这个命令，是由于很多命令不支持|管道来传递参数，而日常工作中又有这个需求，所以就有<br>了xargs命令。xargs 可以读入 stdin 的数据，并且以<strong>空白字符或换行字符</strong>作为分隔符，将 stdin 的数据分隔成为<br>arguments。这里xargs读入了readme.*文件的内容而不是文件名，然后cat将文件内容给打印出来了。</p>
 <p><strong><em>按文件名查找</em></strong></p>
-<p>$ find  ~  -name  “*.log”  -print          # 在当前用户home目录下查找所有以.log结束文件名的文件，并打印文件名</p>
-<p>$ find  .  -name  “*.log”  -print           # 在当前目录下查找所有以.log结束文件名的文件，并打印文件名</p>
-<p>$ find  .  -name  “[A-Z]*”  -print         # 在当前目录下查找所有以一个大写字母开始文件名的文件，并打印文件名</p>
-<p>$ find  /etc  -name  “host*”  -print    # 在/etc目录下查找所有以host开始文件名的文件，并打印文件名</p>
-<p>$ find  .  -name  “[a-z]*[0-9].log”  -print # 在当前目录下查找所有以一个小写字母开始并且以一个数字和.log结束文件名的文件，并打印文件名</p>
+<p>$ find  ~  -name  “*.log”  -print          &nbsp;&nbsp;&nbsp;&nbsp;# 在当前用户home目录下查找所有以.log结束文件名的文件，并打印文件名</p>
+<p>$ find  .  -name  “*.log”  -print          &nbsp;&nbsp;&nbsp;&nbsp;# 在当前目录下查找所有以.log结束文件名的文件，并打印文件名</p>
+<p>$ find  .  -name  “[A-Z]*”  -print         &nbsp;&nbsp;&nbsp;&nbsp;# 在当前目录下查找所有以一个大写字母开始文件名的文件，并打印文件名</p>
+<p>$ find  /etc  -name  “host*”  -print       &nbsp;&nbsp;&nbsp;&nbsp;# 在/etc目录下查找所有以host开始文件名的文件，并打印文件名</p>
+<p>$ find  .  -name  “[a-z]*[0-9].log”  -print &nbsp;# 在当前目录下查找所有以一个小写字母开始并且以一个数字和.log结束文件名的文件，并打印文件名</p>
 <p><strong><em>按文件权限查找</em></strong></p>
-<p>find  .  -perm  0644  -print           #在当前目录下查找所有文件权限为0777的文件</p>
+<p>find  .  -perm  0644  -print           &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有文件权限为0777的文件</p>
 <p><strong><em>按文件拥有者查找</em></strong></p>
-<p>$ find  /etc/  -user  cyril  -print     #在/etc/目录下查找所有文件属主为cyril的文件</p>
+<p>$ find  /etc/  -user  cyril  -print    &nbsp;&nbsp;&nbsp;&nbsp;#在/etc/目录下查找所有文件属主为cyril的文件</p>
 <p><strong><em>按文件更改时间和访问时间查找</em></strong></p>
-<p>$ find  /home/cyril  -mtime  -5  -print   #在/home/finance/目录下查找所有更改时间在5日以内的文件</p>
-<p>$ find  .  -newer  h1.txt  !  -newer  h5.txt  #在当前目录下查找所有比h1.txt文件新但比h5.txt旧的文件</p>
+<p>$ find  /home/cyril  -mtime  -5  -print   &nbsp;&nbsp;&nbsp;&nbsp;#在/home/finance/目录下查找所有更改时间在5日以内的文件</p>
+<p>$ find  .  -newer  h1.txt  !  -newer  h5.txt  &nbsp;&nbsp;#在当前目录下查找所有比h1.txt文件新但比h5.txt旧的文件</p>
 <p><strong><em>按文件类型查找</em></strong></p>
-<p>$ find  .  -type  f   #在当前目录下查找所有的普通文件</p>
-<p>$ find  .  -type  d   #在当前目录下查找所有的文件夹</p>
-<p>$ find  .  ! -type  d   #在当前目录下查找除文件夹外的所有文件</p>
+<p>$ find  .  -type  f   &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有的普通文件</p>
+<p>$ find  .  -type  d   &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有的文件夹</p>
+<p>$ find  .  ! -type  d   &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找除文件夹外的所有文件</p>
 <p><strong><em>按文件大小查找</em></strong></p>
-<p>$ find .  -size  +10 -print    #在当前目录下查找所有文件大小超过10块(1块＝512字节)的文件</p>
-<p>$ find .  -size  +1000000c -print    #在当前目录下查找所有文件大小超过1M字节的文件</p>
-<p>$ find .  -size  1000000c -print    #在当前目录下查找所有文件大小刚好为1M字节的文件</p>
-<p><strong><em>注意</em></strong>：find命令本身就是递归查找的，当前目录还未查找完时若遇到一个子目录，则默认先在子目录中查找，子目</p>
-<p>录查完了再继续当前目录的查找。</p>
+<p>$ find .  -size  +10 -print    &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有文件大小超过10块(1块＝512字节)的文件</p>
+<p>$ find .  -size  +1000000c -print    &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有文件大小超过1M字节的文件</p>
+<p>$ find .  -size  1000000c -print    &nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下查找所有文件大小刚好为1M字节的文件</p>
+<p><strong><em>注意</em></strong>：find命令本身就是递归查找的，当前目录还未查找完时若遇到一个子目录，则默认先在子目录中查找，子目<br>录查完了再继续当前目录的查找。</p>
 <p>若想强制在进入子目录前先行查找完本目录，可以使用-depth选项。</p>
-<p>$ find  /  -name  “*.config”  -depth  -print     #从根目录开始一级一级的查找所有以.config结束文件名的文件</p>
-<h2 id="locate查找"><a href="#locate查找" class="headerlink" title="locate查找"></a>locate查找</h2><p>locate命令其实是“find -name”的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个</p>
-<p>数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天</p>
-<p>自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使</p>
-<p>用updatedb命令，手动更新数据库，当然执行这个更新命令需要有管理员权限。</p>
-<p>$ locate  -i  ~/h       #查找home目录下所有以h开始文件名的文件，忽略大小写</p>
-<p>$ locate  /etc/sh     #查找/etc目录下所有以sh开始文件名的文件</p>
-<h2 id="whereis查找"><a href="#whereis查找" class="headerlink" title="whereis查找"></a>whereis查找</h2><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文</p>
-<p>件（参数-s）。如果省略参数，则返回所有信息。</p>
-<p>$ whereis  grep     #查找grep程序的位置   </p>
-<h2 id="which查找"><a href="#which查找" class="headerlink" title="which查找"></a>which查找</h2><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是</p>
-<p>说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
-<p>$ which  grep      #查看grep命令是否存在</p>
+<p>$ find  /  -name  “*.config”  -depth  -print     &nbsp;&nbsp;&nbsp;&nbsp;#从根目录开始一级一级的查找所有以.config结束文件名的文件</p>
+<h2 id="locate查找"><a href="#locate查找" class="headerlink" title="locate查找"></a>locate查找</h2><p>locate命令其实是“find -name”的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个<br>数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天<br>自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使<br>用updatedb命令，手动更新数据库，当然执行这个更新命令需要有管理员权限。</p>
+<p>$ locate  -i  ~/h       &nbsp;&nbsp;&nbsp;&nbsp;#查找home目录下所有以h开始文件名的文件，忽略大小写</p>
+<p>$ locate  /etc/sh     &nbsp;&nbsp;&nbsp;&nbsp;#查找/etc目录下所有以sh开始文件名的文件</p>
+<h2 id="whereis查找"><a href="#whereis查找" class="headerlink" title="whereis查找"></a>whereis查找</h2><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文<br>件（参数-s）。如果省略参数，则返回所有信息。</p>
+<p>$ whereis  grep     &nbsp;&nbsp;&nbsp;&nbsp;#查找grep程序的位置   </p>
+<h2 id="which查找"><a href="#which查找" class="headerlink" title="which查找"></a>which查找</h2><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是<br>说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
+<p>$ which  grep      &nbsp;&nbsp;&nbsp;&nbsp;#查看grep命令是否存在</p>
 
           
         
