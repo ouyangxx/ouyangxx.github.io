@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="1. 目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  1.1 切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
+<meta name="description" content="目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux02-基础命令-目录操作与查找">
 <meta property="og:url" content="http://yoursite.com/2017/06/04/Linux02-基础命令-目录操作与查找/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="1. 目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  1.1 切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
-<meta property="og:updated_time" content="2017-05-28T10:40:50.000Z">
+<meta property="og:description" content="目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
+<meta property="og:updated_time" content="2017-05-28T10:46:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux02-基础命令-目录操作与查找">
-<meta name="twitter:description" content="1. 目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  1.1 切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
+<meta name="twitter:description" content="目录操作 根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录 绝对路径：以根(/)开头的路径。 相对路径：不以根(/)开头的路径。  切换路径$ cd /              #切换到根目录 $ cd                #切换到当前用户工作主目录 $ cd ~             #切换到当前用户工作主目录 $ cd -">
 
 
 
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,339
+                  3,323
                 </span>
               
 
@@ -409,7 +409,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  13
+                  12
                 </span>
               
             </div>
@@ -427,25 +427,25 @@
       
 
       
-        <h1 id="1-目录操作"><a href="#1-目录操作" class="headerlink" title="1. 目录操作"></a>1. 目录操作</h1><ul>
+        <h1 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h1><ul>
 <li>根目录：linux系统下所有文件的路径都是以这个路径开始的，它是所有文件的顶级父目录</li>
 <li>绝对路径：以根(/)开头的路径。</li>
 <li>相对路径：不以根(/)开头的路径。</li>
 </ul>
-<h2 id="1-1-切换路径"><a href="#1-1-切换路径" class="headerlink" title="1.1 切换路径"></a>1.1 切换路径</h2><p>$ cd /              #切换到根目录</p>
+<h2 id="切换路径"><a href="#切换路径" class="headerlink" title="切换路径"></a>切换路径</h2><p>$ cd /              #切换到根目录</p>
 <p>$ cd                #切换到当前用户工作主目录</p>
 <p>$ cd ~             #切换到当前用户工作主目录</p>
 <p>$ cd -              #撤销上次的cd操作</p>
 <p>$ cd .              #一个点代表当前路径，切换到当前目录下等同于没切换</p>
 <p>$ cd ..             #两个点代表父目录，这里是切换到上级目录</p>
 <p>$ cd ../..          #切换到上两级目录</p>
-<h2 id="1-2-查看路径和文件"><a href="#1-2-查看路径和文件" class="headerlink" title="1.2 查看路径和文件"></a>1.2 查看路径和文件</h2><p>$ ls                 #显示当前工作路径下的文件</p>
+<h2 id="查看路径和文件"><a href="#查看路径和文件" class="headerlink" title="查看路径和文件"></a>查看路径和文件</h2><p>$ ls                 #显示当前工作路径下的文件</p>
 <p>$ ls -l              #显示当前工作路径下的文件，包括文件属性</p>
 <p>$ ls -a             #显示当前工作路径下的文件，包括隐藏文件</p>
 <p>$ pwd             #显示当前工作路径</p>
 <p>$ tree             #以树形分布显示当前工作路径下的所有文件</p>
-<h1 id="2-查找"><a href="#2-查找" class="headerlink" title="2. 查找"></a>2. 查找</h1><p>Linux下有5个查找命令：grep，find，locate，whereis，which</p>
-<h2 id="2-1-grep查找"><a href="#2-1-grep查找" class="headerlink" title="2.1 grep查找"></a>2.1 grep查找</h2><p>grep全称Global Regular Expression Print，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
+<h1 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h1><p>Linux下有5个查找命令：grep，find，locate，whereis，which</p>
+<h2 id="grep查找"><a href="#grep查找" class="headerlink" title="grep查找"></a>grep查找</h2><p>grep全称Global Regular Expression Print，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
 <p>命令格式：<code>grep [option] pattern filename</code></p>
 <p>filename：在这个文件里查找</p>
 <p>pattern：搜索模式，可以是一个要匹配的字符串，或者是一个正则表达式</p>
@@ -465,7 +465,7 @@
 <p>$ grep  -n  ‘goo*g’  readme.txt    #在readme.txt文件中查找一个字符串，这个字符串开头和结尾都是g，但是这两个g之间至少有一个o，像 gog,goog,goog这种，打印匹配的行，同时打印行号</p>
 <p>其实，要用好grep这个工具，就是要写好正则表达式，这里不对grep的所有功能进行实例讲解，只列了几个例子</p>
 <p>感受一下，以后会有专题讲解正则表达式的用法。</p>
-<h2 id="2-2-find查找"><a href="#2-2-find查找" class="headerlink" title="2.2 find查找"></a>2.2 find查找</h2><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。</p>
+<h2 id="find查找"><a href="#find查找" class="headerlink" title="find查找"></a>find查找</h2><p>find是最常见和最强大的查找命令，你可以用它找到任何你想找的文件。</p>
 <p>命令格式：<code>find pathname -option [-print -exec -ok ...]</code>  </p>
 <p>pathname：指定搜索目录，在这个目录里查找</p>
 <p>[-print -exec -ok …]：指定对搜索结果的动作</p>
@@ -514,16 +514,16 @@
 <p>录查完了再继续当前目录的查找。</p>
 <p>若想强制在进入子目录前先行查找完本目录，可以使用-depth选项。</p>
 <p>$ find  /  -name  “*.config”  -depth  -print     #从根目录开始一级一级的查找所有以.config结束文件名的文件</p>
-<h2 id="2-3-locate查找"><a href="#2-3-locate查找" class="headerlink" title="2.3 locate查找"></a>2.3 locate查找</h2><p>locate命令其实是“find -name”的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个</p>
+<h2 id="locate查找"><a href="#locate查找" class="headerlink" title="locate查找"></a>locate查找</h2><p>locate命令其实是“find -name”的另一种写法，但是要比后者快得多，原因在于它不搜索具体目录，而是搜索一个</p>
 <p>数据库（/var/lib/locatedb），这个数据库中含有本地所有文件信息。Linux系统自动创建这个数据库，并且每天</p>
 <p>自动更新一次，所以使用locate命令查不到最新变动过的文件。为了避免这种情况，可以在使用locate之前，先使</p>
 <p>用updatedb命令，手动更新数据库，当然执行这个更新命令需要有管理员权限。</p>
 <p>$ locate  -i  ~/h       #查找home目录下所有以h开始文件名的文件，忽略大小写</p>
 <p>$ locate  /etc/sh     #查找/etc目录下所有以sh开始文件名的文件</p>
-<h2 id="2-4-whereis查找"><a href="#2-4-whereis查找" class="headerlink" title="2.4 whereis查找"></a>2.4 whereis查找</h2><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文</p>
+<h2 id="whereis查找"><a href="#whereis查找" class="headerlink" title="whereis查找"></a>whereis查找</h2><p>whereis命令只能用于程序名的搜索，而且只搜索二进制文件（参数-b）、man说明文件（参数-m）和源代码文</p>
 <p>件（参数-s）。如果省略参数，则返回所有信息。</p>
 <p>$ whereis  grep     #查找grep程序的位置   </p>
-<h2 id="2-5-which查找"><a href="#2-5-which查找" class="headerlink" title="2.5 which查找"></a>2.5 which查找</h2><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是</p>
+<h2 id="which查找"><a href="#which查找" class="headerlink" title="which查找"></a>which查找</h2><p>which命令的作用是，在PATH变量指定的路径中，搜索某个系统命令的位置，并且返回第一个搜索结果。也就是</p>
 <p>说，使用which命令，就可以看到某个系统命令是否存在，以及执行的到底是哪一个位置的命令。</p>
 <p>$ which  grep      #查看grep命令是否存在</p>
 
@@ -756,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-目录操作"><span class="nav-number">1.</span> <span class="nav-text">1. 目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-切换路径"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 切换路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-查看路径和文件"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 查看路径和文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-查找"><span class="nav-number">2.</span> <span class="nav-text">2. 查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-grep查找"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 grep查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-find查找"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 find查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-locate查找"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 locate查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-whereis查找"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 whereis查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-which查找"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 which查找</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目录操作"><span class="nav-number">1.</span> <span class="nav-text">目录操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#切换路径"><span class="nav-number">1.1.</span> <span class="nav-text">切换路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看路径和文件"><span class="nav-number">1.2.</span> <span class="nav-text">查看路径和文件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查找"><span class="nav-number">2.</span> <span class="nav-text">查找</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep查找"><span class="nav-number">2.1.</span> <span class="nav-text">grep查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#find查找"><span class="nav-number">2.2.</span> <span class="nav-text">find查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#locate查找"><span class="nav-number">2.3.</span> <span class="nav-text">locate查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#whereis查找"><span class="nav-number">2.4.</span> <span class="nav-text">whereis查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#which查找"><span class="nav-number">2.5.</span> <span class="nav-text">which查找</span></a></li></ol></li></ol></div>
             
 
           </div>
