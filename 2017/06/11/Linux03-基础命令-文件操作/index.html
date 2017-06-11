@@ -90,20 +90,20 @@
 
 
 
-<meta name="description" content="文件实体操作创建文件／文件夹$ mkdir project                                    #在当前目录下创建文件夹 $ mkdir -p project/gobuild/view                    #在当前目录下创建多级文件夹 (-p代表逐级创建) $ touch server.go">
+<meta name="description" content="文件实体操作创建文件／文件夹$ mkdir project                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#在当前目录下创建文件夹 $">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux03-基础命令-文件操作">
 <meta property="og:url" content="http://yoursite.com/2017/06/11/Linux03-基础命令-文件操作/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="文件实体操作创建文件／文件夹$ mkdir project                                    #在当前目录下创建文件夹 $ mkdir -p project/gobuild/view                    #在当前目录下创建多级文件夹 (-p代表逐级创建) $ touch server.go">
+<meta property="og:description" content="文件实体操作创建文件／文件夹$ mkdir project                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#在当前目录下创建文件夹 $">
 <meta property="og:image" content="http://yoursite.com/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6635.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6636.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6637.png">
-<meta property="og:updated_time" content="2017-06-11T03:03:31.671Z">
+<meta property="og:updated_time" content="2017-06-11T03:10:51.388Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux03-基础命令-文件操作">
-<meta name="twitter:description" content="文件实体操作创建文件／文件夹$ mkdir project                                    #在当前目录下创建文件夹 $ mkdir -p project/gobuild/view                    #在当前目录下创建多级文件夹 (-p代表逐级创建) $ touch server.go">
+<meta name="twitter:description" content="文件实体操作创建文件／文件夹$ mkdir project                                    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#在当前目录下创建文件夹 $">
 <meta name="twitter:image" content="http://yoursite.com/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6635.png">
 
 
@@ -431,28 +431,28 @@
       
 
       
-        <h1 id="文件实体操作"><a href="#文件实体操作" class="headerlink" title="文件实体操作"></a>文件实体操作</h1><h2 id="创建文件／文件夹"><a href="#创建文件／文件夹" class="headerlink" title="创建文件／文件夹"></a>创建文件／文件夹</h2><p>$ mkdir project                                    #在当前目录下创建文件夹</p>
-<p>$ mkdir -p project/gobuild/view                    #在当前目录下创建多级文件夹 (-p代表逐级创建)</p>
-<p>$ touch server.go                                  #在当前目录下创建一个文件</p>
-<p>$ touch server.c server.go server.py               #在当前目录下同时创建多个文件</p>
-<h2 id="拷贝文件／文件夹"><a href="#拷贝文件／文件夹" class="headerlink" title="拷贝文件／文件夹"></a>拷贝文件／文件夹</h2><p>$ cp src1/file  src2                               #将源文件下的文件拷贝到目标目录下</p>
-<p>$ cp -r src1 src2                                  #将源文件夹整体拷贝到目标目录下</p>
-<h2 id="移动文件／文件夹"><a href="#移动文件／文件夹" class="headerlink" title="移动文件／文件夹"></a>移动文件／文件夹</h2><p>$ mv src1/file src2                                #将src1下的文件移动到src2下</p>
-<p>$ mv src1/src2 src3                                #将src2文件夹整体移动到src3下</p>
-<h2 id="重命名文件／文件夹"><a href="#重命名文件／文件夹" class="headerlink" title="重命名文件／文件夹"></a>重命名文件／文件夹</h2><p>$ mv src1/file  src1/newfile                       #重命名文件</p>
-<p>$ mv src1/src2  src1/newdir                        #重命名文件夹</p>
-<h2 id="删除文件／文件夹"><a href="#删除文件／文件夹" class="headerlink" title="删除文件／文件夹"></a>删除文件／文件夹</h2><p>$ rm src/file                                      #删除该文件夹下的文件(会有删除询问)</p>
-<p>$ rm -f src/file                                   #强制删除该文件夹下的文件(没有删除询问，-f(force)意为强制删除)</p>
-<p>$ rmdir src                                        #删除一个空文件夹</p>
-<p>$ rm -rf src1/src2                                 #删除一个非空文件夹</p>
-<p>$ rm -rf src2/*                                    #删除某文件夹下的所有文件</p>
-<h1 id="文本内容操作"><a href="#文本内容操作" class="headerlink" title="文本内容操作"></a>文本内容操作</h1><h2 id="文本内容查看"><a href="#文本内容查看" class="headerlink" title="文本内容查看"></a>文本内容查看</h2><p>$ cat filename                                     #显示文本内容</p>
-<p>$ more filename                                    #分屏显示文件，按空格翻页，按q退出</p>
-<p>$ less filename                                    #分屏显示文件，按空格翻页，按q退出</p>
-<p>$ head -n 3 filename                               #显示文本的前三行</p>
-<p>$ tail -n 3 filename                               #显示文本的后三行</p>
-<h2 id="文本编辑－vi操作"><a href="#文本编辑－vi操作" class="headerlink" title="文本编辑－vi操作"></a>文本编辑－vi操作</h2><p>$ vi filename                                      #打开文件</p>
-<p>$ vi filename +n                                   #打开文件，光标定位到文本内容第n行开始处</p>
+        <h1 id="文件实体操作"><a href="#文件实体操作" class="headerlink" title="文件实体操作"></a>文件实体操作</h1><h2 id="创建文件／文件夹"><a href="#创建文件／文件夹" class="headerlink" title="创建文件／文件夹"></a>创建文件／文件夹</h2><p>$ mkdir project                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下创建文件夹</p>
+<p>$ mkdir -p project/gobuild/view                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下创建多级文件夹 (-p代表逐级创建)</p>
+<p>$ touch server.go                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下创建一个文件</p>
+<p>$ touch server.c server.go server.py               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#在当前目录下同时创建多个文件</p>
+<h2 id="拷贝文件／文件夹"><a href="#拷贝文件／文件夹" class="headerlink" title="拷贝文件／文件夹"></a>拷贝文件／文件夹</h2><p>$ cp src1/file  src2                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将源文件下的文件拷贝到目标目录下</p>
+<p>$ cp -r src1 src2                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将源文件夹整体拷贝到目标目录下</p>
+<h2 id="移动文件／文件夹"><a href="#移动文件／文件夹" class="headerlink" title="移动文件／文件夹"></a>移动文件／文件夹</h2><p>$ mv src1/file src2                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将src1下的文件移动到src2下</p>
+<p>$ mv src1/src2 src3                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将src2文件夹整体移动到src3下</p>
+<h2 id="重命名文件／文件夹"><a href="#重命名文件／文件夹" class="headerlink" title="重命名文件／文件夹"></a>重命名文件／文件夹</h2><p>$ mv src1/file  src1/newfile                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#重命名文件</p>
+<p>$ mv src1/src2  src1/newdir                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#重命名文件夹</p>
+<h2 id="删除文件／文件夹"><a href="#删除文件／文件夹" class="headerlink" title="删除文件／文件夹"></a>删除文件／文件夹</h2><p>$ rm src/file                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#删除该文件夹下的文件(会有删除询问)</p>
+<p>$ rm -f src/file                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#强制删除该文件夹下的文件(没有删除询问，-f(force)意为强制删除)</p>
+<p>$ rmdir src                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#删除一个空文件夹</p>
+<p>$ rm -rf src1/src2                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#删除一个非空文件夹</p>
+<p>$ rm -rf src2/*                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#删除某文件夹下的所有文件</p>
+<h1 id="文本内容操作"><a href="#文本内容操作" class="headerlink" title="文本内容操作"></a>文本内容操作</h1><h2 id="文本内容查看"><a href="#文本内容查看" class="headerlink" title="文本内容查看"></a>文本内容查看</h2><p>$ cat filename                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示文本内容</p>
+<p>$ more filename                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#分屏显示文件，按空格翻页，按q退出</p>
+<p>$ less filename                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#分屏显示文件，按空格翻页，按q退出</p>
+<p>$ head -n 3 filename                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示文本的前三行</p>
+<p>$ tail -n 3 filename                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示文本的后三行</p>
+<h2 id="文本编辑－vi操作"><a href="#文本编辑－vi操作" class="headerlink" title="文本编辑－vi操作"></a>文本编辑－vi操作</h2><p>$ vi filename                                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#打开文件</p>
+<p>$ vi filename +n                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#打开文件，光标定位到文本内容第n行开始处</p>
 <ul>
 <li><p>vi的三种模式</p>
 <p>命令模式；编辑模式；末行模式；</p>
@@ -466,40 +466,40 @@
 <p><img src="/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6635.png" alt="F1063414-3CB4-4EA8-A7E5-2CE0E4CA6635"></p>
 <ul>
 <li><p>命令模式下操作</p>
-<p>nyy                #复制,从当前光标所在行开始的 n 行</p>
-<p>ndd                #剪切,从当前光标所在行开始的 n 行</p>
-<p>p                  #粘贴,从当前光标所在行的下一行开始粘贴</p>
-<p>u                  #撤销</p>
-<p>/                  #查找,查找/后面的内容,n 跳转</p>
+<p>nyy                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#复制,从当前光标所在行开始的 n 行</p>
+<p>ndd                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#剪切,从当前光标所在行开始的 n 行</p>
+<p>p                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#粘贴,从当前光标所在行的下一行开始粘贴</p>
+<p>u                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#撤销</p>
+<p>/                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#查找,查找/后面的内容,n 跳转</p>
 <hr>
 <p>光标移动：</p>
-<p>k                  #上</p>
-<p>j                  #下</p>
-<p>h                  #左</p>
-<p>l                  #右</p>
+<p>k                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#上</p>
+<p>j                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#下</p>
+<p>h                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#左</p>
+<p>l                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#右</p>
 <p>进入编辑模式的方式:</p>
-<p>I                  #进入编辑模式，光标定位在行头</p>
-<p>A                  #进入编辑模式，光标定位在行尾</p>
-<p>O                  #进入编辑模式，当前行内容下移一行,光标所在行号不变</p>
-<p>i                  #进入编辑模式，编辑的内容会插在当前光标的左侧</p>
-<p>a                  #进入编辑模式，编辑的内容会插在当前光标的右侧</p>
-<p>o                  #进入编辑模式，相当于在该行末尾回车</p>
+<p>I                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，光标定位在行头</p>
+<p>A                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，光标定位在行尾</p>
+<p>O                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，当前行内容下移一行,光标所在行号不变</p>
+<p>i                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，编辑的内容会插在当前光标的左侧</p>
+<p>a                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，编辑的内容会插在当前光标的右侧</p>
+<p>o                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#进入编辑模式，相当于在该行末尾回车</p>
 <p>​</p>
 </li>
 </ul>
-<h1 id="文件的打包与压缩"><a href="#文件的打包与压缩" class="headerlink" title="文件的打包与压缩"></a>文件的打包与压缩</h1><h2 id="文件的打包和解包"><a href="#文件的打包和解包" class="headerlink" title="文件的打包和解包"></a>文件的打包和解包</h2><p>$ tar -cvf tar/test.tar test/*                      #打包</p>
-<p>$ tar -tvf tar/test.tar                             #查看包中的内容</p>
-<p>$ tar -xvf tar/test.tar -C test                     #解包</p>
+<h1 id="文件的打包与压缩"><a href="#文件的打包与压缩" class="headerlink" title="文件的打包与压缩"></a>文件的打包与压缩</h1><h2 id="文件的打包和解包"><a href="#文件的打包和解包" class="headerlink" title="文件的打包和解包"></a>文件的打包和解包</h2><p>$ tar -cvf tar/test.tar test/*                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#打包</p>
+<p>$ tar -tvf tar/test.tar                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#查看包中的内容</p>
+<p>$ tar -xvf tar/test.tar -C test                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#解包</p>
 <p><img src="/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6636.png" alt="F1063414-3CB4-4EA8-A7E5-2CE0E4CA6636"></p>
 <p><img src="/images/shot/F1063414-3CB4-4EA8-A7E5-2CE0E4CA6637.png" alt="F1063414-3CB4-4EA8-A7E5-2CE0E4CA6637"></p>
-<h2 id="文件的压缩和解压"><a href="#文件的压缩和解压" class="headerlink" title="文件的压缩和解压"></a>文件的压缩和解压</h2><p>$ gzip tar/test.tar                                 #将包test.tar压缩成test.tar.gz</p>
-<p>$ gzip -d tar/test.tar.gz                           #将压缩文件test.tar.gz解压缩成test.tar</p>
-<p>$ bzip2 tar/test.tar                                #将包test.tar压缩成test.tar.bz2</p>
-<p>$ bzip2 -d tar/test.tar.bz2                         #将压缩文件test.tar.bz2解压缩成test.tar</p>
-<h2 id="文件同时打包压缩和同时解压解包"><a href="#文件同时打包压缩和同时解压解包" class="headerlink" title="文件同时打包压缩和同时解压解包"></a>文件同时打包压缩和同时解压解包</h2><p>$ tar -czvf tar/test.tar.gz test/*                  #将test目录下所有文件打包并压缩成.gz文件</p>
-<p>$ tar -xzvf tar/test.tar.gz -C test                 #将.gz压缩文件解压并解包到test目录下</p>
-<p>$ tar -cjvf tar/test.tar.bz2 test/*                 #将test目录下所有文件打包并压缩成.bz2文件</p>
-<p>$ tar -xjvf tar/test.tar.bz2 -C test                #将.bz2压缩文件解压并解包到test目录下</p>
+<h2 id="文件的压缩和解压"><a href="#文件的压缩和解压" class="headerlink" title="文件的压缩和解压"></a>文件的压缩和解压</h2><p>$ gzip tar/test.tar                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将包test.tar压缩成test.tar.gz</p>
+<p>$ gzip -d tar/test.tar.gz                           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将压缩文件test.tar.gz解压缩成test.tar</p>
+<p>$ bzip2 tar/test.tar                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将包test.tar压缩成test.tar.bz2</p>
+<p>$ bzip2 -d tar/test.tar.bz2                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将压缩文件test.tar.bz2解压缩成test.tar</p>
+<h2 id="文件同时打包压缩和同时解压解包"><a href="#文件同时打包压缩和同时解压解包" class="headerlink" title="文件同时打包压缩和同时解压解包"></a>文件同时打包压缩和同时解压解包</h2><p>$ tar -czvf tar/test.tar.gz test/*                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将test目录下所有文件打包并压缩成.gz文件</p>
+<p>$ tar -xzvf tar/test.tar.gz -C test                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将.gz压缩文件解压并解包到test目录下</p>
+<p>$ tar -cjvf tar/test.tar.bz2 test/*                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将test目录下所有文件打包并压缩成.bz2文件</p>
+<p>$ tar -xjvf tar/test.tar.bz2 -C test                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将.bz2压缩文件解压并解包到test目录下</p>
 
       
     </div>
