@@ -90,17 +90,20 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="文件的权限文件权限的表示方法$ ls  -l        &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#显示文件属性，属性的内容理解如下">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux05-基础命令-权限掩码">
 <meta property="og:url" content="http://yoursite.com/2017/06/25/Linux05-基础命令-权限掩码/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:36:10.979Z">
+<meta property="og:description" content="文件的权限文件权限的表示方法$ ls  -l        &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#显示文件属性，属性的内容理解如下">
+<meta property="og:image" content="http://yoursite.com/images/shot/3E1A4F62-AF5C-4DBD-8AF1-CCDD3CD91054.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/0B14E6F1-D64D-481F-9886-D7C67AE95016.png">
+<meta property="og:updated_time" content="2017-06-25T04:08:44.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux05-基础命令-权限掩码">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="文件的权限文件权限的表示方法$ ls  -l        &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#显示文件属性，属性的内容理解如下">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/3E1A4F62-AF5C-4DBD-8AF1-CCDD3CD91054.png">
 
 
 
@@ -393,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  1,036
                 </span>
               
 
@@ -409,7 +412,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -427,7 +430,76 @@
       
 
       
-        
+        <h1 id="文件的权限"><a href="#文件的权限" class="headerlink" title="文件的权限"></a>文件的权限</h1><h2 id="文件权限的表示方法"><a href="#文件权限的表示方法" class="headerlink" title="文件权限的表示方法"></a>文件权限的表示方法</h2><p>$ ls  -l        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示文件属性，属性的内容理解如下</p>
+<p><img src="/images/shot/3E1A4F62-AF5C-4DBD-8AF1-CCDD3CD91054.png" alt="3E1A4F62-AF5C-4DBD-8AF1-CCDD3CD91054"><br><a id="more"></a></p>
+<ul>
+<li>可见一个文件的权限主要由三部分组成：<ul>
+<li>user对文件的权限；</li>
+<li>group对文件的权限；</li>
+<li>other对文件的权限；</li>
+</ul>
+</li>
+<li>每部分权限又有三个权限位：<ul>
+<li>r，表示对文件可读</li>
+<li>w，表示对文件可写</li>
+<li>x，表示对文件可执行</li>
+</ul>
+</li>
+<li>每个权限位可以用一个二进制数表示:<ul>
+<li>有权限为1</li>
+<li>无权限为0</li>
+</ul>
+</li>
+<li>每部分的三个权限位（即三个二进制数）可以一起用一个八进制数表示</li>
+</ul>
+<p><br><br>上面也说了，一个文件的权限主要由三部分组成，意思就是还有其他部分。那么现在可以来讲了，一个文件的权限一共有4部分组成，上面讲的3部分是文件的后三部分权限，而第一部分是文件的特殊权限。特殊权限也是由三个权限位组成，但不再是rwx了，而是SUID／SGID／Sticky Bit，特殊权限当然也是用二进制或十进制来表示的。<br><br></p>
+<p>特殊权限由下面三个权限位组成：</p>
+<ul>
+<li>SUID，只对binary file有效，使所有用户执行该文件时都会以该文件拥有者的权限来执行。</li>
+<li>SGID，若用在目录中，那么在该目录中所建立的文件或者目录的group权限都会变成该目录的group权限；若用在binary file上，那么所有用户执行该文件时都会以该文件的group权限来执行。</li>
+<li>Sticky Bit，只对目录有效，使该目录下新建的文件或目录只能由root或者新建的文件的拥有者来进行操作（增删改）。</li>
+</ul>
+<p><br><br><strong>注意：一个文件的特殊权限只在特殊需要时才用，一般都设0。</strong></p>
+<p>由此，一个文件的最低权限为: 000 000 000 000 或 0000</p>
+<p>​ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一个文件的最高权限为: 000 111 111 111 或 0777</p>
+<p><br></p>
+<h2 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h2><p>$ chmod u+r+w+x filename    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#修改文件拥有者对该文件的权限</p>
+<p>$ chmod g+r-x filename          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#修改组中用户对该文件的权限</p>
+<p>$ chmod o-r-w  filename         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#修改其它组中用户对该文件的权限</p>
+<p>$ chmod a+r     filename         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#修改所有用户对该文件的权限</p>
+<p>$ chmod  0777  filename        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#直接设定该文件的所有权限位(特殊权限,user权限,group权限,other权限)</p>
+<p><br></p>
+<h1 id="文件夹的权限"><a href="#文件夹的权限" class="headerlink" title="文件夹的权限"></a>文件夹的权限</h1><p>文件夹的权限表示方法以及权限修改方法都参考文件的。唯一的区别在于r，w，x这三个权限位的表示含义不同。</p>
+<ul>
+<li>文件夹的主要权限位：<ul>
+<li>r，允许显示文件夹中的内容</li>
+<li>w，允许添加或删除文件夹中的内容</li>
+<li>x，允许进入该文件夹</li>
+</ul>
+</li>
+<li>权限属性的组合对文件夹的访问规律(以当前用户为例)</li>
+</ul>
+<p><img src="/images/shot/0B14E6F1-D64D-481F-9886-D7C67AE95016.png" alt="0B14E6F1-D64D-481F-9886-D7C67AE95016"></p>
+<p>规律：只要没有x权限，就不能执行r和w权限。</p>
+<p><br></p>
+<h1 id="权限掩码作用"><a href="#权限掩码作用" class="headerlink" title="权限掩码作用"></a>权限掩码作用</h1><p>作用：在创建文件（夹）时，系统将自动按照权限掩码将文件（夹）相应的权限位清除掉。</p>
+<p>$ umask                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示当前用户的权限掩码</p>
+<p>$ umask  0333      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#修改当前用户的权限掩码为0333</p>
+<p><strong>注意</strong>：umask是基于下面2个条件生效的：</p>
+<ul>
+<li>创建文件时，预设不开放x权限，即最大文件权限 666</li>
+<li>创建文件夹时，预设开放所有权限，即最大文件夹权限777</li>
+</ul>
+<p>umask的清除权限规则：(以默认umask0022为例)</p>
+<ul>
+<li>第一个数字0表示不清除特殊权限的所有权限位；</li>
+<li>第二个数字0表示不清除user权限的所有权限位；</li>
+<li>第三个数字2表示清除group权限的w权限位；</li>
+<li>第四个数字2表示清除other权限的w权限位。</li>
+<li>另外新文件是没有x权限的，而新文件夹有x权限，这是umask的基础。</li>
+</ul>
+<p>因此创建一个文件，它的权限将是rw- r- - r- -  即644，而创建一个文件夹，它的权限将是rwx r-x r-x  即755。</p>
+
       
     </div>
 
@@ -546,8 +618,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -638,6 +719,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件的权限"><span class="nav-number">1.</span> <span class="nav-text">文件的权限</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文件权限的表示方法"><span class="nav-number">1.1.</span> <span class="nav-text">文件权限的表示方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件权限"><span class="nav-number">1.2.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件夹的权限"><span class="nav-number">2.</span> <span class="nav-text">文件夹的权限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#权限掩码作用"><span class="nav-number">3.</span> <span class="nav-text">权限掩码作用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
