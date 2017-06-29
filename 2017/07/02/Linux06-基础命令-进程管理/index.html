@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="这一篇的内容比较少，大家可以轻松的看。首先来简单介绍下几个概念： 1.进程：可执行程序加载到内存中就成为一个进程，即进程是正在运行的程序 2.作业：一个或多个进程即是作业，或称进程组 3.前台作业：在终端执行的程序都是前台作业，在它运行过程中无法启动其它作业。 4.后台作业：当一个作业需要占用较长时间的时候，可以在Linux后台执行该命令以完成其它的任务。 注意：Linux有且只能有一个前台作业，">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux06-基础命令-进程管理">
 <meta property="og:url" content="http://yoursite.com/2017/07/02/Linux06-基础命令-进程管理/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:36:22.499Z">
+<meta property="og:description" content="这一篇的内容比较少，大家可以轻松的看。首先来简单介绍下几个概念： 1.进程：可执行程序加载到内存中就成为一个进程，即进程是正在运行的程序 2.作业：一个或多个进程即是作业，或称进程组 3.前台作业：在终端执行的程序都是前台作业，在它运行过程中无法启动其它作业。 4.后台作业：当一个作业需要占用较长时间的时候，可以在Linux后台执行该命令以完成其它的任务。 注意：Linux有且只能有一个前台作业，">
+<meta property="og:updated_time" content="2017-06-29T16:06:44.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux06-基础命令-进程管理">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="这一篇的内容比较少，大家可以轻松的看。首先来简单介绍下几个概念： 1.进程：可执行程序加载到内存中就成为一个进程，即进程是正在运行的程序 2.作业：一个或多个进程即是作业，或称进程组 3.前台作业：在终端执行的程序都是前台作业，在它运行过程中无法启动其它作业。 4.后台作业：当一个作业需要占用较长时间的时候，可以在Linux后台执行该命令以完成其它的任务。 注意：Linux有且只能有一个前台作业，">
 
 
 
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  334
                 </span>
               
 
@@ -427,7 +427,27 @@
       
 
       
-        
+        <p>这一篇的内容比较少，大家可以轻松的看。首先来简单介绍下几个概念：</p>
+<p>1.进程：可执行程序加载到内存中就成为一个进程，即进程是正在运行的程序</p>
+<p>2.作业：一个或多个进程即是作业，或称进程组</p>
+<p>3.前台作业：在终端执行的程序都是前台作业，在它运行过程中无法启动其它作业。</p>
+<p>4.后台作业：当一个作业需要占用较长时间的时候，可以在Linux后台执行该命令以完成其它的任务。</p>
+<p><strong>注意：Linux有且只能有一个前台作业，但可以有多个后台作业。</strong></p>
+<a id="more"></a>
+<p><br></p>
+<p>下面是一些常用的命令：</p>
+<p>$ 命令 &amp;                                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#启动后台作业，后台执行某个命令</p>
+<p>$ ps -aux                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#查看当前进程</p>
+<p>$ pstree                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#以树状显示当前进程</p>
+<p>$ top                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#任务管理器（动态的，q键退出）</p>
+<p>$ 前台作业时 Ctrl+Z               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#挂起前台作业，移到后台执行</p>
+<p>$ 看台作业时 Ctrl+C               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#终止前台作业</p>
+<p>$ jobs                                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#查看后台作业（－l显示属性）</p>
+<p>$ fg %后台作业号                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#将后台作业移到前台</p>
+<p>$ bg %后台作业号                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#后台运行作业</p>
+<p>$ jobs;bg %后台作业号;jobs  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#捕捉后台运行作业的状态</p>
+<p>$ kill -9 PID                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #结束某个进程</p>
+
       
     </div>
 
