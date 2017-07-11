@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="硬盘基本概念硬盘由多个盘片组成，每个盘片两个盘面，每个盘面一个磁头； 盘片被划分为多个扇形区域即扇区； 同一个盘片不同半径的同心圆为磁道； 不同盘片相同半径构成的圆柱面即柱面； 信息记录可表示为：xx磁道，xx柱面，xx磁头，xx扇区；">
 <meta name="keywords" content="Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux07-基础命令-磁盘分区">
 <meta property="og:url" content="http://yoursite.com/2017/07/09/Linux07-基础命令-磁盘分区/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:36:33.661Z">
+<meta property="og:description" content="硬盘基本概念硬盘由多个盘片组成，每个盘片两个盘面，每个盘面一个磁头； 盘片被划分为多个扇形区域即扇区； 同一个盘片不同半径的同心圆为磁道； 不同盘片相同半径构成的圆柱面即柱面； 信息记录可表示为：xx磁道，xx柱面，xx磁头，xx扇区；">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-11%20上午7.37.43.png">
+<meta property="og:updated_time" content="2017-07-11T14:45:39.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux07-基础命令-磁盘分区">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="硬盘基本概念硬盘由多个盘片组成，每个盘片两个盘面，每个盘面一个磁头； 盘片被划分为多个扇形区域即扇区； 同一个盘片不同半径的同心圆为磁道； 不同盘片相同半径构成的圆柱面即柱面； 信息记录可表示为：xx磁道，xx柱面，xx磁头，xx扇区；">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-11%20上午7.37.43.png">
 
 
 
@@ -393,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  1,427
                 </span>
               
 
@@ -409,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -427,7 +429,58 @@
       
 
       
-        
+        <h1 id="硬盘基本概念"><a href="#硬盘基本概念" class="headerlink" title="硬盘基本概念"></a>硬盘基本概念</h1><p>硬盘由多个盘片组成，每个盘片两个盘面，每个盘面一个磁头；</p>
+<p>盘片被划分为多个扇形区域即扇区；</p>
+<p>同一个盘片不同半径的同心圆为磁道；</p>
+<p>不同盘片相同半径构成的圆柱面即柱面；</p>
+<p>信息记录可表示为：xx磁道，xx柱面，xx磁头，xx扇区；</p>
+<a id="more"></a>
+<h2 id="硬盘-盘片-盘面"><a href="#硬盘-盘片-盘面" class="headerlink" title="硬盘,盘片,盘面"></a>硬盘,盘片,盘面</h2><p>盘片是由一种坚硬金属材料制成并涂以磁性介质，每个盘片有两面，每个盘面都可记录信息。</p>
+<p>硬盘的基本组成部分是盘片，一个硬盘由多个盘片组成，不同容量硬盘的盘片数不等。</p>
+<h2 id="磁头"><a href="#磁头" class="headerlink" title="磁头"></a>磁头</h2><p>磁头是硬盘中对盘片进行读写工作的工具，是硬盘中最精密的部位之一。硬盘的磁头是用线圈绕在磁芯上制成的，最初的磁头是读写合一的，通过电流变化去感应信号的幅度。每个盘片有两个面，每个面有一个磁头。</p>
+<h2 id="磁道"><a href="#磁道" class="headerlink" title="磁道"></a>磁道</h2><p>当磁盘旋转时，磁头若保持在一个位置上，则每个磁头都会在磁盘表面划出一个圆形轨迹，这些圆形轨迹就叫做磁道。盘片表面上以盘片中心为圆心，不同半径的同心圆称为磁道。</p>
+<h2 id="扇区"><a href="#扇区" class="headerlink" title="扇区"></a>扇区</h2><p>磁盘上的每个磁道被等分为若干个弧段,这些弧段便是磁盘的扇区。盘片被分成许多扇形的区域，每个区域叫一个扇区。每个扇区可以存储128 <em> 2的N次方子节信息(N=0,1,2,3)，DOS中每个扇区可以存储128 </em> 2的2次放＝512子节。</p>
+<h2 id="柱面"><a href="#柱面" class="headerlink" title="柱面"></a>柱面</h2><p>硬盘通常由重叠的一组盘片构成，每个盘面都被划分为数目相等的磁道，并从外缘的“0”开始编号，具有相同编号的磁道形成一个圆柱，称之为磁盘的柱面。</p>
+<h2 id="簇"><a href="#簇" class="headerlink" title="簇"></a>簇</h2><p>“簇”是 DOS 进行分配的最小单位。当创建一个很小的文件时，如是一个字节，则它在磁盘上并不是只占一个字节的空间，而是占有整个一簇。DOS 视软盘，硬盘为不同的存储介质。不同容量的硬盘簇的大小也不一样。簇的大小可在称为磁盘参数块(BPB)中获取。簇的概念仅适用于数据区。</p>
+<h2 id="硬盘存储容量计算"><a href="#硬盘存储容量计算" class="headerlink" title="硬盘存储容量计算"></a>硬盘存储容量计算</h2><p>硬盘存储容量是其所有盘面的总字节数，每个盘面容量是其所有磁道的总字节数，每个磁道容量是其所有扇区的总字节数。</p>
+<p>存储容量 ＝ 磁头数 <em>  磁道(柱面)数 </em> 每道扇区数 * 每扇区字节数</p>
+<p>##MBR</p>
+<p>MBR 位于硬盘第一个物理扇区(绝对扇区)柱面 0，磁头 0，扇区 1 处。由于 DOS 是由柱面 0，磁头 1，扇区 1 开始，故 MBR 不属于 DOS 扇区，DOS 不能直接访问。MBR 中包含硬盘的主引导程序和硬盘分区表。分区表有 4 个分区记录区。记录区就是记录有关分区信息的一张表。它从主引导记录偏移地址 01BEH 处连续存放，每个分区记录区占 16 个字节。</p>
+<p>由于MBR中的硬盘分区表只有64字节的存储空间(用来描述各个分区)，而每个分区的描述信息占据16字节，因此主引导扇区中总共只能存储4个分区的数据，也就是说一块采用MBR硬盘格式的物理硬盘只能划分为4个分区(主分区＋扩展分区)。但是扩展分区可以划分成多个逻辑分区。</p>
+<h2 id="DBR"><a href="#DBR" class="headerlink" title="DBR"></a>DBR</h2><p>DBR 位于柱面 0，磁头 1，扇区 1，即逻辑扇区 0。DBR 分为两部分：DOS 引导程序和 BPB(BIOS 参数块)。其中 DOS 引导程序完成 DOS 系统文(IO.SYS,MSDOS.SYS)的定位与装载，而 BPB 用来描述本 DOS 分区的磁盘信息，BPB 位于 DBR 偏移0BH 处，共 13 字节。它包含逻辑格式化时使用的参数，可供 DOS 计算磁盘上的文件分配表，目录区和数据区的起始地址，BPB 之后三个字提供物理格式化(低格)时采用的一些参数。引导程序或设备驱动程序根据这些信息将磁盘逻辑地址(DOS 扇区号)转换成物理地址(绝对扇区号)。</p>
+<p><br></p>
+<h1 id="分区操作"><a href="#分区操作" class="headerlink" title="分区操作"></a>分区操作</h1><h2 id="查看磁盘的分区信息"><a href="#查看磁盘的分区信息" class="headerlink" title="查看磁盘的分区信息"></a>查看磁盘的分区信息</h2><p>$ fdisk  -l                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#查看当前磁盘的分区信息</p>
+<p><img src="/images/shot/屏幕快照 2017-07-11 上午7.37.43.png" alt="屏幕快照 2017-07-11 上午7.37.43"></p>
+<h2 id="添加分区"><a href="#添加分区" class="headerlink" title="添加分区"></a>添加分区</h2><p>例：硬盘已有三个主分区，此时再添加一个逻辑分区</p>
+<p>第一步：添加一个扩展分区</p>
+<p>$  fdisk  /dev/sda      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#选择对第一块硬盘进行分区</p>
+<p>m                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示帮助菜单</p>
+<p>n                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#添加一个新的分区</p>
+<p>e                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#选择添加扩展分区sda4</p>
+<p>选择起始和结束柱面(回车即选择默认值)</p>
+<p>w                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#把分区表写入磁盘并退出</p>
+<p>第二步：在扩展分区中添加一个逻辑分区</p>
+<p>$ fdisk  /dev/sda      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#选择对第一块硬盘进行分区</p>
+<p>m                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#显示帮助菜单</p>
+<p>n                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#添加一个逻辑分区sda5</p>
+<p>选择起始和结束柱面(回车即选择默认值)</p>
+<p>w                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#把分区表写入磁盘并退出</p>
+<p>第三步：重启</p>
+<p>$ init  6</p>
+<p>第四步：对制定分区进行格式化</p>
+<p>$ mkfs  -t  ext3  /dev/sda5  </p>
+<p>第五步：挂载(将存储设备连接到文件夹)</p>
+<p>$ mount  -t  ext3  /dev/sda5  /mnt</p>
+<hr>
+<p>$ ls  /mnt               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#验证挂载， 如果看到lost+found，即挂载成功</p>
+<p>$ amount  /mnt    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#取消挂载</p>
+<h2 id="删除分区"><a href="#删除分区" class="headerlink" title="删除分区"></a>删除分区</h2><p>例：删除逻辑分区sda5</p>
+<p>$ fdisk  /dev/sda          </p>
+<p>m</p>
+<p>d</p>
+<p>5</p>
+<p>w</p>
+
       
     </div>
 
@@ -546,8 +599,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -638,6 +700,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#硬盘基本概念"><span class="nav-number">1.</span> <span class="nav-text">硬盘基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘-盘片-盘面"><span class="nav-number">1.1.</span> <span class="nav-text">硬盘,盘片,盘面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁头"><span class="nav-number">1.2.</span> <span class="nav-text">磁头</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁道"><span class="nav-number">1.3.</span> <span class="nav-text">磁道</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扇区"><span class="nav-number">1.4.</span> <span class="nav-text">扇区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#柱面"><span class="nav-number">1.5.</span> <span class="nav-text">柱面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#簇"><span class="nav-number">1.6.</span> <span class="nav-text">簇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬盘存储容量计算"><span class="nav-number">1.7.</span> <span class="nav-text">硬盘存储容量计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DBR"><span class="nav-number">1.8.</span> <span class="nav-text">DBR</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分区操作"><span class="nav-number">2.</span> <span class="nav-text">分区操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#查看磁盘的分区信息"><span class="nav-number">2.1.</span> <span class="nav-text">查看磁盘的分区信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加分区"><span class="nav-number">2.2.</span> <span class="nav-text">添加分区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除分区"><span class="nav-number">2.3.</span> <span class="nav-text">删除分区</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
