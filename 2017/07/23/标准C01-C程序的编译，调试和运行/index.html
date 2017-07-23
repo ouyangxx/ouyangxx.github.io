@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C01-C程序的编译，调试和运行">
 <meta property="og:url" content="http://yoursite.com/2017/07/23/标准C01-C程序的编译，调试和运行/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:37:13.249Z">
+<meta property="og:description" content="从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-22%20下午4.07.11.png">
+<meta property="og:updated_time" content="2017-07-23T07:55:37.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C01-C程序的编译，调试和运行">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-22%20下午4.07.11.png">
 
 
 
@@ -393,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  7,869
                 </span>
               
 
@@ -409,7 +411,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  33
                 </span>
               
             </div>
@@ -427,7 +429,365 @@
       
 
       
-        
+        <p>从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！</p>
+<a id="more"></a>
+<h1 id="前导"><a href="#前导" class="headerlink" title="前导"></a>前导</h1><p>我们先来简单看看C语言的诞生历史，1969年美国贝尔实验室的Ken Thompson和D.M.Ritchie用汇编语言开发了第一套UNIX操作系统。1970年Ken Thompson设计出了一种简单而又接近硬件的语言，取名为B语言。此时的B语言过于简单，功能有限。1972-1973年间，D.M.Ritchie在B语言基础上设计出了C语言。1973年，Ken Thompson和D.M.Ritchie合作把UNIX操作系统的90%以上用C语言改写。</p>
+<p>可见，最初的C语言只是为了描述和实现UNIX操作系统提供一种工作语言而设计的。C语言和UNIX可以说是一对孪生兄弟，相辅相成。因此小编建议初学者最好能在UNIX操作系统下学习（推荐在Ubuntu系统下学习），同时也建议把C语言作为学习计算机专业基础课程的背景语言。</p>
+<hr>
+<p><br></p>
+<h1 id="1-第一个C程序"><a href="#1-第一个C程序" class="headerlink" title="1. 第一个C程序"></a>1. 第一个C程序</h1><p>通常一本教编程的书第一个例子都是打印”Hello World!”，这个传统源自[K&amp;R]，用C语言写这个程序可以这样写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	printf(&quot;Hello World!\n&quot;);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>将这个程序保存成hello.c，然后编译执行:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c</div><div class="line">$ ./a.out</div><div class="line">Hello World!</div></pre></td></tr></table></figure>
+<p>gcc是Linux平台的C编译器，编译后在当前目录下生成可执行文件a.out，直接在命令行输入这个可执行文件的路径就可以执行它。如果不想把文件名叫a.out，可以用gcc的-o参数自己指定文件名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -o hello</div><div class="line">$ ./hello</div><div class="line">Hello World!</div></pre></td></tr></table></figure>
+<p>虽然这只是一个很小的程序，但初学者暂时还不具备相关的知识来完全理解这个程序，小编我暂时也不详细解释，本篇主要讲解C程序的编译步骤和调试方法。这里读者可以简单照着敲一遍运行感受一下即可。</p>
+<p><br></p>
+<h1 id="2-C程序的编译过程"><a href="#2-C程序的编译过程" class="headerlink" title="2. C程序的编译过程"></a>2. C程序的编译过程</h1><p>以前面写的hello.c为例，讲述C程序的编译过程：</p>
+<p><img src="/images/shot/屏幕快照 2017-07-22 下午4.07.11.png" alt="屏幕快照 2017-07-22 下午4.07.11"></p>
+<p><br>                </p>
+<p>第一步：预处理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cpp(gcc -E) hello.c -o hello.i</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>第二步：编译</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc -S hello.i -o hello.s</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>第三步：汇编</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ as(gcc -c) hello.s -o hello.o</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>第四步：链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.o -o hello</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>第五步：运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./hello</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>Linux下编译执行一个C程序都需要经过上述5个过程，读者会不会觉得很麻烦，为什么在windows下编译器IDE里编译一个C程序点一下按钮就可以了，而在Linux这儿就这么麻烦了？小编告诉你，那是因为windwos下编译器IDE为你做了这些事情了以至于你没看到，也就是说在你点那个按钮的时候IDE内部自动为了做好了这些过程。如果在Linux下学会了C语言再去windows下应用，你就会感觉到有很多细节东西只有在Linux下才能体会，而这些细节正是能够帮助你深刻理解C语言的知识点。这也正是小编建议初学最好在Linux下的主要原因。</p>
+<p><br></p>
+<p>罗列上述5个过程只是为了让读者能够清晰的了解编译的过程，一般情况下，我们只想编译运行一个程序是不需要关心中间过程的，因此你可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -o hello</div><div class="line">$ ./hello</div></pre></td></tr></table></figure>
+<p>让中间过程自动进行，然后直接输出最后一个过程的结果。</p>
+<p><br></p>
+<h1 id="3-C程序的调试-gdb-使用方法"><a href="#3-C程序的调试-gdb-使用方法" class="headerlink" title="3. C程序的调试(gdb)使用方法"></a>3. C程序的调试(gdb)使用方法</h1><p>首先，无论我们使用哪一种调试工具，调试思想都应该是一样的，即”分析现象 -&gt; 假设错误原因 -&gt; 产生新的现象去验证假设” 这样一个循环。</p>
+<p>这里介绍一种很强大的调试工具gdb，可以完全操控程序的运行，使得程序就像你手里的玩具一样，叫它走就走，叫它停就停，并且随时可以查看程序中所有的内部状态，比如各变量的值、传给函数的参数、当前执行的代码行等。</p>
+<p><br></p>
+<p>在编译的时候需要加上-g选项，生成的可执行文件才能用gdb进行源码级调试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ gcc -g hello.c -o hello</div><div class="line">$ gdb hello</div><div class="line">GNU gdb 6.8-debian</div><div class="line">Copyright (C) 2008 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;</div><div class="line">This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law. Type &quot;show copying&quot;</div><div class="line">and &quot;show warranty&quot; for details.</div><div class="line">This GDB was configured as &quot;i486-linux-gnu&quot;... </div><div class="line">(gdb)</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>gdb提供一个类似Shell的命令行环境，上面的(gdb)就是提示符，在这个提示符下输入help可以查看命令的类别：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">(gdb) help</div><div class="line">List of classes of commands:</div><div class="line">aliases -- Aliases of other commands</div><div class="line">breakpoints -- Making program stop at certain points</div><div class="line">data -- Examining data</div><div class="line">files -- Specifying and examining files</div><div class="line">internals -- Maintenance commands</div><div class="line">obscure -- Obscure features</div><div class="line">running -- Running the program</div><div class="line">stack -- Examining the stack</div><div class="line">status -- Status inquiries</div><div class="line">support -- Support facilities</div><div class="line">tracepoints -- Tracing of program execution without stopping the program</div><div class="line">user-defined -- User-defined commands</div><div class="line">Type &quot;help&quot; followed by a class name for a list of commands in that class.</div><div class="line">Type &quot;help all&quot; for the list of all commands.</div><div class="line">Type &quot;help&quot; followed by command name for full documentation.</div><div class="line">Type &quot;apropos word&quot; to search for commands related to &quot;word&quot;. Command name abbreviations are allowed if unambiguous.</div></pre></td></tr></table></figure>
+<p><br>            </p>
+<p>也可以进一步查看某一类别中有哪些命令，例如查看files类别下有哪些命令可用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(gdb) help files</div><div class="line">Specifying and examining files.</div><div class="line">List of commands:</div><div class="line">add-shared-symbol-files -- Load the symbols from shared objects in the dynamic linker&apos;s link map</div><div class="line">add-symbol-file -- Load symbols from FILE add-symbol-file-from-memory -- Load the symbols out of memory from a dynamically loaded object file</div><div class="line">cd -- Set working directory to DIR for debugger and program being debugged</div><div class="line">core-file --</div><div class="line">registers</div><div class="line">directory --</div><div class="line">source files</div><div class="line">edit -- Edit</div><div class="line">exec-file --</div><div class="line">file -- Use FILE as program to be debugged</div><div class="line">forward-search -- Search for regular expression (see regex(3)) from last line listed</div><div class="line">generate-core-file -- Save a core file with the current state of the debugged process</div><div class="line">list -- List specified function or line</div><div class="line">...</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="3-1-单步执行和跟踪函数调用"><a href="#3-1-单步执行和跟踪函数调用" class="headerlink" title="3.1 单步执行和跟踪函数调用"></a>3.1 单步执行和跟踪函数调用</h2><p>看下面程序：<code>main.c</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int add_range(int low, int high)</div><div class="line">&#123;</div><div class="line">	int i, sum;</div><div class="line">	for (i = low; i &lt;= high; i++)</div><div class="line">	sum = sum + i; </div><div class="line">	return sum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int result[100];</div><div class="line">    result[0] = add_range(1, 10);</div><div class="line">    result[1] = add_range(1, 100);</div><div class="line">    printf(&quot;result[0]=%d\nresult[1]=%d\n&quot;, result[0], result[1]);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>add_range函数从low加到high，在main函数中首先从1加到10，把结果保存下来，然后从1加到100，再把结果保存下来，最后打印的两个结果是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result[0]=55</div><div class="line">result[1]=5105</div></pre></td></tr></table></figure>
+<p>第一个结果正确，第二个结果显然不正确，在小学我们就听说过高斯的故事，从1加到100应该是5050。同一段代码，第一次运行结果是对的，第二次运行却不对，这是很常见的一类错误现象，这种情况不应该怀疑代码而应该怀疑数据，因为第一次和第二次运行的都是同一段代码，如果代码是错的，那为什么第一次的结果能对呢？然而第一次和第二次运行时相关的数据却有可能不同，错误的数据会导致错误的结果。</p>
+<p><br></p>
+<p>我们一定要记住，gdb是进行的源码级调试，因为加上-g选项编译源文件后，可执行文件中就加入了源代码的信息，比如可执行文件中第几条机器指令对应源代码的第几行，注意只是记录了这样一个映射关系并不是说把整个源文件都嵌入到了可执行文件中，这点是一定要注意的。所以在调试时必须要保证gdb能找到源文件，假如调试过程中源文件被删除了那么gdb就不能再继续进行源码级调试了。我们接下来就验证一下，先来试试list命令从第一行开始列出源代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(gdb) list 1</div><div class="line">1       #include &lt;stdio.h&gt;</div><div class="line">2</div><div class="line">3       int add_range(int low, int high) </div><div class="line">4       &#123;</div><div class="line">5           int i, sum;</div><div class="line">6           for (i = low; i &lt;= high; i++)</div><div class="line">7           sum = sum + i;</div><div class="line">8           return sum;</div><div class="line">9       &#125; </div><div class="line">10</div></pre></td></tr></table></figure>
+<p>一次只列10行，如果要继续从第11行开始列出源代码可以输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(gdb) list</div></pre></td></tr></table></figure>
+<p>也可以什么都不输直接敲回车，gdb提供了一个很方便的功能，在提示符下直接敲回车表示重复上一条命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(gdb) (直接回车)</div><div class="line">11 		int main(void)</div><div class="line">12 		&#123;</div><div class="line">13			int result[100];</div><div class="line">14			result[0] = add_range(1, 10);</div><div class="line">15			result[1] = add_range(1, 100);</div><div class="line">16			printf(&quot;result[0]=%d\nresult[1]=%d\n&quot;, result[0], result[1]);</div><div class="line">17			return 0;</div><div class="line">18		&#125;</div></pre></td></tr></table></figure>
+<p>gdb的很多常用命令都有简写形式，例如list命令可以写成l，要列一个函数的源代码也可以用函数名做参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(gdb) l add_range</div><div class="line">1       #include &lt;stdio.h&gt;</div><div class="line">2</div><div class="line">3       int add_range(int low, int high) </div><div class="line">4       &#123;</div><div class="line">5           int i, sum;</div><div class="line">6           for (i = low; i &lt;= high; i++)</div><div class="line">7           sum = sum + i;</div><div class="line">8           return sum;</div><div class="line">9       &#125; </div><div class="line">10</div></pre></td></tr></table></figure>
+<p>现在退出gdb的环境：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(gdb) quit</div></pre></td></tr></table></figure>
+<p>我们做一个实验，把源代码改名或移到别处再用gdb调试，这样就列不出源代码了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ mv main.c main.c.back</div><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) l</div><div class="line">main.c: No such file or directory. in main.c</div></pre></td></tr></table></figure>
+<p><strong>现在得到验证了，可见gcc的-g选项并不是把源代码嵌入到可执行文件中的，在调试时也需要源文件。</strong></p>
+<hr>
+<p><br></p>
+<p>好了，现在把源代码恢复原样，我们正式开始gdb调试。首先用start命令开始执行程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) start</div><div class="line">Breakpoint 1 at 0x80483ad: file main.c, line 14. </div><div class="line">Starting program: /home/akaedu/main</div><div class="line">main () at main.c:14</div><div class="line">14 		result[0] = add_range(1, 10); </div><div class="line">(gdb)</div></pre></td></tr></table></figure>
+<p>gdb停在main函数中变量定义之后的第一条语句处等待我们发命令，gdb列出的这条语句是即将执行的下一条语句。</p>
+<p><br></p>
+<p>我们可以用next命令(简写为n)控制这些语句一条一条地执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(gdb) n</div><div class="line">15 		result[1] = add_range(1, 100);</div><div class="line">(gdb) (直接回车)</div><div class="line">16 		printf(&quot;result[0]=%d\nresult[1]=%d\n&quot;, result[0], result[1]);</div><div class="line">(gdb) (直接回车)</div><div class="line">result[0]=55</div><div class="line">result[1]=5105</div><div class="line">17 		return 0;</div></pre></td></tr></table></figure>
+<p>用n命令依次执行两行赋值语句和一行打印语句，在执行打印语句时结果立刻打出来了，然后停在return语句之前等待我们发命令。虽然我们完全控制了程序的执行，但仍然看不出哪里错了，因为错误不在main函数中而在add_range函数中。</p>
+<p><br></p>
+<p>现在用start命令重新来过，这次用step命令(简写为s)钻进add_range函数中去跟踪执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(gdb) start</div><div class="line">The program being debugged has been started already. </div><div class="line">Start it from the beginning? (y or n) y</div><div class="line">Breakpoint 2 at 0x80483ad: file main.c, line 14. </div><div class="line">Starting program: /home/akaedu/main</div><div class="line">main () at main.c:14</div><div class="line">14 		result[0] = add_range(1, 10); </div><div class="line">(gdb) s</div><div class="line">add_range (low=1, high=10) at main.c:6</div><div class="line">6 		for (i = low; i &lt;= high; i++)</div></pre></td></tr></table></figure>
+<p>这次停在了add_range函数中变量定义之后的第一条语句处。</p>
+<p><br></p>
+<p>在函数中有几种查看状态的办法，backtrace命令(简写为bt)可以查看函数调用的栈帧：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(gdb) bt</div><div class="line">#0 	add_range (low=1, high=10) at main.c:6 </div><div class="line">#1 	0x080483c1 in main () at main.c:14</div></pre></td></tr></table></figure>
+<p>可见当前的add_range函数是被main函数调用的，main传进来的参数是low=1，high=10。main函数的栈帧编号为1，add_range的栈帧编号为0。</p>
+<p><br></p>
+<p>现在可以用info命令(简写为i)查看add_range函数局部变量的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(gdb) i locals </div><div class="line">i=0</div><div class="line">sum = 0</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>如果想查看main函数当前局部变量的值也可以做到，先用frame命令(简写为f)选择1号栈帧然后再查看局部变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(gdb) f 1</div><div class="line">#1 	0x080483c1 in main () at main.c:14</div><div class="line">14 			result[0] = add_range(1, 10);</div><div class="line">(gdb) i locals</div><div class="line">result = &#123;0, 0, 0, 0, 0, 0, 134513196, 225011984, -1208685768, - 1081160480,</div><div class="line">...</div><div class="line">	-1208623680&#125;</div></pre></td></tr></table></figure>
+<p>注意到result数组中有很多元素具有杂乱无章的值，我们知道未经初始化的局部变量具有不确定的值。</p>
+<p><br></p>
+<p>到目前为止一切正常。用s或n往下走几步,然后用print命令(简写为p)打印出变量sum的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(gdb) s</div><div class="line">7 			sum = sum + i;</div><div class="line">(gdb) (直接回车)</div><div class="line">6 			for (i = low; i &lt;= high; i++) </div><div class="line">(gdb) (直接回车)</div><div class="line">7 			sum = sum + i;</div><div class="line">(gdb) (直接回车)</div><div class="line">6 			for (i = low; i &lt;= high; i++) </div><div class="line">(gdb) p sum</div><div class="line">$1 = 3</div></pre></td></tr></table></figure>
+<p>第一次循环i是1，第二次循环i是2，加起来是3，没错。这里的$1表示gdb保存着这些中间结果，$后面的编号会自动增长，在命令中可以用$1、$2、$3等编号代替相应的值。</p>
+<p><br></p>
+<p>由于我们本来就知道第一次调用的结果是正确的，再往下跟也没意义了，可以用finish命令让程序一直运行到从当前函数返回为止：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(gdb) finish</div><div class="line">Run till exit from #0 add_range (low=1, high=10) at main.c:6 </div><div class="line">0x080483c1 in main () at main.c:14</div><div class="line">14 			result[0] = add_range(1, 10);</div><div class="line">Value returned is $2 = 55</div></pre></td></tr></table></figure>
+<p>返回值是55，当前正准备执行赋值操作，</p>
+<p><br></p>
+<p>用s命令赋值，然后查看result数组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(gdb) s</div><div class="line">15 			result[1] = add_range(1, 100);</div><div class="line">(gdb) p result</div><div class="line">$3 = &#123;55, 0, 0, 0, 0, 0, 134513196, 225011984, -1208685768, - 1081160480,</div><div class="line">...</div><div class="line">	-1208623680&#125;</div></pre></td></tr></table></figure>
+<p>第一个值55确实赋给了result数组的第0个元素。</p>
+<p><br></p>
+<p>下面用s命令进入第二次add_range调用，进入之后首先查看参数和局部变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(gdb) s</div><div class="line">add_range (low=1, high=100) at main.c:6</div><div class="line">6 			for (i = low; i &lt;= high; i++) (gdb) bt</div><div class="line">#0 	add_range (low=1, high=100) at main.c:6 </div><div class="line">#1 	0x080483db in main () at main.c:15</div><div class="line">(gdb) i locals</div><div class="line">i = 11</div><div class="line">sum = 55</div></pre></td></tr></table></figure>
+<p>由于局部变量i和sum没初始化，所以具有不确定的值，又由于两次调用是挨着的，i和sum正好取了上次调用时的值。i的初值不是0倒没关系，在for循环中会赋值为0的，但sum如果初值不是0，累加得到的结果就错了。好了，我们已经找到错误原因，可以退出gdb修改源代码了。</p>
+<p><br></p>
+<p>如果我们不想浪费这次调试机会，可以在gdb中马上把sum的初值改为0继续运行，看看这一处改了之后还有没有别的Bug：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(gdb) set var sum=0</div><div class="line">(gdb) finish</div><div class="line">Run till exit from #0 add_range (low=1, high=100) at main.c:6 </div><div class="line">0x080483db in main () at main.c:15</div><div class="line">15 			result[1] = add_range(1, 100);</div><div class="line">Value returned is $4 = 5050</div><div class="line">(gdb) n</div><div class="line">16 			printf(&quot;result[0]=%d\nresult[1]=%d\n&quot;, result[0], result[1]);</div><div class="line">(gdb) (直接回车)</div><div class="line">result[0]=55</div><div class="line">result[1]=5050</div><div class="line">17 			return 0;</div></pre></td></tr></table></figure>
+<p>这样结果就对了。</p>
+<p><br></p>
+<p>修改变量的值除了用set命令之外也可以用print命令，因为print命令后面跟的是表达式，而我们知道赋值和函数调用也都是表达式，所以也可以用print命令修改变量的值或者调用函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(gdb) p result[2]=33</div><div class="line">$5 = 33</div><div class="line">(gdb) p printf(&quot;result[2]=%d\n&quot;, result[2]) </div><div class="line">result[2]=33</div><div class="line">$6 = 13</div></pre></td></tr></table></figure>
+<p>注意printf的返回值表示实际打印的字符数，“result[2]=33”一共13个字符，所以$6的结果是13。</p>
+<p><br><br>总结一下本节用到的gdb命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backtrace(bt)</td>
+<td>查看各级函数调用及参数</td>
+</tr>
+<tr>
+<td>finish</td>
+<td>连续运行到当前函数返回为止，然后停下来等待命令</td>
+</tr>
+<tr>
+<td>frame(f)  帧编号</td>
+<td>选择栈帧</td>
+</tr>
+<tr>
+<td>info(i)  locals</td>
+<td>查看当前栈帧局部变量的值</td>
+</tr>
+<tr>
+<td>list(l)</td>
+<td>列出源代码，接着上次的位置往下列，每次列10行</td>
+</tr>
+<tr>
+<td>list 行号</td>
+<td>列出从第几行开始的源代码</td>
+</tr>
+<tr>
+<td>list 函数名</td>
+<td>列出某个函数的源代码</td>
+</tr>
+<tr>
+<td>next(n)</td>
+<td>执行下一行语句</td>
+</tr>
+<tr>
+<td>print(p)</td>
+<td>打印表达式的值，通过表达式可以修改变量的值或者调用函数</td>
+</tr>
+<tr>
+<td>quit(q)</td>
+<td>退出gdb调试环境</td>
+</tr>
+<tr>
+<td>set var</td>
+<td>修改变量的值</td>
+</tr>
+<tr>
+<td>start</td>
+<td>开始执行程序，停在main函数第一行语句前面等待命令</td>
+</tr>
+<tr>
+<td>step(s)</td>
+<td>执行下一行语句，如果有函数调用则进入到函数中</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="3-2-断点调试"><a href="#3-2-断点调试" class="headerlink" title="3.2 断点调试"></a>3.2 断点调试</h2><p>看下面程序：<code>main.c</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int sum = 0, i = 0; </div><div class="line">	char input[5];</div><div class="line">	</div><div class="line">	while (1) &#123;</div><div class="line">		scanf(&quot;%s&quot;, input);</div><div class="line">		for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">			sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">		printf(&quot;input=%d\n&quot;, sum); </div><div class="line">	&#125; </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个程序的作用是：首先从键盘读入一串数字存到字符数组input中，然后转换成整型存到sum中再打印出来，一直这样循环下去。scanf(“%s”, input);这个调用的功能是等待用户输入一个字符串并回车，scanf把其中第一段非空白(非空格、Tab、换行)的字符串保存到input数组中，并自动在末尾添加’\0’。接下来的循环从左到右扫描字符并把每个数字累加到结果中，例如输入是”2345”，则循环累加的过程是(((0 <em> 10 + 2) </em> 10 + 3) <em> 10 + 4) </em> 10 + 5 = 2345。注意字符型的’2’要减去’0’的ASCII码才能转换成整数值2。</p>
+<p><br></p>
+<p>下面编译运行程序看看有什么问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ gcc -g main.c -o main</div><div class="line">$ ./main</div><div class="line">123</div><div class="line">input=123</div><div class="line">234</div><div class="line">input=123234</div><div class="line"> (Ctrl-C退出程序)</div><div class="line">$</div></pre></td></tr></table></figure>
+<p>又是这种现象，第一次是对的，第二次就不对。可是这个程序我们并没有忘了赋初值，不仅sum赋了初值，连不必赋初值的i都赋了初值。读者先试试只看代码能不能看出错误原因。</p>
+<p><br></p>
+<p>下面开始调试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) start</div><div class="line">Breakpoint 1 at 0x80483b5: file main.c, line 5.</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">main () at main.c:5</div><div class="line">5 			int sum = 0, i = 0;</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>有了上一次的经验，sum被列为重点怀疑对象，我们可以用display命令使得每次停下来的时候都显示当前sum的值，然后继续往下走：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">(gdb) display sum</div><div class="line">1: sum = -1208103488</div><div class="line">(gdb) n</div><div class="line">9 			scanf(&quot;%s&quot;, input);</div><div class="line">1: sum = 0</div><div class="line">(gdb)</div><div class="line">123</div><div class="line">10 			for (i = 0; input[i] != &apos;\0&apos;; i++)</div><div class="line">1: sum = 0</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>undisplay命令可以取消跟踪显示，变量sum的编号是1，可以用undisplay 1命令取消它的跟踪显示。这个循环应该没有问题，因为上面第一次输入时打印的结果是正确的。如果不想一步一步走这个循环，可以用break命令(简写b)第9行设一个断点(Breakpoint)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">(gdb) l</div><div class="line">5			int sum = 0, i = 0; </div><div class="line">6			char input[5];</div><div class="line">7</div><div class="line">8			while (1) &#123;</div><div class="line">9				scanf(&quot;%s&quot;, input);</div><div class="line">10				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">11					sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">12				printf(&quot;input=%d\n&quot;, sum); </div><div class="line">13			&#125;</div><div class="line">14			return 0;</div><div class="line">(gdb) b 9</div><div class="line">Breakpoint 2 at 0x80483bc: file main.c, line 9.</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>break命令的参数也可以是函数名，表示在某个函数开头设断点。现在用continue命令(简写为c)连续运行而非单步运行，程序到达断点会自动停下来，这样就可以停在下一次循环的开头：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(gdb) c</div><div class="line">Continuing.</div><div class="line">input=123</div><div class="line">Breakpoint 2, main () at main.c:9</div><div class="line">9				scanf(&quot;%s&quot;, input);</div><div class="line">1: sum = 123</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>然后输入新的字符串准备转换：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(gdb) n</div><div class="line">234</div><div class="line">10				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">1: sum = 123</div></pre></td></tr></table></figure>
+<p>问题暴露出来了，新的转换应该再次从0开始累加，而sum现在已经是123了，原因在于新的循环没有把sum归零。可见断点有助于快速跳过没有问题的代码，然后在有问题的代码上慢慢走慢慢分析，“断点加单步”是使用调试器的基本方法。至于应该在哪里设置断点，怎么知道哪些代码可以跳过而哪些代码要慢慢走，也要通过对错误现象的分析和假设来确定，以前我们用printf打印中间结果时也要分析应该在哪里插入printf，打印哪些中间结果，调试的基本思路是一样的。</p>
+<p><br></p>
+<p>一次调试可以设置多个断点，用info命令可以查看已经设置的断点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(gdb) b 12</div><div class="line">Breakpoint 3 at 0x8048411: file main.c, line 12.</div><div class="line">(gdb) i breakpoints</div><div class="line">Num     Type		Disp Enb 	Address 	What</div><div class="line">2	 	breakpoint	keep y		0x080483c3	in main at main.c:9 </div><div class="line">		breakpoint already hit 1 time</div><div class="line">3	 	breakpoint	keep y		0x08048411	in main at main.c:12</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>每一个断点都有一个编号，可以用编号指定删除某个断点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">(gdb) delete breakpoints 2</div><div class="line">(gdb) i breakpoints</div><div class="line">Num    Type		    Disp Enb 	Address 	What</div><div class="line">3	   breakpoint	keep y		0x08048411	in main at main.c:12</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>有时候一个断点暂时不用可以禁用掉而不必删除，这样以后想用的时候可以直接启用，而不必重新从代码里找应该在哪一行设断点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">(gdb) disable breakpoints 3</div><div class="line">(gdb) i breakpoints</div><div class="line">Num    Type		    Disp Enb 	Address 	What</div><div class="line">3	   breakpoint	keep n		0x08048411	in main at main.c:12</div><div class="line">(gdb) enable 3</div><div class="line">(gdb) i breakpoints</div><div class="line">Num    Type		    Disp Enb 	Address 	What</div><div class="line">3	   breakpoint	keep y		0x08048411	in main at main.c:12</div><div class="line">(gdb) delete breakpoints</div><div class="line">Delete all breakpoints? (y or n) y</div><div class="line">(gdb) i breakpoints</div><div class="line">No breakpoints or watchpoints.</div></pre></td></tr></table></figure>
+<p><br>        </p>
+<p>gdb的断点功能非常灵活，还可以设置断点在满足某个条件时才激活，例如我们仍然在循环开头设置断点，但是仅当sum不等于0时才中断，然后用run命令(简写为r)重新从程序开头连续运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">(gdb) break 9 if sum != 0</div><div class="line">Breakpoint 5 at 0x80483c3: file main.c, line 9.</div><div class="line">(gdb) i breakpoints</div><div class="line">Num    Type		    Disp Enb 	Address 	What</div><div class="line">5 	   breakpoint   keep y      0x080483c3  in main at main.c:9</div><div class="line">	   stop only if sum != 0</div><div class="line">(gdb) r</div><div class="line">The program being debugged has been started already.</div><div class="line">Start it from the beginning? (y or n) y</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">123</div><div class="line">input=123</div><div class="line"></div><div class="line">Breakpoint 5, main () at main.c:9</div><div class="line">9				scanf(&quot;%s&quot;, input);</div><div class="line">1: sum = 123</div></pre></td></tr></table></figure>
+<p>结果是第一次执行scanf之前没有中断，第二次却中断了。</p>
+<p><br><br>总结一下本节用到的gdb命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>break(b) 行号</td>
+<td>在某一行设置断点</td>
+</tr>
+<tr>
+<td>break 函数名</td>
+<td>在某个函数开头设置断点</td>
+</tr>
+<tr>
+<td>break … if …</td>
+<td>设置条件断点</td>
+</tr>
+<tr>
+<td>continue(c)</td>
+<td>从当前位置开始连续运行程序</td>
+</tr>
+<tr>
+<td>delete breakpoints 断点号</td>
+<td>删除断点</td>
+</tr>
+<tr>
+<td>display 变量名</td>
+<td>跟踪查看某个变量，每次听下来都显示它的值</td>
+</tr>
+<tr>
+<td>disable breakpoints断点号</td>
+<td>禁用断点</td>
+</tr>
+<tr>
+<td>enable 断点号</td>
+<td>启用断点</td>
+</tr>
+<tr>
+<td>info(i) breakpoints</td>
+<td>查看当前设置了哪些</td>
+</tr>
+<tr>
+<td>run(r)</td>
+<td>从头开始连续运行程序</td>
+</tr>
+<tr>
+<td>undisplay 跟踪显示号</td>
+<td>取消跟踪显示</td>
+</tr>
+</tbody>
+</table>
+<p><br>        </p>
+<h2 id="3-3-观察点"><a href="#3-3-观察点" class="headerlink" title="3.3 观察点"></a>3.3 观察点</h2><p>接着上一节的步骤，经过调试我们知道，虽然sum已经赋了初值0，但仍需要在while (1)循环的开头加上sum = 0;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int sum = 0, i = 0; </div><div class="line">	char input[5];</div><div class="line">	</div><div class="line">	while (1) &#123;</div><div class="line">		sum = 0;</div><div class="line">		scanf(&quot;%s&quot;, input);</div><div class="line">		for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">			sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">		printf(&quot;input=%d\n&quot;, sum); </div><div class="line">	&#125; </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用scanf函数是非常凶险的，即使修正了这个Bug也还存在很多问题。如果输入的字符串超长了会怎么样？我们知道数组访问越界是不会检查的，所以scanf会写出界。</p>
+<p><br></p>
+<p>现象是这样的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ./main</div><div class="line">123</div><div class="line">input=123</div><div class="line">67</div><div class="line">input=67</div><div class="line">12345</div><div class="line">input=123407</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>下面用调试器看看最后这个诡异的结果是怎么出来的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) start</div><div class="line">Breakpoint 1 at 0x80483b5: file main.c, line 5.</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">main () at main.c:5</div><div class="line">5			int sum = 0, i = 0; </div><div class="line">(gdb) n</div><div class="line">9			sum = 0;	</div><div class="line">(gdb) (直接回车)</div><div class="line">10			scanf(&quot;%s&quot;, input);</div><div class="line">(gdb) (直接回车)</div><div class="line">12345</div><div class="line">11			for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">(gdb) p input</div><div class="line">$1 = &quot;12345&quot;</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>input数组只有5个元素，写出界的是scanf自动添的’\0’，用x命令看会更清楚一些：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(gdb) x/7b input</div><div class="line">0xbfb8f0a7: 	0x31 	0x32 	0x33 	0x34 	0x35 	0x00 	0x00</div></pre></td></tr></table></figure>
+<p>x命令打印指定存储单元的内容。7b是打印格式，b表示每个字节一组，7表示打印7组，从input数组的第一个字节开始连续打印7个字节。前5个字节是input数组的存储单元，打印的正是十六进制ASCII码的’1’到’5’，第6个字节是写出界的’\0’。根据运行结果，前4个字符转成数字都没错，第5个错了，也就是i从0到3的循环都没错。</p>
+<p><br></p>
+<p>我们设一个条件断点从i等于4开始单步调试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">(gdb) l</div><div class="line">6			char input[5];</div><div class="line">7	</div><div class="line">8			while (1) &#123;</div><div class="line">9				sum = 0;</div><div class="line">10				scanf(&quot;%s&quot;, input);</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">12					sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">13				printf(&quot;input=%d\n&quot;, sum); </div><div class="line">14			&#125; </div><div class="line">15			return 0;</div><div class="line">(gdb) b 12 if i == 4</div><div class="line">Breakpoint 2 at 0x80483e6: file main.c, line 12.</div><div class="line">(gdb) c</div><div class="line">Continuing.</div><div class="line"></div><div class="line">Breakpoint 2, main () at main.c:12</div><div class="line">12					sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">(gdb) p sum</div><div class="line">$2 = 1234</div></pre></td></tr></table></figure>
+<p>现在sum是1234没错，根据运行结果是123407我们知道即将进行的这步计算肯定要出错，算出来应该是12340，那就是说input[4]肯定不是’5’了。</p>
+<p><br></p>
+<p>事实证明这个推理是不严谨的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">(gdb) x/7b input</div><div class="line">0xbfb8f0a7: 	0x31 	0x32 	0x33 	0x34 	0x35 	0x04 	0x00</div></pre></td></tr></table></figure>
+<p>input[4]的确是0x35，产生123407还有另外一种可能，就是在下一次循环中123450不是加上而是减去一个数得到123407。可现在不是到字符串末尾了吗？怎么会有下一次循环呢？注意到循环控制条件是input[i] != ‘\0’，而本来应该是0x00的位置现在莫名其妙地变成了0x04，因此循环不会结束。</p>
+<p><br></p>
+<p>继续单步:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">(gdb) n</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">(gdb) p sum</div><div class="line">$3 = 12345</div><div class="line">(gdb) n</div><div class="line">12					sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">(gdb) x/7b input</div><div class="line">0xbfb8f0a7: 	0x31 	0x32 	0x33 	0x34 	0x35 	0x05 	0x00</div></pre></td></tr></table></figure>
+<p>进入下一次循环，原来的0x04又莫名其妙地变成了0x05，这是怎么回事？这个暂时解释不了，但123407这个结果可以解释了，是12345*10 + 0x05 - 0x30得到的，虽然多循环了一次，但下次一定会退出循环了，因为0x05的后面是’\0’。</p>
+<p><br></p>
+<p>input[4]后面那个字节到底是什么时候变的？可以用观察点(Watchpoint)来跟踪。我们知道断点是当程序执行到某一代码行时中断，而观察点是当程序访问某个存储单元时中断，如果我们不知道某个存储单元是在哪里被改动的，这时候观察点尤其有用。</p>
+<p>下面删除原来设的断点，从头执行程序，重复上次的输入，用watch命令设置观察点，跟踪input[4]后面那个字节(可以用input[5]表示，虽然这是访问越界)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">(gdb) delete breakpoints</div><div class="line">Delete all breakpoints? (y or n) y</div><div class="line">(gdb) start</div><div class="line">Breakpoint 1 at 0x80483b5: file main.c, line 5.</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">main () at main.c:5</div><div class="line">5			int sum = 0, i = 0; </div><div class="line">(gdb) n</div><div class="line">9				sum = 0;</div><div class="line">(gdb) (直接回车)</div><div class="line">10				scanf(&quot;%s&quot;, input);</div><div class="line">(gdb) (直接回车)</div><div class="line">12345</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">(gdb) watch input[5]</div><div class="line">Hardware watchpoint 2: input[5]</div><div class="line">(gdb) i watchpoints</div><div class="line">Num 	Type 			Disp 	Enb 	Address 	What</div><div class="line">2		hw watchpoint	keep	y					input[5]</div><div class="line">(gdb) c</div><div class="line">Continuing.</div><div class="line">Hardware watchpoint 2: input[5]</div><div class="line"></div><div class="line">Old value = 0 &apos;\0&apos;</div><div class="line">New value = 1 &apos;\001&apos;</div><div class="line">0x0804840c in main () at main.c:11</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">(gdb) c</div><div class="line">Continuing.</div><div class="line">Hardware watchpoint 2: input[5]</div><div class="line"></div><div class="line">Old value = 1 &apos;\001&apos;</div><div class="line">New value = 2 &apos;\002&apos;</div><div class="line">0x0804840c in main () at main.c:11</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">(gdb) c</div><div class="line">Continuing.</div><div class="line">Hardware watchpoint 2: input[5]</div><div class="line"></div><div class="line">Old value = 2 &apos;\002&apos;</div><div class="line">New value = 3 &apos;\003&apos;</div><div class="line">0x0804840c in main () at main.c:11</div><div class="line">11				for (i = 0; input[i] != &apos;\0&apos;; i++)</div></pre></td></tr></table></figure>
+<p>已经很明显了，每次都是回到for循环开头的时候改变了input[5]的值，而且是每次加1，而循环变量i正是在每次回到循环开头之前加1，原来input[5]就是变量i的存储单元，换句话说，i的存储单元是紧跟在input数组后面的。</p>
+<p><br></p>
+<p>修正这个Bug对初学者来说有一定难度。如果你发现了这个Bug却没想到数组访问越界这一点，也许一时想不出原因，就会先去处理另外一个更容易修正的Bug：如果输入的不是数字而是字母或别的符号也能算出结果来，这显然是不对的，可以在循环中加上判断条件检查非法字符：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">while (1) &#123;</div><div class="line">    sum = 0;</div><div class="line">    scanf(&quot;%s&quot;, input);</div><div class="line">    for (i = 0; input[i] != &apos;\0&apos;; i++) &#123;</div><div class="line">          if (input[i] &lt; &apos;0&apos; || input[i] &gt; &apos;9&apos;) &#123;</div><div class="line">              printf(&quot;Invalid input!\n&quot;);</div><div class="line">              sum = -1;</div><div class="line">              break;</div><div class="line">          &#125;</div><div class="line">          sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">    &#125;	</div><div class="line">    printf(&quot;input=%d\n&quot;, sum); </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>然后你会惊喜的发现，不仅输入字母会报错，输入超长也会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ ./main</div><div class="line">123a</div><div class="line">Invalid input! </div><div class="line">input=-1</div><div class="line">dead</div><div class="line">Invalid input! </div><div class="line">input=-1 </div><div class="line">1234578</div><div class="line">Invalid input! </div><div class="line">input=-1 </div><div class="line">1234567890abcdef </div><div class="line">Invalid input! </div><div class="line">input=-1</div><div class="line">23</div><div class="line">input=23</div></pre></td></tr></table></figure>
+<p>似乎是两个Bug一起解决掉了，但这是治标不治本的解决方法。看起来输入超长的错误是不出现了，但只要没有找到根本原因就不可能真的解决掉，等到条件一变，它可能又冒出来了，在下一节你会看到它又以一种新的形式冒出来了。现在请思考一下为什么加上检查非法字符的代码之后输入超长也会报错。</p>
+<p><br></p>
+<p>总结一下本节用到的gdb命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>watch</td>
+<td>设置观察点</td>
+</tr>
+<tr>
+<td>info(i) watchpoints</td>
+<td>查看当前设置了哪些观察点</td>
+</tr>
+<tr>
+<td>x</td>
+<td>从某个位置开始打印存储单元的内容，全部当成字节来看，而不区分哪个字节属于哪个变量</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h2 id="3-4-段错误"><a href="#3-4-段错误" class="headerlink" title="3.4 段错误"></a>3.4 段错误</h2><p>如果程序运行时出现段错误，用gdb可以很容易定位到究竟是哪一行引发的段错误，例如这个小程序：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int man = 0; </div><div class="line">	scanf(&quot;%d&quot;, man); </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>调试过程如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">123</div><div class="line"></div><div class="line">Program received signal SIGSEGV, Segmentation fault.</div><div class="line">0xb7e1404b in _IO_vfscanf () from /lib/tls/i686/cmov/libc.so.6</div><div class="line">(gdb) bt</div><div class="line">#0 0xb7e1404b in _IO_vfscanf () from /lib/tls/i686/cmov/libc.so.6</div><div class="line">#1 0xb7e1dd2b in scanf () from /lib/tls/i686/cmov/libc.so.6</div><div class="line">#2 0x0804839f in main () at main.c:6</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>在gdb中运行，遇到段错误会自动停下来，这时可以用命令查看当前执行到哪一行代码了。gdb显示段错误出现在_IO_vfscanf函数中，用bt命令可以看到这个函数是被我们的scanf函数调用的，所以是scanf这一行代码引发的段错误。仔细观察程序发现是man前面少了个&amp;。</p>
+<p>继续调试上一节的程序，上一节最后提出修正Bug的方法是在循环中加上判断条件，如果不是数字就报错退出，不仅输入字母可以报错退出，输入超长的字符串也会报错退出。表面上看这个程序无论怎么运行都不出错了，但假如我们把while (1)循环去掉，每次执行程序只转换一个数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">  	int sum = 0, i = 0;</div><div class="line">  	char input[5];</div><div class="line">  	</div><div class="line">  	scanf(&quot;%s&quot;, input);</div><div class="line">    for (i = 0; input[i] != &apos;\0&apos;; i++) &#123;</div><div class="line">          if (input[i] &lt; &apos;0&apos; || input[i] &gt; &apos;9&apos;) &#123;</div><div class="line">              printf(&quot;Invalid input!\n&quot;);</div><div class="line">              sum = -1;</div><div class="line">              break;</div><div class="line">          &#125;</div><div class="line">          sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">    &#125;	</div><div class="line">    printf(&quot;input=%d\n&quot;, sum); </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><br></p>
+<p>然后输入一个超长的字符串,看看会发生什么:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ./main </div><div class="line">1234567890 </div><div class="line">Invalid input! </div><div class="line">input=-1</div></pre></td></tr></table></figure>
+<p>看起来正常。</p>
+<p><br></p>
+<p>再来一次，这次输个更长的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ ./main </div><div class="line">1234567890abcdef </div><div class="line">Invalid input! </div><div class="line">input=-1 </div><div class="line">Segmentation fault</div></pre></td></tr></table></figure>
+<p>又出段错误了。</p>
+<p><br></p>
+<p>我们按同样的方法用gdb调试看看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">$ gdb main</div><div class="line">...</div><div class="line">(gdb) r</div><div class="line">Starting program: /home/akaedu/main</div><div class="line">1234567890abcdef</div><div class="line">Invalid input!</div><div class="line">input=-1</div><div class="line"></div><div class="line">Program received signal SIGSEGV, Segmentation fault.</div><div class="line">0x0804848e in main () at main.c:19</div><div class="line">19			&#125;</div><div class="line">(gdb) l</div><div class="line">14					&#125;</div><div class="line">15					sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">16				&#125;</div><div class="line">17				printf(&quot;input=%d\n&quot;, sum);</div><div class="line">18				return 0;</div><div class="line">19			&#125;</div></pre></td></tr></table></figure>
+<p>gdb指出,段错误发生在第19行。可是这一行什么都没有啊，只有表示main函数结束的}括号。这可以算是一条规律，如果某个函数的局部变量发生访问越界，有可能并不立即产生段错误，而是在函数返回时产生段错误。</p>
+<p><br></p>
+<p>想要写出Bug-free的程序是非常不容易的，即使scanf读入字符串这么一个简单的函数调用都会隐藏着各种各样的错误，有些错误现象是我们暂时没法解释的：为什么变量i的存储单元紧跟在input数组后面？为什么同样是访问越界,有时出段错误有时不出段错误？为什么访问越界的段错误在函数返回时才出现？还有最基本的问题，为什么scanf输入整型变量就必须要加&amp;，否则就出段错误，而输入字符串就不要加&amp;？这些问题在后续章节中都会解释清楚。其实现在讲scanf这个函数为时过早，读者还不具备充足的基础知识。但还是有必要讲的，学完这一阶段之后读者应该能写出有用的程序了，然而一个只有输出而没有输入的程序算不上是有用的程序，另一方面也让读者认识到，学C语言不可能不去了解底层计算机体系结构和操作系统的原理，不了解底层原理连一个scanf函数都没办法用好，更没有办法保证写出正确的程序。</p>
+
       
     </div>
 
@@ -546,8 +906,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -638,6 +1007,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前导"><span class="nav-number">1.</span> <span class="nav-text">前导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-第一个C程序"><span class="nav-number">2.</span> <span class="nav-text">1. 第一个C程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-C程序的编译过程"><span class="nav-number">3.</span> <span class="nav-text">2. C程序的编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-C程序的调试-gdb-使用方法"><span class="nav-number">4.</span> <span class="nav-text">3. C程序的调试(gdb)使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-单步执行和跟踪函数调用"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 单步执行和跟踪函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-断点调试"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 断点调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-观察点"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 观察点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-段错误"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 段错误</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
