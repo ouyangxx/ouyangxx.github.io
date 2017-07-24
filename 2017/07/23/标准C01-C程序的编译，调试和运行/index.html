@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="林夕相心编程者">
 <meta property="og:description" content="从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-22%20下午4.07.11.png">
-<meta property="og:updated_time" content="2017-07-23T07:55:37.000Z">
+<meta property="og:updated_time" content="2017-07-24T23:51:04.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C01-C程序的编译，调试和运行">
 <meta name="twitter:description" content="从这一篇开始，就要进入标准C程序设计的学习了，小编准备了15篇文章收录在C语言基础里供大家借鉴和学习。C语言是一个有灵魂的语言，希望大家能够在学习过程中感受到C语言的魅力！">
@@ -395,7 +395,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  7,869
+                  7,858
                 </span>
               
 
@@ -435,7 +435,7 @@
 <p>可见，最初的C语言只是为了描述和实现UNIX操作系统提供一种工作语言而设计的。C语言和UNIX可以说是一对孪生兄弟，相辅相成。因此小编建议初学者最好能在UNIX操作系统下学习（推荐在Ubuntu系统下学习），同时也建议把C语言作为学习计算机专业基础课程的背景语言。</p>
 <hr>
 <p><br></p>
-<h1 id="1-第一个C程序"><a href="#1-第一个C程序" class="headerlink" title="1. 第一个C程序"></a>1. 第一个C程序</h1><p>通常一本教编程的书第一个例子都是打印”Hello World!”，这个传统源自[K&amp;R]，用C语言写这个程序可以这样写:</p>
+<h1 id="第一个C程序"><a href="#第一个C程序" class="headerlink" title="第一个C程序"></a>第一个C程序</h1><p>通常一本教编程的书第一个例子都是打印”Hello World!”，这个传统源自[K&amp;R]，用C语言写这个程序可以这样写:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	printf(&quot;Hello World!\n&quot;);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>将这个程序保存成hello.c，然后编译执行:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c</div><div class="line">$ ./a.out</div><div class="line">Hello World!</div></pre></td></tr></table></figure>
@@ -443,7 +443,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -o hello</div><div class="line">$ ./hello</div><div class="line">Hello World!</div></pre></td></tr></table></figure>
 <p>虽然这只是一个很小的程序，但初学者暂时还不具备相关的知识来完全理解这个程序，小编我暂时也不详细解释，本篇主要讲解C程序的编译步骤和调试方法。这里读者可以简单照着敲一遍运行感受一下即可。</p>
 <p><br></p>
-<h1 id="2-C程序的编译过程"><a href="#2-C程序的编译过程" class="headerlink" title="2. C程序的编译过程"></a>2. C程序的编译过程</h1><p>以前面写的hello.c为例，讲述C程序的编译过程：</p>
+<h1 id="C程序的编译过程"><a href="#C程序的编译过程" class="headerlink" title="C程序的编译过程"></a>C程序的编译过程</h1><p>以前面写的hello.c为例，讲述C程序的编译过程：</p>
 <p><img src="/images/shot/屏幕快照 2017-07-22 下午4.07.11.png" alt="屏幕快照 2017-07-22 下午4.07.11"></p>
 <p><br>                </p>
 <p>第一步：预处理</p>
@@ -467,7 +467,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gcc hello.c -o hello</div><div class="line">$ ./hello</div></pre></td></tr></table></figure>
 <p>让中间过程自动进行，然后直接输出最后一个过程的结果。</p>
 <p><br></p>
-<h1 id="3-C程序的调试-gdb-使用方法"><a href="#3-C程序的调试-gdb-使用方法" class="headerlink" title="3. C程序的调试(gdb)使用方法"></a>3. C程序的调试(gdb)使用方法</h1><p>首先，无论我们使用哪一种调试工具，调试思想都应该是一样的，即”分析现象 -&gt; 假设错误原因 -&gt; 产生新的现象去验证假设” 这样一个循环。</p>
+<h1 id="C程序的调试-gdb-使用方法"><a href="#C程序的调试-gdb-使用方法" class="headerlink" title="C程序的调试(gdb)使用方法"></a>C程序的调试(gdb)使用方法</h1><p>首先，无论我们使用哪一种调试工具，调试思想都应该是一样的，即”分析现象 -&gt; 假设错误原因 -&gt; 产生新的现象去验证假设” 这样一个循环。</p>
 <p>这里介绍一种很强大的调试工具gdb，可以完全操控程序的运行，使得程序就像你手里的玩具一样，叫它走就走，叫它停就停，并且随时可以查看程序中所有的内部状态，比如各变量的值、传给函数的参数、当前执行的代码行等。</p>
 <p><br></p>
 <p>在编译的时候需要加上-g选项，生成的可执行文件才能用gdb进行源码级调试：</p>
@@ -479,7 +479,7 @@
 <p>也可以进一步查看某一类别中有哪些命令，例如查看files类别下有哪些命令可用：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">(gdb) help files</div><div class="line">Specifying and examining files.</div><div class="line">List of commands:</div><div class="line">add-shared-symbol-files -- Load the symbols from shared objects in the dynamic linker&apos;s link map</div><div class="line">add-symbol-file -- Load symbols from FILE add-symbol-file-from-memory -- Load the symbols out of memory from a dynamically loaded object file</div><div class="line">cd -- Set working directory to DIR for debugger and program being debugged</div><div class="line">core-file --</div><div class="line">registers</div><div class="line">directory --</div><div class="line">source files</div><div class="line">edit -- Edit</div><div class="line">exec-file --</div><div class="line">file -- Use FILE as program to be debugged</div><div class="line">forward-search -- Search for regular expression (see regex(3)) from last line listed</div><div class="line">generate-core-file -- Save a core file with the current state of the debugged process</div><div class="line">list -- List specified function or line</div><div class="line">...</div></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="3-1-单步执行和跟踪函数调用"><a href="#3-1-单步执行和跟踪函数调用" class="headerlink" title="3.1 单步执行和跟踪函数调用"></a>3.1 单步执行和跟踪函数调用</h2><p>看下面程序：<code>main.c</code></p>
+<h2 id="单步执行和跟踪函数调用"><a href="#单步执行和跟踪函数调用" class="headerlink" title="单步执行和跟踪函数调用"></a>单步执行和跟踪函数调用</h2><p>看下面程序：<code>main.c</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int add_range(int low, int high)</div><div class="line">&#123;</div><div class="line">	int i, sum;</div><div class="line">	for (i = low; i &lt;= high; i++)</div><div class="line">	sum = sum + i; </div><div class="line">	return sum;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    int result[100];</div><div class="line">    result[0] = add_range(1, 10);</div><div class="line">    result[1] = add_range(1, 100);</div><div class="line">    printf(&quot;result[0]=%d\nresult[1]=%d\n&quot;, result[0], result[1]);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>add_range函数从low加到high，在main函数中首先从1加到10，把结果保存下来，然后从1加到100，再把结果保存下来，最后打印的两个结果是：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">result[0]=55</div><div class="line">result[1]=5105</div></pre></td></tr></table></figure>
@@ -610,7 +610,7 @@
 </tbody>
 </table>
 <p><br></p>
-<h2 id="3-2-断点调试"><a href="#3-2-断点调试" class="headerlink" title="3.2 断点调试"></a>3.2 断点调试</h2><p>看下面程序：<code>main.c</code></p>
+<h2 id="断点调试"><a href="#断点调试" class="headerlink" title="断点调试"></a>断点调试</h2><p>看下面程序：<code>main.c</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int sum = 0, i = 0; </div><div class="line">	char input[5];</div><div class="line">	</div><div class="line">	while (1) &#123;</div><div class="line">		scanf(&quot;%s&quot;, input);</div><div class="line">		for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">			sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">		printf(&quot;input=%d\n&quot;, sum); </div><div class="line">	&#125; </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个程序的作用是：首先从键盘读入一串数字存到字符数组input中，然后转换成整型存到sum中再打印出来，一直这样循环下去。scanf(“%s”, input);这个调用的功能是等待用户输入一个字符串并回车，scanf把其中第一段非空白(非空格、Tab、换行)的字符串保存到input数组中，并自动在末尾添加’\0’。接下来的循环从左到右扫描字符并把每个数字累加到结果中，例如输入是”2345”，则循环累加的过程是(((0 <em> 10 + 2) </em> 10 + 3) <em> 10 + 4) </em> 10 + 5 = 2345。注意字符型的’2’要减去’0’的ASCII码才能转换成整数值2。</p>
 <p><br></p>
@@ -702,7 +702,7 @@
 </tbody>
 </table>
 <p><br>        </p>
-<h2 id="3-3-观察点"><a href="#3-3-观察点" class="headerlink" title="3.3 观察点"></a>3.3 观察点</h2><p>接着上一节的步骤，经过调试我们知道，虽然sum已经赋了初值0，但仍需要在while (1)循环的开头加上sum = 0;</p>
+<h2 id="观察点"><a href="#观察点" class="headerlink" title="观察点"></a>观察点</h2><p>接着上一节的步骤，经过调试我们知道，虽然sum已经赋了初值0，但仍需要在while (1)循环的开头加上sum = 0;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int sum = 0, i = 0; </div><div class="line">	char input[5];</div><div class="line">	</div><div class="line">	while (1) &#123;</div><div class="line">		sum = 0;</div><div class="line">		scanf(&quot;%s&quot;, input);</div><div class="line">		for (i = 0; input[i] != &apos;\0&apos;; i++) </div><div class="line">			sum = sum*10 + input[i] - &apos;0&apos;;</div><div class="line">		printf(&quot;input=%d\n&quot;, sum); </div><div class="line">	&#125; </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>使用scanf函数是非常凶险的，即使修正了这个Bug也还存在很多问题。如果输入的字符串超长了会怎么样？我们知道数组访问越界是不会检查的，所以scanf会写出界。</p>
 <p><br></p>
@@ -764,7 +764,7 @@
 </tbody>
 </table>
 <p><br></p>
-<h2 id="3-4-段错误"><a href="#3-4-段错误" class="headerlink" title="3.4 段错误"></a>3.4 段错误</h2><p>如果程序运行时出现段错误，用gdb可以很容易定位到究竟是哪一行引发的段错误，例如这个小程序：</p>
+<h2 id="段错误"><a href="#段错误" class="headerlink" title="段错误"></a>段错误</h2><p>如果程序运行时出现段错误，用gdb可以很容易定位到究竟是哪一行引发的段错误，例如这个小程序：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	int man = 0; </div><div class="line">	scanf(&quot;%d&quot;, man); </div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p><br></p>
 <p>调试过程如下:</p>
@@ -1017,7 +1017,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前导"><span class="nav-number">1.</span> <span class="nav-text">前导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-第一个C程序"><span class="nav-number">2.</span> <span class="nav-text">1. 第一个C程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-C程序的编译过程"><span class="nav-number">3.</span> <span class="nav-text">2. C程序的编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-C程序的调试-gdb-使用方法"><span class="nav-number">4.</span> <span class="nav-text">3. C程序的调试(gdb)使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-单步执行和跟踪函数调用"><span class="nav-number">4.1.</span> <span class="nav-text">3.1 单步执行和跟踪函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-断点调试"><span class="nav-number">4.2.</span> <span class="nav-text">3.2 断点调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-观察点"><span class="nav-number">4.3.</span> <span class="nav-text">3.3 观察点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-段错误"><span class="nav-number">4.4.</span> <span class="nav-text">3.4 段错误</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前导"><span class="nav-number">1.</span> <span class="nav-text">前导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一个C程序"><span class="nav-number">2.</span> <span class="nav-text">第一个C程序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C程序的编译过程"><span class="nav-number">3.</span> <span class="nav-text">C程序的编译过程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C程序的调试-gdb-使用方法"><span class="nav-number">4.</span> <span class="nav-text">C程序的调试(gdb)使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#单步执行和跟踪函数调用"><span class="nav-number">4.1.</span> <span class="nav-text">单步执行和跟踪函数调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#断点调试"><span class="nav-number">4.2.</span> <span class="nav-text">断点调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#观察点"><span class="nav-number">4.3.</span> <span class="nav-text">观察点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#段错误"><span class="nav-number">4.4.</span> <span class="nav-text">段错误</span></a></li></ol></li></ol></div>
             
 
           </div>
