@@ -90,19 +90,19 @@
 
 
 
-<meta name="description" content="1. 常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
+<meta name="description" content="常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C02-常量，变量和表达式">
 <meta property="og:url" content="http://yoursite.com/2017/07/30/标准C02-常量，变量和表达式/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="1. 常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
+<meta property="og:description" content="常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-29%20下午4.14.25.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-29%20下午11.40.58.png">
-<meta property="og:updated_time" content="2017-07-29T15:55:43.309Z">
+<meta property="og:updated_time" content="2017-07-29T16:02:09.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C02-常量，变量和表达式">
-<meta name="twitter:description" content="1. 常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
+<meta name="twitter:description" content="常量在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。">
 <meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-07-29%20下午4.14.25.png">
 
 
@@ -396,7 +396,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  2,222
+                  2,200
                 </span>
               
 
@@ -430,26 +430,26 @@
       
 
       
-        <h1 id="1-常量"><a href="#1-常量" class="headerlink" title="1. 常量"></a>1. 常量</h1><p>在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。</p>
+        <h1 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h1><p>在程序运行过程中，其值不能被改变的量称为常量。有字符常量，整数常量，浮点数常量，和枚举常量。</p>
 <a id="more"></a>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">  	printf(&quot;character: %c\ninteger: %d\nfloatint point: %f\n&quot;, &apos;&#125;&apos;, 34, 3.14);</div><div class="line">  	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>注意，字符常量要用单引号扩起来，例如上面的’}’，单引号只能扩一个字符不能扩多个字符，但’\n’，’\?’是合法的，因为\n, \?称为转义字符，实际上都只表示一个字符。本篇最后会介绍转义字符。</p>
 <p><br></p>
-<h1 id="2-变量"><a href="#2-变量" class="headerlink" title="2. 变量"></a>2. 变量</h1><p><strong>变量是一块命名的存储空间</strong>，它用来存放数据也就是变量的值，这个值在程序运行期间是可以改变的。变量也有不同的类型，变量的数据类型决定了它所占存储空间的大小。</p>
+<h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><p><strong>变量是一块命名的存储空间</strong>，它用来存放数据也就是变量的值，这个值在程序运行期间是可以改变的。变量也有不同的类型，变量的数据类型决定了它所占存储空间的大小。</p>
 <p>定义一个变量，就是分配一块存储空间并给它命名；给一个变量赋值，就是把一个值保存到这块存储空间中。变量的定义和赋值也可以一步完成，这称为变量的初始化。</p>
 <p>我们用一个框表示变量的存储空间，然后在框的外边标上变量名，在框里记上它的值。用不同形状的框表示不同类型的变量，这样来提醒自己给变量赋值必须符合它的类型。</p>
 <p><img src="/images/shot/屏幕快照 2017-07-29 下午4.14.25.png" alt="屏幕快照 2017-07-29 下午4.14.25"></p>
 <p><br></p>
-<h2 id="2-1-变量名和变量值"><a href="#2-1-变量名和变量值" class="headerlink" title="2.1 变量名和变量值"></a>2.1 变量名和变量值</h2><p>变量名对应一个存储空间的起始内存地址，而变量值是这个存储空间中的数据。</p>
+<h2 id="变量名和变量值"><a href="#变量名和变量值" class="headerlink" title="变量名和变量值"></a>变量名和变量值</h2><p>变量名对应一个存储空间的起始内存地址，而变量值是这个存储空间中的数据。</p>
 <p><br></p>
-<h2 id="2-2-从变量中取值"><a href="#2-2-从变量中取值" class="headerlink" title="2.2 从变量中取值"></a>2.2 从变量中取值</h2><p>通过变量名找到其对应的那个存储空间的起始内存地址，然后从这个地址开始读取若干字节内容（根据变量的数据类型确定要读取的字节数）。</p>
+<h2 id="从变量中取值"><a href="#从变量中取值" class="headerlink" title="从变量中取值"></a>从变量中取值</h2><p>通过变量名找到其对应的那个存储空间的起始内存地址，然后从这个地址开始读取若干字节内容（根据变量的数据类型确定要读取的字节数）。</p>
 <p><br></p>
-<h2 id="2-3-变量的声明和定义"><a href="#2-3-变量的声明和定义" class="headerlink" title="2.3 变量的声明和定义"></a>2.3 变量的声明和定义</h2><p>声明：不需要建立存储空间的声明，如extern a;</p>
+<h2 id="变量的声明和定义"><a href="#变量的声明和定义" class="headerlink" title="变量的声明和定义"></a>变量的声明和定义</h2><p>声明：不需要建立存储空间的声明，如extern a;</p>
 <p>定义：需要建立存储空间的声明，如int a;</p>
 <p>定义是声明的一种，如 int a;既是声明也是定义，但 extern a;是声明不是定义。</p>
 <p><br>    </p>
-<h2 id="2-4-变量的命名规则"><a href="#2-4-变量的命名规则" class="headerlink" title="2.4 变量的命名规则"></a>2.4 变量的命名规则</h2><ul>
+<h2 id="变量的命名规则"><a href="#变量的命名规则" class="headerlink" title="变量的命名规则"></a>变量的命名规则</h2><ul>
 <li>标识符只能由英文字母，数字，下划线组成</li>
 <li>标识符必须以字母或下划线开头</li>
 <li>不允许使用C关键字为标识符命名</li>
@@ -458,7 +458,7 @@
 <li>要见名知意</li>
 </ul>
 <p><br></p>
-<h2 id="2-5-变量的赋值和变量的初始化"><a href="#2-5-变量的赋值和变量的初始化" class="headerlink" title="2.5 变量的赋值和变量的初始化"></a>2.5 变量的赋值和变量的初始化</h2><p>把一个值保存到变量所表示的存储空间里称为变量的赋值。</p>
+<h2 id="变量的赋值和变量的初始化"><a href="#变量的赋值和变量的初始化" class="headerlink" title="变量的赋值和变量的初始化"></a>变量的赋值和变量的初始化</h2><p>把一个值保存到变量所表示的存储空间里称为变量的赋值。</p>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char firstletter;</div><div class="line">int hour, minite;</div><div class="line">firstletter = &apos;a&apos;;</div><div class="line">hour = 11;</div><div class="line">minute = 59;</div></pre></td></tr></table></figure>
 <p>这里的等号并不是数学里的相等关系，和1+1=2的等号是不同的，这里的等号表示赋值。在数学里不会有i=i+1这种等式成立，而在C语言中表示把变量i的存储空间中的值取出来，再加上1，得到的结果再存回i的存储空间。再比如，在数学上a=7和7=a是一样的，而在C语言中后者是不合法的。</p>
@@ -468,23 +468,23 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">char firstletter = &apos;a&apos;;</div><div class="line">int hour = 11, minite = 59;</div></pre></td></tr></table></figure>
 <p>注意：变量一定要先声明再使用。编译器必须先看到变量声明，才知道firstletter, hour, minite是变量名，各自代表一块存储空间。另外变量声明中的数据类型表明这个变量代表多大的一块存储空间，这样编译器才知道如何写这块存储空间。</p>
 <p><br></p>
-<h1 id="3-表达式"><a href="#3-表达式" class="headerlink" title="3. 表达式"></a>3. 表达式</h1><p>常量和变量都可以参与加减乘除运算，例如1+1、hour-1、hour <em> 60 + minute、minute/60等。这里的+ - </em> /称为运算符(Operator)，而参与运算的常量和变量称为操作数(Operand)，像上面那样由运算符和操作数所组成的算式称为表达式(Expression)，当然表达式也可以是单个的常量或变量。</p>
+<h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>常量和变量都可以参与加减乘除运算，例如1+1、hour-1、hour <em> 60 + minute、minute/60等。这里的+ - </em> /称为运算符(Operator)，而参与运算的常量和变量称为操作数(Operand)，像上面那样由运算符和操作数所组成的算式称为表达式(Expression)，当然表达式也可以是单个的常量或变量。</p>
 <p><br></p>
-<h2 id="3-1-表达式的类型和值"><a href="#3-1-表达式的类型和值" class="headerlink" title="3.1 表达式的类型和值"></a>3.1 表达式的类型和值</h2><p>任何表达式都有值和类型两个基本属性。hour <em> 60 + minute的值是由三个int型的操作数计算出来的，所以这个表达式的类型也是int型。同理，表达式total_minute = hour </em> 60 + minute的类型也是int，这个表达式的值是多少呢？C语言规定等号运算符的计算结果就是等号左边被赋予的那个值，所以这个表达式的值和hour * 60 + minute的值相同，也和total_minute的值相同。</p>
+<h2 id="表达式的类型和值"><a href="#表达式的类型和值" class="headerlink" title="表达式的类型和值"></a>表达式的类型和值</h2><p>任何表达式都有值和类型两个基本属性。hour <em> 60 + minute的值是由三个int型的操作数计算出来的，所以这个表达式的类型也是int型。同理，表达式total_minute = hour </em> 60 + minute的类型也是int，这个表达式的值是多少呢？C语言规定等号运算符的计算结果就是等号左边被赋予的那个值，所以这个表达式的值和hour * 60 + minute的值相同，也和total_minute的值相同。</p>
 <p>以前我们用printf打印常量或变量的值，现在可以用printf打印更复杂的表达式的值</p>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf(&quot;%d:%d is %d minutes or %d seconds after 00:00\n&quot;, </div><div class="line">           hour, minute, total_minute = hour * 60 + minute, hour * 60 * 60 + minute * 60);</div></pre></td></tr></table></figure>
 <p><br></p>
-<h2 id="3-2-运算符的结合性"><a href="#3-2-运算符的结合性" class="headerlink" title="3.2 运算符的结合性"></a>3.2 运算符的结合性</h2><p>等号运算符还有一个和+ - * /不同的特性，如果一个表达式中出现多个等号，那么表达式的计算顺序不是从左到右计算而是从右到左计算</p>
+<h2 id="运算符的结合性"><a href="#运算符的结合性" class="headerlink" title="运算符的结合性"></a>运算符的结合性</h2><p>等号运算符还有一个和+ - * /不同的特性，如果一个表达式中出现多个等号，那么表达式的计算顺序不是从左到右计算而是从右到左计算</p>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int total_minute, total;</div><div class="line">total = total_minute = hour * 60 + minute;</div></pre></td></tr></table></figure>
 <p>计算顺序是先算hour <em> 60 + minute得到一个结果，然后算右边的等号，就是把hour </em> 60 +minute的结果赋给变量total_minute，这个结果同时也是整个表达式total_minute = hour <em> 60 +minute的值，再算左边的等号，即把这个值再赋给变量total。同样优先级的运算符是从左到右计算还是从右到左计算称为运算符的结合性(Associativity)。+ - </em> /是左结合的，而等号是右结合的。</p>
 <p><br></p>
-<h2 id="3-3-左值和右值"><a href="#3-3-左值和右值" class="headerlink" title="3.3 左值和右值"></a>3.3 左值和右值</h2><p>等号左边的表达式要求表示一个存储位置而不是一个值，这是等号运算符和+ - * /运算符的又一个显著不同。有的表达式既可以表示一个存储位置也可以表示一个值，而有的表达式只能表示值，不能表示存储位置，例如minute + 1这个表达式就不能表示存储位置，放在等号左边是语义错误。表达式所表示的存储位置称为左值(lvalue)(允许放在等号左边)，而以前我们所说的表达式的值也称为右值(rvalue)(只能放在等号右边)。上面的话换一种说法就是：有的表达式既可以做左值也可以做右值，而有的表达式只能做右值。</p>
+<h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p>等号左边的表达式要求表示一个存储位置而不是一个值，这是等号运算符和+ - * /运算符的又一个显著不同。有的表达式既可以表示一个存储位置也可以表示一个值，而有的表达式只能表示值，不能表示存储位置，例如minute + 1这个表达式就不能表示存储位置，放在等号左边是语义错误。表达式所表示的存储位置称为左值(lvalue)(允许放在等号左边)，而以前我们所说的表达式的值也称为右值(rvalue)(只能放在等号右边)。上面的话换一种说法就是：有的表达式既可以做左值也可以做右值，而有的表达式只能做右值。</p>
 <p>example：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a, b, c;</div><div class="line">a = b = c;   //ok</div><div class="line">(a = b) = c; //error</div></pre></td></tr></table></figure>
 <p><br></p>
-<h1 id="4-转义字符"><a href="#4-转义字符" class="headerlink" title="4. 转义字符"></a>4. 转义字符</h1><p>C标准规定的转义字符</p>
+<h1 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h1><p>C标准规定的转义字符</p>
 <table>
 <thead>
 <tr>
@@ -565,13 +565,13 @@
 <p><strong>换行符</strong></p>
 <p>\n和\r分别表示Line Feed和CarriageReturn，这两个词来自老式的英文打字机，Line Feed是跳到下一行(进纸，喂纸，有个喂的动作所以是feed)，Carriage Return是回到本行开头(Carriage是卷着纸的轴，随着打字慢慢左移，打完一行就一下子移回最右边)，如果你看过欧美的老电影应该能想起来这是什么。用老式打字机打完一行之后需要这么两个动作，\r\n，所以现在Windows上的文本文件用\r\n做行分隔符，许多应用层网络协议(如HTTP)也用\r\n做行分隔符，而Linux和各种UNIX上的文本文件只用\n做行分隔符。</p>
 <p><br></p>
-<h1 id="5-C关键字"><a href="#5-C关键字" class="headerlink" title="5. C关键字"></a>5. C关键字</h1><p>C99规定的关键字有:</p>
+<h1 id="C关键字"><a href="#C关键字" class="headerlink" title="C关键字"></a>C关键字</h1><p>C99规定的关键字有:</p>
 <p>auto     break           case            char      const        continue      default            do        double</p>
 <p>else      enum            extern     float       for         goto           if                 inline             int         long</p>
 <p>register      restrict          return     short       signed         sizeof           static             struct             switch     typedef</p>
 <p>union      unsigned     void     volatile       while         _Bool           _Complex         _Imaginary    </p>
 <p><br></p>
-<h1 id="6-字符编码"><a href="#6-字符编码" class="headerlink" title="6. 字符编码"></a>6. 字符编码</h1><p>我们知道符号在计算机内部也用数字表示，每个字符在计算机内部用一个整数表示就称为字符编码(Character Encoding)，目前最常用的是ASCII码(American Standard Code for InformationInterchange，美国信息交换标准码)</p>
+<h1 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h1><p>我们知道符号在计算机内部也用数字表示，每个字符在计算机内部用一个整数表示就称为字符编码(Character Encoding)，目前最常用的是ASCII码(American Standard Code for InformationInterchange，美国信息交换标准码)</p>
 <p>ASCII码的取值范围是0~127，可以用7个bit表示。C语言中char型变量的大小规定为一字节，如果存放ASCII码则只用到低7位，高位为0。以下是ASCII码表:    </p>
 <p><img src="/images/shot/屏幕快照 2017-07-29 下午11.40.58.png" alt="屏幕快照 2017-07-29 下午11.40.58"><br>​<br>​<br>​<br>​<br>​<br>​                    </p>
 <p>​<br>​<br>​<br>​    </p>
@@ -806,7 +806,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-常量"><span class="nav-number">1.</span> <span class="nav-text">1. 常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-变量"><span class="nav-number">2.</span> <span class="nav-text">2. 变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-变量名和变量值"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 变量名和变量值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-从变量中取值"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 从变量中取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-变量的声明和定义"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 变量的声明和定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-变量的命名规则"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 变量的命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-变量的赋值和变量的初始化"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 变量的赋值和变量的初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-表达式"><span class="nav-number">3.</span> <span class="nav-text">3. 表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-表达式的类型和值"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 表达式的类型和值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-运算符的结合性"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 运算符的结合性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-左值和右值"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 左值和右值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-转义字符"><span class="nav-number">4.</span> <span class="nav-text">4. 转义字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-C关键字"><span class="nav-number">5.</span> <span class="nav-text">5. C关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-字符编码"><span class="nav-number">6.</span> <span class="nav-text">6. 字符编码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常量"><span class="nav-number">1.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#变量"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量名和变量值"><span class="nav-number">2.1.</span> <span class="nav-text">变量名和变量值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从变量中取值"><span class="nav-number">2.2.</span> <span class="nav-text">从变量中取值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的声明和定义"><span class="nav-number">2.3.</span> <span class="nav-text">变量的声明和定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的命名规则"><span class="nav-number">2.4.</span> <span class="nav-text">变量的命名规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量的赋值和变量的初始化"><span class="nav-number">2.5.</span> <span class="nav-text">变量的赋值和变量的初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表达式"><span class="nav-number">3.</span> <span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#表达式的类型和值"><span class="nav-number">3.1.</span> <span class="nav-text">表达式的类型和值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符的结合性"><span class="nav-number">3.2.</span> <span class="nav-text">运算符的结合性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左值和右值"><span class="nav-number">3.3.</span> <span class="nav-text">左值和右值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#转义字符"><span class="nav-number">4.</span> <span class="nav-text">转义字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C关键字"><span class="nav-number">5.</span> <span class="nav-text">C关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符编码"><span class="nav-number">6.</span> <span class="nav-text">字符编码</span></a></li></ol></div>
             
 
           </div>
