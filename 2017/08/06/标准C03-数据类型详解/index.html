@@ -90,17 +90,29 @@
 
 
 
-<meta name="description" content="基本数据类型只有整形和浮点型。字符变量也是整数">
+<meta name="description" content="计算机由逻辑电路组成用二进制计数； 计算机最基本的运算是加法运算，减法乘法除法运算都是转化成加法计算的； C语言最基本的数据类型是整型和浮点型，字符类型和枚举类型数据都是转化成整型存储的； 数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数；">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C03-数据类型详解">
 <meta property="og:url" content="http://yoursite.com/2017/08/06/标准C03-数据类型详解/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="基本数据类型只有整形和浮点型。字符变量也是整数">
-<meta property="og:updated_time" content="2017-07-29T07:42:45.000Z">
+<meta property="og:description" content="计算机由逻辑电路组成用二进制计数； 计算机最基本的运算是加法运算，减法乘法除法运算都是转化成加法计算的； C语言最基本的数据类型是整型和浮点型，字符类型和枚举类型数据都是转化成整型存储的； 数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数；">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午12.04.48.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-18%20上午8.02.59.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-08%20下午11.12.48.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-07%20下午11.06.31.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-07%20下午11.07.17.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午10.22.26.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午10.23.19.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午10.23.50.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午10.24.27.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午10.57.33.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-19%20下午2.10.14.png">
+<meta property="og:updated_time" content="2017-08-19T10:00:46.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C03-数据类型详解">
-<meta name="twitter:description" content="基本数据类型只有整形和浮点型。字符变量也是整数">
+<meta name="twitter:description" content="计算机由逻辑电路组成用二进制计数； 计算机最基本的运算是加法运算，减法乘法除法运算都是转化成加法计算的； C语言最基本的数据类型是整型和浮点型，字符类型和枚举类型数据都是转化成整型存储的； 数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数；">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-06%20下午12.04.48.png">
 
 
 
@@ -393,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  22
+                  7,026
                 </span>
               
 
@@ -409,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  26
                 </span>
               
             </div>
@@ -427,7 +439,256 @@
       
 
       
-        <p>基本数据类型只有整形和浮点型。字符变量也是整数</p>
+        <p>计算机由逻辑电路组成用二进制计数；</p>
+<p>计算机最基本的运算是加法运算，减法乘法除法运算都是转化成加法计算的；</p>
+<p>C语言最基本的数据类型是整型和浮点型，字符类型和枚举类型数据都是转化成整型存储的；</p>
+<p>数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数；</p>
+<a id="more"></a>
+<h1 id="1-二进制数"><a href="#1-二进制数" class="headerlink" title="1. 二进制数"></a>1. 二进制数</h1><p>人类的计数方式通常是“逢十进一”，称为十进制，大概是因为人有十个手指，所以十进制是人类最自然的计数方式。而计算机是用数字电路搭成的，数字电路中只有1和0两种状态，所以对计算机来说二进制才是最自然的计数方式。根据“逢二进一”的原则，十进制的1，2，3，4分别对应二进制的1，10，11，100。二进制的一位数字称为一个位（bit），三个bit能够表示的最大的二进制数是111，也就是十进制的7。不管用哪种计数方式，数的大小并没有变，十进制的1+1=2，二进制的1+1=10，二进制的10和十进制的2大小是相等的。</p>
+<p><br></p>
+<h1 id="2-进制转换"><a href="#2-进制转换" class="headerlink" title="2. 进制转换"></a>2. 进制转换</h1><p>前面讲到，计算机最自然的计数方式是二进制，程序员也必须习惯使用二进制，但二进制写起来太啰嗦了，所以为了方便表示，通常将二进制数分组表示，分成每三位一组或者每四位一组，然后每组用一个十进制数字代替。如果每三位一组，那么每组数的取值范围是0～7，逢八进一，所以将每三位分组的这种计数方式称为八进制；同样如果每四位一组，那么每组数的取值范围是0～15，逢十六进一，所以将每四位分组的这种计数方式称为十六进制。我们规定用A~F来表示10-15这几个数字，字母不区分大小写。</p>
+<p>例：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午12.04.48.png" alt="屏幕快照 2017-08-06 下午12.04.48"></p>
+<ul>
+<li>二进制转八进制</li>
+</ul>
+<ul>
+<li>二进制转十进制（按权展开相加即得）</li>
+</ul>
+<ul>
+<li>二进制转十六进制</li>
+</ul>
+<ul>
+<li>八进制转二进制</li>
+</ul>
+<ul>
+<li>八进制转十进制</li>
+</ul>
+<ul>
+<li>八进制转十六进制</li>
+</ul>
+<ul>
+<li>十进制转二进制（除2取余法）</li>
+</ul>
+<ul>
+<li>十进制转八进制</li>
+</ul>
+<ul>
+<li>十进制转十六进制</li>
+</ul>
+<ul>
+<li>十六进制转二进制</li>
+</ul>
+<ul>
+<li>十六进制转八进制</li>
+</ul>
+<ul>
+<li>十六进制转十进制</li>
+</ul>
+<p><br></p>
+<h1 id="3-整型"><a href="#3-整型" class="headerlink" title="3. 整型"></a>3. 整型</h1><h2 id="3-1-整型数据在内存中的存放形式"><a href="#3-1-整型数据在内存中的存放形式" class="headerlink" title="3.1 整型数据在内存中的存放形式"></a>3.1 整型数据在内存中的存放形式</h2><p>整型数据在内存中是以二进制补码存放的。正整数的补码等于其原码，而负整数补码等于其绝对值原码按位取反再加1。</p>
+<p>example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int a = 10;</div><div class="line">int b = -10;</div></pre></td></tr></table></figure>
+<p>a在内存中存放的数据是:  00000000 00000000 00000000 00001010</p>
+<p>b在内存中存放的数据是:  11111111 11111111 11111111 11110110</p>
+<p>可知：在存放整数的存储单元中，最高位是符号位，0表示正数1表示负数。</p>
+<h2 id="3-2-有符号和无符号"><a href="#3-2-有符号和无符号" class="headerlink" title="3.2 有符号和无符号"></a>3.2 有符号和无符号</h2><p>有符号数：二进制表示中的最高位作为符号位，0为正1为负，其余位用作数值位。有符号变量修饰符用signed。</p>
+<p>无符号数：二进制表示中的所有位均用作数值位，无符号数必定是一个非负数。无符号变量修饰符用unsigned。</p>
+<p><strong>注意</strong>：除char类型以外的其它类型变量，如果在声明时没有明确写signed或unsigned关键字来修饰都默认表示signed，这是C标准明确规定的。至于char类型变量如果在声明时不明确写signed或unsigned关键字那它是无符号还是有符号的？C标准规定这是<a href="#Implementation-defined">Implementation-defined</a>，即C标准没有明确规定char是有符号还是无符号，但要求编译器必须对此作出规定并写在编译器的文档中。编译器可以定义成无符号也可以定义成有符号。gcc编译器就定义char是有符号的。</p>
+<h2 id="3-3-整型分类"><a href="#3-3-整型分类" class="headerlink" title="3.3 整型分类"></a>3.3 整型分类</h2><h3 id="3-3-1-整型分类和整型变量取值范围"><a href="#3-3-1-整型分类和整型变量取值范围" class="headerlink" title="3.3.1 整型分类和整型变量取值范围"></a>3.3.1 整型分类和整型变量取值范围</h3><p>C标准中明确规定了char类型变量占一个字节，而其它整型变量占几个字节是<a href="#Implementation-defined">Implementation-defined</a>，但要求long型不短于int型，short型不长于int型。</p>
+<p>通常的编译器实现都遵循ILP32或LP64规范，如下表：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-18 上午8.02.59.png" alt="屏幕快照 2017-08-18 上午8.02.59"></p>
+<p>再说说整型变量的取值范围：</p>
+<table>
+<thead>
+<tr>
+<th>字节数</th>
+<th>符号位</th>
+<th>取值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>有</td>
+<td>-128~127 即 -2^7 ~ (2^7-1)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>无</td>
+<td>0~255即 0 ~ (2^8-1)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>有</td>
+<td>-32768~32767 即 -2^15 ~ (2^15-1)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>无</td>
+<td>0~65535 即 0 ~ (2^16-1)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>有</td>
+<td>-2147483648~2147483647即 -2^31 ~ (2^31-1)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>无</td>
+<td>0~4294967295即 0 ~ (2^32-1)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>有</td>
+<td>即 -2^63 ~ (2^63-1)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>无</td>
+<td>即 0 ~ (2^64-1)</td>
+</tr>
+</tbody>
+</table>
+<p>ILP32这个缩写的意思是int(I)、long(L)和指针(P)类型都占32位，通常32位计算机的C编译器采用这种规范，x86平台的gcc也是如此。LP64是指long(L)和指针占64位，通常64位计算机的C编译器采用这种规范。指针类型变量的长度总是和计算机的位数一致。下面做个约定：在我以后的文章陈述中，缺省平台都是x86/Linux/gcc，遵循ILP32，并且char是有符号的。</p>
+<h3 id="3-3-2-整型常量表示法"><a href="#3-3-2-整型常量表示法" class="headerlink" title="3.3.2 整型常量表示法"></a>3.3.2 整型常量表示法</h3><p>C语言中常量有整数常量，字符常量，枚举常量和浮点数常量四种，其中字符常量和枚举常量类型都是int型，因此前三种常量的类型都属于整型。整数常量除了十进制表示也可以用八进制，十六进制表示，八进制整数常量以0开头，后面的数字只能是0～7，例如022，十六进制整数常量以0x或0X开头，后面的数组可以是0～9，a~f 和A～F。整数常量还可以在末尾加u或U表示unsigned，加l或L表示long，加ll或LL表示long long，如0x1234U，98765ULL等。</p>
+<p><img src="/images/shot/屏幕快照 2017-08-08 下午11.12.48.png" alt="屏幕快照 2017-08-08 下午11.12.48"></p>
+<p>下面看几个有意思的问题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;%d\n&quot;, -2147483648);</div></pre></td></tr></table></figure>
+<p>编译会警告，虽然-2147483648能够用int型表示，但C编译器会把-2147483648当成是常量2147483648和一个负号运算符组成的表达式，而常量2147483648已经超过了int型取值范围。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(&quot;%d\n&quot;, -2147483647-1);</div></pre></td></tr></table></figure>
+<p>正常，因为-号运算符的两个操作数-2147483647和1都是int型没有超出int取值范围并且表达式的结果也没有超出int取值范围</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">long long i = 1234567890 * 1234567890;</div></pre></td></tr></table></figure>
+<p>编译会警告，因为乘积已经超过int型取值范围，会提示计算结果溢出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">long long i = 1234567890LL * 1234567890;</div></pre></td></tr></table></figure>
+<p>正常。</p>
+<h2 id="3-4-整型数据的加法运算"><a href="#3-4-整型数据的加法运算" class="headerlink" title="3.4 整型数据的加法运算"></a>3.4 整型数据的加法运算</h2><p>目前绝大多数计算机对整数的存储采用2‘s Complement表示法（2的补码表示法）：正数不变，负数先取反再加1。如果8个bit采用2’s Complement表示法，负数的取值范围是从10000000到11111111（-128～-1），正数是从00000000到01111111（0～127），也可以根据最高位判断一个数是正是负，并且0的表示是唯一的。为什么叫“2的补码”呢？因为对一位二进制数b取补码就是1-b+1=10-b，相当于从2里面减b。类似的，要表示-4需要对00000100取补码，11111111-00000100+1=10000000-00000100，相当于从2^8里面减去4。2‘s Complement表示法的计算规则：减法转换成加法，忽略计算结果最高位的进位，不必加到最低位上去。</p>
+<h2 id="3-5-整型数据溢出"><a href="#3-5-整型数据溢出" class="headerlink" title="3.5 整型数据溢出"></a>3.5 整型数据溢出</h2><p>8个bit采用2‘s Complement表示法的取值范围是-128~127，如果计算结果超出这个范围就会产生溢出。</p>
+<p>example：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-07 下午11.06.31.png" alt="屏幕快照 2017-08-07 下午11.06.31"></p>
+<p>那么如何判断产生了溢出呢？分四种情况讨论：如果两个正数相加溢出则结果一定是负数；如果两个负数相加溢出则结果一定是正数；如果一正一负相加则不可能溢出；另外，正整数溢出称为上溢，负整数溢出称为下溢。</p>
+<p>example：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-07 下午11.07.17.png" alt="屏幕快照 2017-08-07 下午11.07.17"></p>
+<p>从上图可以得出结论：在相加过程中最高位产生的进位和次高位产生的进位如果相同则没有溢出，如果不同则表示有溢出。</p>
+<p><br></p>
+<h1 id="4-浮点型"><a href="#4-浮点型" class="headerlink" title="4. 浮点型"></a>4. 浮点型</h1><h2 id="4-1-浮点型数据在内存中的存放形式"><a href="#4-1-浮点型数据在内存中的存放形式" class="headerlink" title="4.1 浮点型数据在内存中的存放形式"></a>4.1 浮点型数据在内存中的存放形式</h2><p>浮点数在计算机中的表示是基于科学计数法(Scientific Notation)的，我们知道32767这个数用科学计数法可以写成3.2767×10^4，3.2767称为尾数(Mantissa，或者叫Significand)，4称为指数(Exponent)。浮点数在计算机中的表示与此类似，只不过基数(Radix)是2而不是10。下面我们用一个简单的模型来解释浮点数的基本概念。我们的模型由三部分组成：符号位、指数部分(表示2的多少次方)和尾数部分(小数点前面是0，尾数部分只表示小数点后的数字)</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午10.22.26.png" alt="屏幕快照 2017-08-06 下午10.22.26"></p>
+<p>​<br>如果要表示17这个数，我们知道17=17.0×10^0=0.17×10^2，类似地，17=(10001)2×2^0=(0.10001)2×2^5，把尾数的有效数字全部移到小数点后，这样就可以表示为：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午10.23.19.png" alt="屏幕快照 2017-08-06 下午10.23.19"></p>
+<p>如果我们要表示0.25就遇到新的困难了，因为0.25=1×2^-2=(0.1)2×2^-1，而我们的模型中指数部分没有规定如何表示负数。我们可以在指数部分规定一个符号位，然而更广泛采用的办法是使用偏移的指数(Biased Exponent)。规定一个偏移值，比如16，实际的指数要加上这个偏移值再填写到指数部分，这样比16大的就表示正指数，比16小的就表示负指数。要表示0.25，指数部分应该填16-1=15 :</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午10.23.50.png" alt="屏幕快照 2017-08-06 下午10.23.50"></p>
+<p>现在还有一个问题需要解决：每个浮点数的表示都不唯一，例如17=(0.10001)2×2^5=(0.010001)2×2^6，这样给计算机处理增加了复杂性。为了解决这个问题，我们规定尾数部分的最高位必须是1，也就是说尾数必须以0.1开头，对指数做相应的调整，这称为正规化(Normalize )。由于尾数部分的最高位必须是1，这个1就不必保存了，可以节省出一位来用于提高精度，我们说最高位的1是隐含的(Implied)。这样17就只有一种表示方法了，指数部分应该是16+5=21=(10101)2，尾数部分去掉最高位的1是0001：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午10.24.27.png" alt="屏幕快照 2017-08-06 下午10.24.27"></p>
+<h2 id="4-2-浮点型数据的舍入误差和溢出问题"><a href="#4-2-浮点型数据的舍入误差和溢出问题" class="headerlink" title="4.2 浮点型数据的舍入误差和溢出问题"></a>4.2 浮点型数据的舍入误差和溢出问题</h2><p>两个浮点数相加，首先把小数点对齐然后相加：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-06 下午10.57.33.png" alt="屏幕快照 2017-08-06 下午10.57.33"></p>
+<p>由于浮点数表示的精度有限，计算结果末尾的10两位被舍去了。做浮点运算时要注意精度损失(Significance Loss)问题，有时计算顺序不同也会导致不同的结果，比如11.0010000+0.00000001+0.00000001=11.0010000+0.00000001=11.0010000，后面加的两个很小的数全被舍去了，没有对计算结果产生任何影响，但如果调一下计算顺序它们就能影响到计算结果了，0.00000001+0.00000001+11.0010000=0.00000010+11.0010000=11.0010001。再比如128.25=(10000000.01)2，需要10个有效位，而我们的模型中尾数部分是8位，算上隐含的最高位1一共有9个有效位，那么128.25的浮点数表示只能舍去末尾的1，表示成(10000000.0)2，其实跟128相等了。可以看出浮点运算会有舍入误差的，因此浮点数之间是不能做精确比较的。            </p>
+<p>整数运算会产生溢出，浮点运算也会产生溢出，浮点运算的溢出也分上溢和下溢两种，但和整数运算的定义不同。假设整数采用8位2’s Complement表示法，取值范围是-128~127，如果计算结果是-130则称为下溢，计算结果是130则称为上溢。假设按本节介绍的浮点数表示法，取值范围是-(0.111111111)2×215~(0.111111111)2×215，如果计算结果超出这个范围则称为上溢；如果计算结果未超出这个范围但绝对值太小了，在-(0.1)2×2-16~(0.1)2×2-16之间，那么也同样无法表示,称为下溢。    </p>
+<p>浮点数是一个相当复杂的话题，不同平台的浮点数表示和浮点运算也有较大差异，本节只是通过这个简单的模型介绍一些基本概念而不深入讨论，理解了这些基本概念有助于你理解浮点数标准，目前业界广泛采用的符点数标准是由IEEE(Institute of Electrical and Electronics Engineers)制定的IEEE 754。</p>
+<h2 id="4-3-浮点型0值"><a href="#4-3-浮点型0值" class="headerlink" title="4.3 浮点型0值"></a>4.3 浮点型0值</h2><p>我们知道定义全局变量时如果没有Initializer就用0初始化，定义数组时如果Initializer中提供的元素不够那么剩下的元素也用0初始化。</p>
+<p>example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int i;</div><div class="line">double d;</div><div class="line">double a[10] = &#123;1.0&#125;;</div></pre></td></tr></table></figure>
+<p>“用0初始化”的意思是变量i、变量d和数组元素a[1]~a[9]的所有字节都用0填充，或者说所有bit都是0。一个整数的所有bit是0那么这个整数就表示0值，但是一个浮点数的所有bit是0那么这个浮点数也一定表示0值吗？严格来说不一定，某种平台可能会规定一个浮点数的所有bit是0并不表示0值。但C99标准中有提到：“标准委员会观察到现有的所有机器都将浮点数所有bit是0定义为该浮点数的零值表示，但是所有位零可能不是零的规范表示”。因此，在绝大多数平台上，一个浮点数所有bit是0就表示该浮点数0值。</p>
+<h2 id="4-4-浮点型分类"><a href="#4-4-浮点型分类" class="headerlink" title="4.4 浮点型分类"></a>4.4 浮点型分类</h2><h3 id="4-4-1-浮点型分类和浮点型变量取值范围"><a href="#4-4-1-浮点型分类和浮点型变量取值范围" class="headerlink" title="4.4.1 浮点型分类和浮点型变量取值范围"></a>4.4.1 浮点型分类和浮点型变量取值范围</h3><p>C标准规定的浮点型有单精度（float型）、双精度（double型）、和长双精度（long double型），但对于每种类型数据的长度，精度和数值范围，都是<a href="#Implementation-defined">Implementation-defined</a>。浮点数的实现在各种平台上差异很大，有的处理器有浮点运算单元(FPU,Floating Point  Unit)，称为硬浮点(Hard-float)实现；有的处理器没有浮点运算单元，只能做整数运算，需要用整数运算来模拟浮点运算，称为软浮点(Soft-float)实现。大部分平台的浮点数实现遵循IEEE 754，float型通常是32位，double型通常是64位。</p>
+<p>long double型通常是比double型精度更高的类型，但各平台的实现有较大差异。在x86平台上，大多数编译器实现的long double型是80位，因为x86的浮点运算单元具有80位精度，gcc实现的long double型是12字节(96位)，这是为了对齐到4字节边界（后面结构体文章会讲述字节对齐），也有些编译器实现的long double型和double型精度相同，没有充分利用x86浮点运算单元的精度。其它体系结构的浮点运算单元的精度不同，编译器实现也会不同，例如PowerPC上的long double型通常是128位。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>位数</th>
+<th>有效数字</th>
+<th>数值范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>float</td>
+<td>32</td>
+<td>6～7</td>
+<td>-3.4 <em> 10^-38 ~ 3.4 </em> 10^38</td>
+</tr>
+<tr>
+<td>double</td>
+<td>64</td>
+<td>15～16</td>
+<td>-1.7 <em> 10^-308 ~ 1.7 </em> 10^308</td>
+</tr>
+<tr>
+<td>long double</td>
+<td>128</td>
+<td>18～19</td>
+<td>-1.2 <em> 10^-4932 ~ 1.2 </em> 10^4932</td>
+</tr>
+</tbody>
+</table>
+<h3 id="4-4-2-浮点型常量表示法"><a href="#4-4-2-浮点型常量表示法" class="headerlink" title="4.4.2 浮点型常量表示法"></a>4.4.2 浮点型常量表示法</h3><p>C语言中的浮点数就是平时所说的实数。浮点数有两种表示形式：</p>
+<ul>
+<li><p>十进制小数形式</p>
+<p>它由数字和小数点组成（注意必须要有小数点）。如0.123  123.  123.0   0.0 </p>
+</li>
+<li><p>指数形式</p>
+<p>如123e3或123E3都代表123*10^3，字母e(或E)之前必须要有数字，且e后面的指数必须为整数。</p>
+<p>一个浮点数可以有多种指数表示形式，但规范化的指数形式只有一种，即在字母e(或E)之前的小数部分中，小数点左边应该有且只能有一位非零数字，例如3.1415926e3。</p>
+<p>注意：一个浮点数在用指数形式输出时，是按规范化的指数形式输出的。例如将实数5689.65按指数形式输出，输出的形式是5.68965e+033。</p>
+<p>浮点数也可以加一个后缀，例如3.14f，.01L，浮点数的后缀和类型之间的对应关系比较简单，没有后缀的浮点数常量默认是double型的，有后缀f或F的浮点数常量是float型的，有后缀l或L的浮点数常量是long double型的。    </p>
+</li>
+</ul>
+<p><br></p>
+<h1 id="5-类型转换"><a href="#5-类型转换" class="headerlink" title="5. 类型转换"></a>5. 类型转换</h1><h2 id="5-1-隐式类型转换"><a href="#5-1-隐式类型转换" class="headerlink" title="5.1 隐式类型转换"></a>5.1 隐式类型转换</h2><p>编译器根据类型转换规则将一种类型自动转换成另一种类型，称为隐式类型转换（Implicit Conversion）。下面讲述两种隐式类型转换的情况。</p>
+<h3 id="5-1-1-类型提升"><a href="#5-1-1-类型提升" class="headerlink" title="5.1.1 类型提升"></a>5.1.1 类型提升</h3><p>整型（char，int，short，long）和浮点型（float，double）可以混合运算，例如：10 + ‘a’ + 1.5 - 8665.123456 * ‘b’。在运算时，不同类型的数据要先转换成同一类型，然后进行运算，转换规则如下图：</p>
+<p><img src="/images/shot/屏幕快照 2017-08-19 下午2.10.14.png" alt="屏幕快照 2017-08-19 下午2.10.14"></p>
+<p>图中向左的箭头表示必定的转换，即char和short型数据只要参与运算则必定先转换成int型（即使两个char型数据相加也都先转换成int然后相加），float型数据只要参与运算则必定先转换成double以提高运算精度（即使是两个float型数据相加也都先转化成double然后再相加）。</p>
+<p>图中纵向的箭头表示当运算对象为不同类型时转换的方向，例如int型与double型数据进行运算，先将int型数据转换成double型，然后在两个同类型（double型）数据间进行运算，结果为double型。</p>
+<p>箭头方向只表示数据类型级别的高低，由低向高转换，不要理解成int型先转换成unsigned int再转换成long再转换成double，如果一个int型数据与一个double型数据运算，编译器是直接将int型转换成double的。</p>
+<h3 id="5-1-2-由赋值产生的类型转换"><a href="#5-1-2-由赋值产生的类型转换" class="headerlink" title="5.1.2 由赋值产生的类型转换"></a>5.1.2 由赋值产生的类型转换</h3><p>如果赋值或初始化时等号两边的类型不相同，则编译器会把等号右边的类型转换成等号左边的类型再做赋值。例如int c = 3.14; 编译器会把右边的double型转换成int型再赋给变量c。</p>
+<p>我们知道，函数调用传参的过程相当于定义形参并且用实参对其做初始化，函数返回的过程相当于定义一个临时变量并且用return的表达式对其做初始化，所以由赋值产生的类型转换也适用于这两种情况。例如一个函数的原型是int foo(int, int); 则调用foo(3.1, 4.2)时会自动把两个double型的实参转成int型赋给形参，如果这个函数定义中有返回语句return 1.2; 则返回值1.2会自动转成int型再返回。</p>
+<p>在函数调用和返回过程中发生的类型转换往往容易被忽视，因为函数原型和函数调用并没有写在一起。例如char c = getchar(); 看到这一句往往会想当然地认为getchar的返回值是char型，而事实上getchar的返回值是int型，这样赋值就引起了类型转换。</p>
+<h2 id="5-2-强制类型转换"><a href="#5-2-强制类型转换" class="headerlink" title="5.2 强制类型转换"></a>5.2 强制类型转换</h2><p>利用强制类型转换运算符将一个表达式转换成指定类型，这称为现实类型转换（Explicit Conversion）或强制类型转换（Type Cast）。</p>
+<p>一般形式：（类型名）（表达式）</p>
+<p>说明：</p>
+<ul>
+<li>类型名必须用括号括起来，如(int)x 或 (int)(x)，不能写成 int(x)</li>
+<li>表达式应该用括号括起来，如果写成(int)x+y，则只将x转换成int，然后与y相加。</li>
+<li>强制类型转换时，得到一个指定类型的中间变量，原来变量的类型并未发生改变。</li>
+</ul>
+<p><br></p>
+<h1 id="6-数据类型的本质"><a href="#6-数据类型的本质" class="headerlink" title="6. 数据类型的本质"></a>6. 数据类型的本质</h1><p>终于要讲到本篇最重要的内容了，即数据类型的本质。数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数。</p>
+<p>那么如何来理解这句话，下面来看一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int a = 321;</div><div class="line">printf(&quot;%d&quot;, a);//321</div></pre></td></tr></table></figure>
+<p>我们知道定义一个变量就是分配一块存储空间并给它命名，给一个变量赋值就是把一个值保存到这块存储空间中。因此int a ＝ 321; 就是分配了一块存储空间并把321保存到了这块存储空间中。那么这块存储空间有多大？变量的数据类型占几个字节存储空间就有多少字节大小，即变量a对应的存储空间有4个字节大小。</p>
+<p>从变量中取值是通过变量名找到其对应的那个存储空间的起始内存地址，然后从这个地址开始读取若干字节内容，具体读多少字节呢？变量的数据类型占几个字节就读多少字节内容。所以printf(“%d”, a); 就是从a对应的存储空间起始内存地址开始读取4个字节内容然后输出到终端，读得的4字节内容就是321。</p>
+<p>从第一个例子就应该能看出来了，数据类型决定了一个变量占多大一块存储空间，决定了对变量的一次读或写操作需要访问多少字节内容。</p>
+<p>再来第二个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a = 321;</div><div class="line">int *p = &amp;a;</div><div class="line">printf(&quot;%d&quot;, *p);//321</div></pre></td></tr></table></figure>
+<p>首先，这个例子用到了指针，这里只是简单涉略，以后会再详细讲解指针相关的内容，我们先有个简单的认识：一个变量的地址称为该变量的指针，如果定义一个变量专门用来存放另一变量的地址，那么该变量称为指针变量。指针和指针变量的区别就是：指针就是一个地址，而指针变量是存放地址的变量。</p>
+<p>这个例子中定义了一个指针变量p用来存放变量a的地址，<em>表示变量p是指针变量，int则是变量p的数据类型。那么按照第一个例子的结论可以知道这里对变量p的一次读或写操作是需要访问4个字节内容的。printf(“%d”, </em>p);其中 *p 的过程：先取出p的内容（变量a的起始内存地址），然后从这个地址处读取4个字节的内容，即从变量a对应的存储空间起始内存地址读取4字节内容就是321了。</p>
+<p>好，再来看第三个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a = 321;</div><div class="line">char *p = &amp;a;</div><div class="line">printf(&quot;%d&quot;, *p);//65</div></pre></td></tr></table></figure>
+<p>这个例子中定义的指针变量p也是用来存放变量a的地址，但和上一个例子不同的是，这个例子中变量p的数据类型不再是int了而是char类型，那么这里对变量p的一次读或写操作是需要访问1个字节内容的，所以printf(“%d”, <em>p); 时 </em>p 的过程是：先取出p的内容（变量a的起始内存地址），然后从这个地址处读取1个字节的内容，即从变量a对应的存储空间起始内存地址读取1个字节内容，注意变量a对应的存储空间有4个字节，而 *p只需要读取一个字节内容，那么是取这个4字节中的最低的一个字节内容还是最高的一个字节内容呢？这就要看该系统中数据的存储模式是大端存储模式还是小端存储模式了。普通PC都是默认小端存储模式的，因此这里取一个字节是取低字节内容，结果为65。</p>
+<p>顺便讲解下数据的存储模式：</p>
+<p>一个变量对应一块内存单元，一块内存单元中又包含多个字节，每个字节都有一个地址，地址由低位到高位排列，而对应的字节却可以是低-&gt;高，也可是高-&gt;低。</p>
+<p>(1)大端存储模式：低字节数据存放于内存的高地址中，高字节数据存放于内存的低地址中，即地址由低-&gt;高，对应的字节由高-&gt;低。</p>
+<p>(2)小端存储模式：低字节数据存放于内存的低地址中，高字节数据存放于内存的高地址中，即地址由低-&gt;高，对应的字节由低-&gt;高。</p>
+<p>​<br>好，再来看最后一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">char b = &apos;c&apos;;</div><div class="line">int *p = &amp;b;</div><div class="line">printf(&quot;%d&quot;, *p);//随机值</div></pre></td></tr></table></figure>
+<p>这个例子中定义的指针变量p是用来存放变量b的地址，注意b的数据类型是char，指针变量p的数据类型是int，那么这里对指针变量p的一次读或写操作是需要访问4个字节内容的。所以printf(“%d”, <em>p); 时 </em>p 的过程是：先取出p的内容（变量b的起始内存地址），然后从这个地址处读取4个字节内容，注意变量b对应的存储空间只有1个字节，而 <em>p却要读取4个字节内容，那怎么办呢？由于系统中的内存是连续的， </em>p从变量b起始内存地址开始读取1个字节后，还需要继续读取3个字节内容，而后面的3个字节空间已经不再是变量b引用的了，它们可能是系统的任意某个程序的地址，由于不确定性所以最终的结果是一个随机值。</p>
+<p>我们应该能够感受到C语言数据类型使用起来还是相当自由的，到这里应该能够理解这句话了吧：</p>
+<p><strong>数据类型的本质是数据的访问方式，它决定了一个变量占多大一块存储空间，决定了变量读写会访问多少字节数</strong>                </p>
+<p>​            </p>
+<p><br>    </p>
+<h1 id="附：C标准不明确定义方式"><a href="#附：C标准不明确定义方式" class="headerlink" title="附：C标准不明确定义方式"></a>附：C标准不明确定义方式</h1><p>在C标准中没有明确规定的地方会用Implementation-defined，Unspecified，Undefined这三种方式来表述。</p>
+<ul>
+<li><p><strong><span id="Implementation-defined">Implementation-defined</span></strong></p>
+<p>C标准没有明确规定，但是要求编译器必须对此做出明确规定，并写在编译器的文档中。</p>
+</li>
+<li><p><strong>Unspecified</strong></p>
+<p>往往有几种可选的处理方式，C标准没有明确规定按哪种方式处理，编译器可以自己决定，并且也不必写在编<br>译器的文档中，这样即便用同一个编译器的不同版本来编译也可能得到不同的结果，因为编译器没有在文档中明确写它会怎么处理，那么不同版本的编译器就可以选择不同的处理方式。</p>
+</li>
+<li><p><strong>Undefined</strong></p>
+<p>情况是完全不确定的，C标准没规定怎么处理，编译器很可能也没规定，甚至也没做出错处理，有很多Undefined的情况编译器是检查不出来的，最终会导致运行时错误，比如数组访问越界就是Undefined的。</p>
+<p>​</p>
+</li>
+</ul>
+<p>初学者看到这些规则可能会不舒服，觉得这不是在学编程而是在啃法律条文，是的，C语言并不像一个数学定理那么完美，现实世界里的东西总是不够完美的。其实还好，C程序员已经很幸福了，只要严格遵照C标准来写代码，不要去触碰那些阴暗角落，写出来的代码就有很好的可移植性。</p>
 
       
     </div>
@@ -547,8 +808,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -639,6 +909,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-二进制数"><span class="nav-number">1.</span> <span class="nav-text">1. 二进制数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-进制转换"><span class="nav-number">2.</span> <span class="nav-text">2. 进制转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-整型"><span class="nav-number">3.</span> <span class="nav-text">3. 整型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-整型数据在内存中的存放形式"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 整型数据在内存中的存放形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-有符号和无符号"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 有符号和无符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-整型分类"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 整型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-整型分类和整型变量取值范围"><span class="nav-number">3.3.1.</span> <span class="nav-text">3.3.1 整型分类和整型变量取值范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-整型常量表示法"><span class="nav-number">3.3.2.</span> <span class="nav-text">3.3.2 整型常量表示法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-整型数据的加法运算"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 整型数据的加法运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-整型数据溢出"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 整型数据溢出</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-浮点型"><span class="nav-number">4.</span> <span class="nav-text">4. 浮点型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-浮点型数据在内存中的存放形式"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 浮点型数据在内存中的存放形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-浮点型数据的舍入误差和溢出问题"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 浮点型数据的舍入误差和溢出问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-浮点型0值"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 浮点型0值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-浮点型分类"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 浮点型分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-浮点型分类和浮点型变量取值范围"><span class="nav-number">4.4.1.</span> <span class="nav-text">4.4.1 浮点型分类和浮点型变量取值范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-浮点型常量表示法"><span class="nav-number">4.4.2.</span> <span class="nav-text">4.4.2 浮点型常量表示法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-类型转换"><span class="nav-number">5.</span> <span class="nav-text">5. 类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-隐式类型转换"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 隐式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-1-类型提升"><span class="nav-number">5.1.1.</span> <span class="nav-text">5.1.1 类型提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-2-由赋值产生的类型转换"><span class="nav-number">5.1.2.</span> <span class="nav-text">5.1.2 由赋值产生的类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-强制类型转换"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 强制类型转换</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-数据类型的本质"><span class="nav-number">6.</span> <span class="nav-text">6. 数据类型的本质</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#附：C标准不明确定义方式"><span class="nav-number">7.</span> <span class="nav-text">附：C标准不明确定义方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
