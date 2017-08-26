@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-26%20下午6.15.18.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-26%20下午9.43.29.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-08-26%20下午9.46.26.png">
-<meta property="og:updated_time" content="2017-08-26T14:04:50.100Z">
+<meta property="og:updated_time" content="2017-08-26T14:22:03.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C03-运算符与表达式">
 <meta name="twitter:description" content="C语言的运算符和表达式这两块知识点应该是在一起穿插着讲的，一方面表达式是由操作数和运算符组成的，所以讲表达式时肯定会涉及到运算符，另一方面运算符的优先级和结合性就是说的一个表达式的计算顺序，所以讲运算符时也势必会涉及到表达式。前面的文章“常量与变量”，“数据类型详解”，和本篇“运算符与表达式”这三篇内容都是C语言的基础元素，初学者一定要重视这三块内容，这将为你后面学好C语言奠定深厚的基础。">
@@ -398,7 +398,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  6,225
+                  6,224
                 </span>
               
 
@@ -452,27 +452,20 @@
 </ul>
 <p>按照参与运算的操作数个数可以划分所有的运算符为三类：</p>
 <ul>
-<li><p>一元运算符</p>
-<p>只需要一个操作数的运算符称为一元运算符或单目运算符。如计算相反数，自增／自减运算符，强制类型转换  运算符。</p>
+<li><p>一元运算符<br>只需要一个操作数的运算符称为一元运算符或单目运算符。如计算相反数，自增／自减运算符，强制类型转换  运算符。</p>
 </li>
-</ul>
-<ul>
-<li><p>二元运算符</p>
-<p>需要两个操作数的运算符称为二元运算符或双目运算符。</p>
+<li><p>二元运算符<br>需要两个操作数的运算符称为二元运算符或双目运算符。</p>
 </li>
-<li><p>三元运算符</p>
-<p>需要三个操作数的运算符称为三元运算符或三目运算符。条件运算符是Ｃ语言提供的唯一一个三元运算符。</p>
+<li><p>三元运算符<br>需要三个操作数的运算符称为三元运算符或三目运算符。条件运算符是Ｃ语言提供的唯一一个三元运算符。</p>
 </li>
 </ul>
 <p><br></p>
 <h1 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h1><p>常量和变量都可以参与加减乘除运算，例如1+1、hour-1、hour <em>60 + minute、minute/60等。这里的+ - </em>/称为运算符(Operator)，而参与运算的常量和变量称为操作数(Operand)，像上面那样由运算符和操作数所组成的算式称为表达式(Expression)，当然表达式也可以是单个的常量或变量。</p>
 <h2 id="表达式的类型和值"><a href="#表达式的类型和值" class="headerlink" title="表达式的类型和值"></a>表达式的类型和值</h2><p>任何表达式都有值和类型两个基本属性。hour <em>60 + minute的值是由三个int型的操作数计算出来的，所以这个表达式的类型也是int型。同理，表达式total_minute = hour </em>60 + minute的类型也是int，这个表达式的值是多少呢？C语言规定等号运算符的计算结果就是等号左边被赋予的那个值，所以这个表达式的值和hour * 60 + minute的值相同，也和total_minute的值相同。</p>
 <p>以前我们用printf打印常量或变量的值，现在可以用printf打印更复杂的表达式的值</p>
-<p>example：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf(&quot;%d:%d is %d minutes or %d seconds after 00:00\n&quot;, </div><div class="line">           hour, minute, total_minute = hour * 60 + minute, hour * 60 * 60 + minute * 60);</div></pre></td></tr></table></figure>
+<p>example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf(&quot;%d:%d is %d minutes or %d seconds after 00:00\n&quot;, </div><div class="line">           hour, minute, total_minute = hour * 60 + minute, hour * 60 * 60 + minute * 60);</div></pre></td></tr></table></figure></p>
 <h2 id="左值和右值"><a href="#左值和右值" class="headerlink" title="左值和右值"></a>左值和右值</h2><p><strong>等号左边的表达式要求表示一个存储位置而不是一个值</strong>，这是等号运算符和+ - * /运算符的一个显著不同。有的表达式既可以表示一个存储位置也可以表示一个值，而有的表达式只能表示值，不能表示存储位置，例如minute + 1这个表达式就不能表示存储位置，放在等号左边是语义错误。表达式所表示的存储位置称为左值(lvalue)(允许放在等号左边)，而以前我们所说的表达式的值也称为右值(rvalue)(只能放在等号右边)。上面的话换一种说法就是：有的表达式既可以做左值也可以做右值，而有的表达式只能做右值。</p>
-<p>example：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a, b, c;</div><div class="line">a = b = c;   //ok</div><div class="line">(a = b) = c; //error</div></pre></td></tr></table></figure>
+<p>example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a, b, c;</div><div class="line">a = b = c;   //ok</div><div class="line">(a = b) = c; //error</div></pre></td></tr></table></figure></p>
 <p><br></p>
 <h1 id="运算符的优先级和结合性"><a href="#运算符的优先级和结合性" class="headerlink" title="运算符的优先级和结合性"></a>运算符的优先级和结合性</h1><h2 id="运算符的优先级"><a href="#运算符的优先级" class="headerlink" title="运算符的优先级"></a>运算符的优先级</h2><p>在一个表达式中可能包含多个不同的运算符，而不同的运算顺序可能得出不同的结果，因此必须按一定次序进行计算才能保证运算的合理性和结果的正确性、唯一性。</p>
 <h2 id="运算符的结合性"><a href="#运算符的结合性" class="headerlink" title="运算符的结合性"></a>运算符的结合性</h2><p>当一个运算对象两侧运算符的优先级别相同时，运算对象与运算符的结合顺序称为运算符的结合性。</p>
@@ -518,8 +511,8 @@
 <th>!a</th>
 <th>!b</th>
 <th>a&amp;&amp;b</th>
-<th>a\</th>
-<th>\</th>
+<th>a</th>
+<th></th>
 <th>b</th>
 </tr>
 </thead>
