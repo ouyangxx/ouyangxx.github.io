@@ -90,17 +90,21 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="C语言程序设计包含三种基本结构：顺序结构程序设计；选择结构程序设计；循环结构程序设计； 前面几篇文章涉及到的程序主要是基于顺序结构的，本篇将要介绍基于选择结构的分支语句，和基于循环结构的循环语句。">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C05-分支语句和循环语句">
 <meta property="og:url" content="http://yoursite.com/2017/08/20/标准C05-分支语句和循环语句/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:45:08.000Z">
+<meta property="og:description" content="C语言程序设计包含三种基本结构：顺序结构程序设计；选择结构程序设计；循环结构程序设计； 前面几篇文章涉及到的程序主要是基于顺序结构的，本篇将要介绍基于选择结构的分支语句，和基于循环结构的循环语句。">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-09-02%20下午2.41.58.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-09-02%20下午2.48.22.png">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-09-02%20下午2.56.37.png">
+<meta property="og:updated_time" content="2017-09-02T08:46:00.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C05-分支语句和循环语句">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="C语言程序设计包含三种基本结构：顺序结构程序设计；选择结构程序设计；循环结构程序设计； 前面几篇文章涉及到的程序主要是基于顺序结构的，本篇将要介绍基于选择结构的分支语句，和基于循环结构的循环语句。">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-09-02%20下午2.41.58.png">
 
 
 
@@ -393,7 +397,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  2,178
                 </span>
               
 
@@ -409,7 +413,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  8
                 </span>
               
             </div>
@@ -427,7 +431,84 @@
       
 
       
-        
+        <p>C语言程序设计包含三种基本结构：顺序结构程序设计；选择结构程序设计；循环结构程序设计；</p>
+<p>前面几篇文章涉及到的程序主要是基于顺序结构的，本篇将要介绍基于选择结构的分支语句，和基于循环结构的循环语句。</p>
+<a id="more"></a>
+<h1 id="分支语句"><a href="#分支语句" class="headerlink" title="分支语句"></a>分支语句</h1><h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p>C语言提供了3种if语句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if (表达式)</div><div class="line">	语句</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if (表达式)</div><div class="line">	语句1</div><div class="line">else</div><div class="line">	语句2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">if (表达式1)</div><div class="line">	语句1</div><div class="line">else if (表达式2)</div><div class="line">	语句2</div><div class="line">else if (表达式3)</div><div class="line">	语句3</div><div class="line">...</div><div class="line">else if (表达式m)</div><div class="line">	语句m</div><div class="line">else</div><div class="line">	语句n</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>（1）3种形式的if语句中if后面都有表达式，一般为逻辑表达式或关系表达式。</p>
+<p>（2）else子句不能单独使用，它必须是if语句的一部分，与if配对使用。</p>
+<p>（3）在if和else后面的语句可以是一条语句，也可以是多条语句（必须用花括号括起来组成复合语句）。</p>
+<h2 id="if语句的嵌套"><a href="#if语句的嵌套" class="headerlink" title="if语句的嵌套"></a>if语句的嵌套</h2><p>在if语句中又包含一个或多个if语句称为if语句的嵌套，一般形式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">if ()</div><div class="line">	if ()  语句1</div><div class="line">	else   语句2</div><div class="line">else</div><div class="line">	if ()  语句3</div><div class="line">	else   语句4</div></pre></td></tr></table></figure>
+<p>注意：C语言规定，else总是和它上面最近的一个if配对。</p>
+<p>因此，if (A) if (B) C; else D; 应该理解成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (A)</div><div class="line">	if (B)</div><div class="line">		C;</div><div class="line">	else</div><div class="line">		D;</div></pre></td></tr></table></figure>
+<p>C代码的缩进只是为了让编程者看起来方便，实际上对编译器不起任何作用，假设上面的代码你写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">if (A)</div><div class="line">	if (B)</div><div class="line">		C;</div><div class="line">else</div><div class="line">	D;</div></pre></td></tr></table></figure>
+<p>你这样写肯定是希望else与第一个if配对，但实际上else是要与第二个if配对的，因为它们距离最近。即使你缩进代码了，但编译器才不管呢，编译器只管语法和语义对不对，这样写缩进就可能给自己带来误解了，所以这里一定要小心，按照语法写缩进就不会误解。如果编程者确实要将else与第一个if配对，可以加上括号，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if (A)</div><div class="line">&#123;</div><div class="line">  	if (B)</div><div class="line">		C;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">	D;</div></pre></td></tr></table></figure>
+<p>这样，else就与第一个if配对了。</p>
+<h2 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h2><p>switch语句可以产生具有多个分支的控制流程。它的格式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">switch (控制表达式) &#123;</div><div class="line">  case 常量表达式1: 语句列表1</div><div class="line">  case 常量表达式2: 语句列表2</div><div class="line">  ...</div><div class="line">  case 常量表达式n: 语句列表n</div><div class="line">  default: 语句列表n+1</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<p>（1）case后面跟的表达式必须是整型常量表达式（不能是浮点型，因为浮点型不适合做精确比较），且各case分支的常量表达式必须互不相同。</p>
+<p>（2）进入case后如果没有遇到break语句就会一直往下执行，后面其它case或default分支的语句也会被执行到，直到遇到break或者执行到整个switch语句块的末尾。通常每个case后面都要加上break语句，但有时也会故意不加break来利用这个特性。</p>
+<p>（3）如果控制表达式不等于任何一个常量表达式，则从default开始执行。</p>
+<p>example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">void print_day(int day)</div><div class="line">&#123;</div><div class="line">  switch(day)</div><div class="line">  &#123;</div><div class="line">    case 1:</div><div class="line">    case 2:</div><div class="line">    case 3:</div><div class="line">    case 4:</div><div class="line">    case 5:</div><div class="line">    	printf(&quot;Weekday\n&quot;);</div><div class="line">    	break;</div><div class="line">    case 6:</div><div class="line">    case 7:</div><div class="line">    	printf(&quot;Weekend\n&quot;);</div><div class="line">    default:</div><div class="line">    	printf(&quot;invalid day number&quot;);</div><div class="line">    	break;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">  print_day(2);</div><div class="line">  return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有一点需要提一下，switch语句不是必不可缺的，显然可以用一组if … else if … else if … else …代替，但是一方面用switch语句会使代码更清晰，另一方面，有时候编译器会对switch语句进行整体优化，使它比等价的if/else语句所生成的指令效率更高。虽然迭代用递归来做就够了，但C语言提供了循环语句使迭代程序写起来更方便。</p>
+<p><br></p>
+<h1 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h1><p>我们使用计算机的主要目的之一就是让它做重复迭代的工作，因为把一件工作重复做成千上万次而不出错正是计算机最擅长的，也是人类最不擅长的。虽然迭代用递归来做就够了，但C语言提供了循环语句使迭代程序写起来更方便。</p>
+<h2 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h2><p>while语句用来实现“当型”循环结构。一般形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">while (表达式)	循环体语句</div></pre></td></tr></table></figure>
+<p>执行过程：先判断表达式，后执行循环体语句。</p>
+<p><img src="/images/shot/屏幕快照 2017-09-02 下午2.41.58.png" alt="屏幕快照 2017-09-02 下午2.41.58"></p>
+<h2 id="do-while语句"><a href="#do-while语句" class="headerlink" title="do/while语句"></a>do/while语句</h2><p>do…while语句用来实现“直到型”循环结构。一般形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">do</div><div class="line">	循环体语句</div><div class="line">while (表达式);</div></pre></td></tr></table></figure>
+<p>执行过程：先执行一次循环体语句，然后再判断表达式。</p>
+<p><img src="/images/shot/屏幕快照 2017-09-02 下午2.48.22.png" alt="屏幕快照 2017-09-02 下午2.48.22"></p>
+<h2 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h2><p>for语句一般形式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for (表达式1; 表达式2; 表达式3) 循环体语句</div></pre></td></tr></table></figure>
+<p>说明：三个表达式均可以省略。</p>
+<p>执行过程：</p>
+<p>（1）先求表达式1；</p>
+<p>（2）再求表达式2，若为真则执行循环体语句，然后执行（3），若为假则结束循环；</p>
+<p>（3）求解表达式3；</p>
+<p>（4）回到（2）继续执行；</p>
+<p><img src="/images/shot/屏幕快照 2017-09-02 下午2.56.37.png" alt="屏幕快照 2017-09-02 下午2.56.37"></p>
+<p>example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">int factorial(int n)</div><div class="line">&#123;</div><div class="line">  int result = 1;</div><div class="line">  int i = 1;</div><div class="line">  for (; i &lt;= n; ++i)</div><div class="line">  	result *= i;</div><div class="line">  return result;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>探究：为什么for语句第三个表达式用＋＋i而不是i++？</strong></p>
+<p>首先说下++i和i++的区别：</p>
+<ul>
+<li>如果只进行自加不涉及其他运算（独立表达式），那么结果i值都加了1，并且整个表达式执行结果也一样；</li>
+<li>如果涉及其他运算（和其他运算组成复合表达式），那么++i表示先对i自加1再进行其他运算，而i++表示先进行其他运算再对i自加1，最终的i值都加了1，但整个表达式执行结果不一样；</li>
+</ul>
+<p>现在，来看for语句第三个表达式，用++i和i++就是作为独立的语句并不涉及其他运算，那么效果应该是一样的啊，但为什么要用++i呢？</p>
+<p>答案：虽然从代码执行结果看，它们并无区别，但是从代码执行效率上看两者是有区别的。i++由于是在使用当前值之后再+1，所以会需要一个临时变量来转储，而++则直接+1，不存在这样的问题。事实上，在没有编译器优化的情况下，++i效率更好，优化过后两者的执行效率就一样了。但我们也不知道编译器有没有优化，所以强烈建议能使用++i就不要使用i++这种形式。</p>
+<h2 id="break和continue语句"><a href="#break和continue语句" class="headerlink" title="break和continue语句"></a>break和continue语句</h2><p>在前面switch语句中我们见到了break语句的一种用法，用来跳出switch语句块。实际上，break语句也可以用来跳出循环体。</p>
+<p>break和continue对比：</p>
+<ul>
+<li>break：用于提前结束<strong>本层</strong>switch或循环，接着执行本层switch或循环之后的语句；</li>
+<li>continue：用于结束<strong>本次</strong>循环（而不是终止整个循环），接着进行下一次是否执行循环的判断。</li>
+</ul>
+<p>注意：break语句不能用于循环语句和switch语句之外的其他任何语句中。</p>
+<h2 id="循环的嵌套"><a href="#循环的嵌套" class="headerlink" title="循环的嵌套"></a>循环的嵌套</h2><p>一个循环体内又包含另一个完整的循环结构，称为循环的嵌套。内嵌的循环中还可以再嵌套循环，这就是多层循环。</p>
+<h2 id="goto语句以及用goto语句构成循环"><a href="#goto语句以及用goto语句构成循环" class="headerlink" title="goto语句以及用goto语句构成循环"></a>goto语句以及用goto语句构成循环</h2><p>goto语句为无条件跳转语句，从程序中的任何地方都可以无条件跳转到任何其它地方，只要在那个地方定义一个标号就行，唯一的限制是goto只能跳转到同一函数中的某个标号处，而不能跳到别的函数中。一般形式为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">goto 语句标号;</div></pre></td></tr></table></figure>
+<p>其中，语句标号用标识符表示，命名规则和变量名相同。</p>
+<p>goto语句的用途：</p>
+<p>（1）与if语句一起构成循环结构；</p>
+<p>（2）从循环体中跳转到循环体外；</p>
+<p>由于在C语言中有break和continue语句可以跳出本层循环和结束本次循环，goto语句的使用机会因此就大大减少了。但是，我们知道break只能跳出本层的循环，如果在一个嵌套循环中遇到某个错误条件需要立即跳出最外层循环做出错处理，就可以用goto语句。</p>
+<p>goto语句的功能实在太强了，结构化程序设计方法主张限制使用goto语句，因为滥用goto语句将使程序流程无规律，可读性差，一般只有在不得已时才使用goto语句。</p>
+<p>example：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">  int i, sum = 0;</div><div class="line">  i = 1;</div><div class="line">  loop: if (i &lt;= 100)</div><div class="line">  		&#123;</div><div class="line">          sum += i;</div><div class="line">          i++;</div><div class="line">          goto loop;</div><div class="line">  		&#125;</div><div class="line">  printf(&quot;%d\n&quot;, sum);</div><div class="line">  return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -546,8 +627,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -638,6 +728,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分支语句"><span class="nav-number">1.</span> <span class="nav-text">分支语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句"><span class="nav-number">1.1.</span> <span class="nav-text">if语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if语句的嵌套"><span class="nav-number">1.2.</span> <span class="nav-text">if语句的嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch语句"><span class="nav-number">1.3.</span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#循环语句"><span class="nav-number">2.</span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#while语句"><span class="nav-number">2.1.</span> <span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-while语句"><span class="nav-number">2.2.</span> <span class="nav-text">do/while语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for语句"><span class="nav-number">2.3.</span> <span class="nav-text">for语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#break和continue语句"><span class="nav-number">2.4.</span> <span class="nav-text">break和continue语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环的嵌套"><span class="nav-number">2.5.</span> <span class="nav-text">循环的嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goto语句以及用goto语句构成循环"><span class="nav-number">2.6.</span> <span class="nav-text">goto语句以及用goto语句构成循环</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
