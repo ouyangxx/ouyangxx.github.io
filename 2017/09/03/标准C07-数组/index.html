@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="到目前为止，我们使用的都是属于基本数据类型（整型和实型）的数据，除了基本数据类型C语言还提供了构造数据类型，有数组类型，结构体类型，和共用体类型。构造类型的数据是由基本类型的数据按一定规则组合而成的。&amp;lt;!—more—&amp;gt; 一维数组一维数组的定义1类型说明符 数组名[常量表达式]; 说明：（1）数组名的命名规则和变量名相同，遵守标识符命名规则；（2）在定义数组时必须指定数组中元素的个数即数">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C07-数组">
 <meta property="og:url" content="http://yoursite.com/2017/09/03/标准C07-数组/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:45:56.000Z">
+<meta property="og:description" content="到目前为止，我们使用的都是属于基本数据类型（整型和实型）的数据，除了基本数据类型C语言还提供了构造数据类型，有数组类型，结构体类型，和共用体类型。构造类型的数据是由基本类型的数据按一定规则组合而成的。&amp;lt;!—more—&amp;gt; 一维数组一维数组的定义1类型说明符 数组名[常量表达式]; 说明：（1）数组名的命名规则和变量名相同，遵守标识符命名规则；（2）在定义数组时必须指定数组中元素的个数即数">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-05%20上午10.27.10.png">
+<meta property="og:updated_time" content="2017-10-05T03:49:09.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C07-数组">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="到目前为止，我们使用的都是属于基本数据类型（整型和实型）的数据，除了基本数据类型C语言还提供了构造数据类型，有数组类型，结构体类型，和共用体类型。构造类型的数据是由基本类型的数据按一定规则组合而成的。&amp;lt;!—more—&amp;gt; 一维数组一维数组的定义1类型说明符 数组名[常量表达式]; 说明：（1）数组名的命名规则和变量名相同，遵守标识符命名规则；（2）在定义数组时必须指定数组中元素的个数即数">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-05%20上午10.27.10.png">
 
 
 
@@ -383,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  1,875
                 </span>
               
 
@@ -399,7 +401,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  7
                 </span>
               
             </div>
@@ -417,7 +419,33 @@
       
 
       
-        
+        <p>到目前为止，我们使用的都是属于基本数据类型（整型和实型）的数据，除了基本数据类型C语言还提供了构造数据类型，有数组类型，结构体类型，和共用体类型。构造类型的数据是由基本类型的数据按一定规则组合而成的。<br>&lt;!—more—&gt;</p>
+<h1 id="一维数组"><a href="#一维数组" class="headerlink" title="一维数组"></a>一维数组</h1><h2 id="一维数组的定义"><a href="#一维数组的定义" class="headerlink" title="一维数组的定义"></a>一维数组的定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">类型说明符 数组名[常量表达式];</div></pre></td></tr></table></figure>
+<p>说明：<br>（1）数组名的命名规则和变量名相同，遵守标识符命名规则；<br>（2）在定义数组时必须指定数组中元素的个数即数组的长度，方括号中的表达式就表示这个值；<br>（3）访问数组元素时，下标是从0开始的；<br>（4）常量表达式中可以包括常量和符号常量，不能包括变量，也就是说C语言不允许对数组的大小作动态定义；</p>
+<h2 id="一维数组的引用"><a href="#一维数组的引用" class="headerlink" title="一维数组的引用"></a>一维数组的引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">数组名[下标];</div></pre></td></tr></table></figure>
+<h2 id="一维数组的初始化"><a href="#一维数组的初始化" class="headerlink" title="一维数组的初始化"></a>一维数组的初始化</h2><p>（1）可以在定义数组时集体赋值；<br>（2）可以在定义数组之后再逐个赋值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">int a[10] = &#123;0, 1, 2, 3, 4&#125;;//缺省的默认为0</div><div class="line">a[0] = 10; a[9] = 99;</div></pre></td></tr></table></figure>
+<h1 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h1><h2 id="二维数组的定义"><a href="#二维数组的定义" class="headerlink" title="二维数组的定义"></a>二维数组的定义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">类型说明符 数组名[常量表达式][常量表达式];</div></pre></td></tr></table></figure>
+<p>说明：其实二维数组也是一维数组，它所有的元素本身就和一维数组一样是一维线性排列的，是连续的，并不存在实际的行和列。所以一定要小心了，因为很多书上都把二维数组画成了行和列的形式，这样比喻是没问题的，但我们一定要注意实际上二维数组并不是按行和列存储的，它就是和一维数组一样是线性连续存储的。<br>为了帮助大家正确的理解二维数组，我画一张图贴出来看看，下面是二维数组a[2]&nbsp;[3]的元素排列图<br><img src="/images/shot/屏幕快照 2017-10-05 上午10.27.10.png" alt="屏幕快照 2017-10-05 上午10.27.10"><br>我们可以将二维数组a[2]&nbsp;[3]看成是一维数组，这个一维数组有两个元素：a[0]和[1]。而a[0]和a[1]又分别是一个包含3个元素的一维数组。</p>
+<h2 id="二维数组的引用"><a href="#二维数组的引用" class="headerlink" title="二维数组的引用"></a>二维数组的引用</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">数组名[下标][下标];</div></pre></td></tr></table></figure>
+<h2 id="二维数组的初始化"><a href="#二维数组的初始化" class="headerlink" title="二维数组的初始化"></a>二维数组的初始化</h2><p>（1）可以在定义数组时集体赋值；<br>（2）可以分行赋初值；<br>（3）可以在定义数组之后再逐个赋值；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a[2][3] = &#123;0, 1, 2, 3, 4&#125;;//缺省的默认为0</div><div class="line">int a[2][3] = &#123;&#123;0, 1, 2&#125;, &#123;3, 4&#125;&#125;;//缺省的默认为0</div><div class="line">a[0][0] = 1; a[1][0] = 4;</div></pre></td></tr></table></figure>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>像二维数组一样，一个数组的元素可以是另外一个数组，这样就构成了多维数组。</p>
+<h1 id="字符数组"><a href="#字符数组" class="headerlink" title="字符数组"></a>字符数组</h1><p>字符型数据是以字符的 ASCII 代码存储在存储单元中的，一般占一个字节。由于 ASCII 代码也属于整数形式，因此在 C99 标准中，把字符类型归纳为整型类型中的一种。C 语言中没有字符串类型，字符串是存放在字符型数组中的。</p>
+<h2 id="字符数组的定义、初始化及数组元素的引用"><a href="#字符数组的定义、初始化及数组元素的引用" class="headerlink" title="字符数组的定义、初始化及数组元素的引用"></a>字符数组的定义、初始化及数组元素的引用</h2><p>用“初始化列表”对字符数组初始化，主要有以下几种情况：<br>（1）若定义字符数组时不进行初始化，则数组中各元素的值是不可预料的；<br>（2）若初值个数大于数组长度，则会出现语法错误；<br>（3）若提供的初值个数小于数组长度，则只将这些字符赋给数组中前面那些元素，其余自动定为’\0’；<br>（4）若初值个数与预定的数组长度相同，在定义时可以省略数组长度，系统会自动根据初值个数确定数组长度；</p>
+<p>程序示例：定义并初始化字符数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">char c[4] = &#123;‘I’, ’’, ’a’, ’m’&#125;;</div><div class="line">char c[] = &#123;‘I’, ’’, ’a’, ’m’&#125;;</div><div class="line">char c[][5] = &#123;&#123;‘a’, ’b’&#125;, &#123;‘c’&#125;, &#123;‘d’&#125;, &#123;&#125;, &#123;&#125;&#125;;</div></pre></td></tr></table></figure></p>
+<p>程序示例：引用数组元素，输出一个已知的字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">    char c[5] = &#123;&apos;I&apos;, &apos; &apos;, &apos;a&apos;, &apos;m&apos;, &apos;.&apos;&#125;;</div><div class="line">    int i;</div><div class="line">    for(i = 0; i &lt; 5; i++)</div><div class="line">       printf(&quot;%c&quot;, c[i]);</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">	return 0; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="字符串和字符串结束标志"><a href="#字符串和字符串结束标志" class="headerlink" title="字符串和字符串结束标志"></a>字符串和字符串结束标志</h2><p>在字符数组中，若遇到’\0’，则认为数组中有一个字符串，并表示字符串结束，把它前面的字符组成一个字符串。C 在用字符数组存储字符串常量时会自动加一个’\0’作为结束符，’\0’占一个字节的内存，计入字符数组的长度，但不计入字符串的实际长度。’\0’代表 ASCII 码为 0 的字符，是一个“空字符”，即不显示。<br>用字符串常量初始化字符数组，在字符串常量的最后系统会自动加上一个’\0’，而字符数组却不会，若要表示成字符串，需要人为的加上’\0，,所以以下初始化等价：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">char c[]=&#123;“I am happy”&#125;;或 char c[]=”I am happy”; </div><div class="line">等价于：</div><div class="line">char c[]=&#123;&apos;I&apos;,&apos;&apos;,&apos;a&apos;,&apos;m&apos;,&apos;&apos;,&apos;h&apos;,&apos;a&apos;,&apos;p&apos;,&apos;p&apos;,&apos;y&apos;,&apos;\0&apos;&#125;;</div></pre></td></tr></table></figure>
+<h2 id="字符数组的输入输出"><a href="#字符数组的输入输出" class="headerlink" title="字符数组的输入输出"></a>字符数组的输入输出</h2><p>两种方法：<br>（1）用格式符%c 实现逐个字符的输入或输出；<br>（2）用格式符%s 实现字符串的整体输入或输出；</p>
+<p>example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">char c[10] = ”China”; </div><div class="line">printf(“%s\n”, c);</div></pre></td></tr></table></figure></p>
+<p>输出时，先按数组名 c 找到数组起始地址，然后逐个输出字符，直到遇到第一个’\0’就停止输出，printf 函数中的输出项是字符数组名，而不是数组元素名。    </p>
+<p>example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">char str[13]; </div><div class="line">scanf(“%s”,str);</div></pre></td></tr></table></figure></p>
+<p>如果输入”How are you?”，由于系统把空格字符作为输入的字符串之间的分隔符，因此只会将第一个空格前的字符”How”送到 str 中，然后自动加一个’\0’结束符，其他位置也都默认为’\0’，scanf 函数中的输入项是数组名，代表该数组的起始地址。    </p>
+<h2 id="字符串处理函数"><a href="#字符串处理函数" class="headerlink" title="字符串处理函数"></a>字符串处理函数</h2><p>库函数并非 C 语言本身的组成部分，而是 C 编译系统为方便用户使用而提供的公共函数。</p>
+<p><stdio.h> 中的函数<br>| 一般形式       | 函数功能                              |<br>| ———- | ——————————— |<br>| puts(字符数组) | 输出一个字符串到终端                        |<br>| gets(字符数组) | 从终端输入一个字符串到字符数组,得到一个函数值(字符数组的起始地址 |</stdio.h></p>
+<p><string.h> 中的函数<br>| 一般形式                  | 函数功能                                     |<br>| ——————— | —————————————- |<br>| strcat(字符数组 1,字符数组 2) | 把数组 2 中的字符串连接到数组 1 中的字符串后面,结果放在数组 1 中,连接时将字符串 1 后的’\0’取消,只在新串最后保留’\0’,函数调用后得到一个函数值(字符数组 1 的起始地址) |<br>| strcpy(字符数组 1,字符串 2)  | 将字符串 2 复制到字符数组 1 中,复制后数组 1 中第一个’\0’后的字符保持原来不变 |<br>| strcmp(字符串 1,字符串 2)   | 比较字符串 1 和字符串 2,按 ASCII 码自左至右逐个字符相比,直到出现不同的字符或遇’\0’为止,比较后得到一个返回值(0,正整数,或负整数) |<br>| strlen(字符数组)          | 返回字符串的实际长度(不包括’ \0’)                     |<br>| strlwr(函数)            | 将字符串中大写字母转换成小写字母                         |<br>| strupr(字符串)           | 将字符串中小写字母转换成大写字母                         |<br>​<br>​    </string.h></p>
+
       
     </div>
 
@@ -536,8 +564,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -628,6 +665,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一维数组"><span class="nav-number">1.</span> <span class="nav-text">一维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组的定义"><span class="nav-number">1.1.</span> <span class="nav-text">一维数组的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组的引用"><span class="nav-number">1.2.</span> <span class="nav-text">一维数组的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一维数组的初始化"><span class="nav-number">1.3.</span> <span class="nav-text">一维数组的初始化</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二维数组"><span class="nav-number">2.</span> <span class="nav-text">二维数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的定义"><span class="nav-number">2.1.</span> <span class="nav-text">二维数组的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的引用"><span class="nav-number">2.2.</span> <span class="nav-text">二维数组的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二维数组的初始化"><span class="nav-number">2.3.</span> <span class="nav-text">二维数组的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组"><span class="nav-number">2.4.</span> <span class="nav-text">多维数组</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符数组"><span class="nav-number">3.</span> <span class="nav-text">字符数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符数组的定义、初始化及数组元素的引用"><span class="nav-number">3.1.</span> <span class="nav-text">字符数组的定义、初始化及数组元素的引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串和字符串结束标志"><span class="nav-number">3.2.</span> <span class="nav-text">字符串和字符串结束标志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符数组的输入输出"><span class="nav-number">3.3.</span> <span class="nav-text">字符数组的输入输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串处理函数"><span class="nav-number">3.4.</span> <span class="nav-text">字符串处理函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
