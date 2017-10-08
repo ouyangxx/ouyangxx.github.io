@@ -90,20 +90,20 @@
 
 
 
-<meta name="description" content="指针这部分内容真的是相当重要，初学者一定要先理解到位，然后做大量的练习，然后再进行知识点总结。">
+<meta name="description" content="指针是C语言中的一个重要概念，也是C语言的一个重要特色。正确而灵活地应用它，可以有效地表示复杂的数据结构；能动态分配内存；能方便使用字符串；能方便使用数组；能在调用函数获得1个以上的结果；能直接处理内存单元地址等。指针对设计系统软件是非常必要的，掌握指针的应用可以使程序简洁，紧凑，高效。每一个学习和使用C语言的人，都应当深入学习和掌握指针。可以说，不掌握指针就是没有掌握C的精华。">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C08-指针">
 <meta property="og:url" content="http://yoursite.com/2017/09/10/标准C08-指针/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="指针这部分内容真的是相当重要，初学者一定要先理解到位，然后做大量的练习，然后再进行知识点总结。">
+<meta property="og:description" content="指针是C语言中的一个重要概念，也是C语言的一个重要特色。正确而灵活地应用它，可以有效地表示复杂的数据结构；能动态分配内存；能方便使用字符串；能方便使用数组；能在调用函数获得1个以上的结果；能直接处理内存单元地址等。指针对设计系统软件是非常必要的，掌握指针的应用可以使程序简洁，紧凑，高效。每一个学习和使用C语言的人，都应当深入学习和掌握指针。可以说，不掌握指针就是没有掌握C的精华。">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-05%20下午3.09.08.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-05%20下午3.29.03.png">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-06%20下午2.46.45.png">
-<meta property="og:updated_time" content="2017-10-06T07:44:09.688Z">
+<meta property="og:updated_time" content="2017-10-08T03:20:34.054Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C08-指针">
-<meta name="twitter:description" content="指针这部分内容真的是相当重要，初学者一定要先理解到位，然后做大量的练习，然后再进行知识点总结。">
+<meta name="twitter:description" content="指针是C语言中的一个重要概念，也是C语言的一个重要特色。正确而灵活地应用它，可以有效地表示复杂的数据结构；能动态分配内存；能方便使用字符串；能方便使用数组；能在调用函数获得1个以上的结果；能直接处理内存单元地址等。指针对设计系统软件是非常必要的，掌握指针的应用可以使程序简洁，紧凑，高效。每一个学习和使用C语言的人，都应当深入学习和掌握指针。可以说，不掌握指针就是没有掌握C的精华。">
 <meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-05%20下午3.09.08.png">
 
 
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  8,964
+                  9,095
                 </span>
               
 
@@ -421,7 +421,7 @@
       
 
       
-        <p>指针这部分内容真的是相当重要，初学者一定要先理解到位，然后做大量的练习，然后再进行知识点总结。<br><a id="more"></a></p>
+        <p>指针是C语言中的一个重要概念，也是C语言的一个重要特色。正确而灵活地应用它，可以有效地表示复杂的数据结构；能动态分配内存；能方便使用字符串；能方便使用数组；能在调用函数获得1个以上的结果；能直接处理内存单元地址等。指针对设计系统软件是非常必要的，掌握指针的应用可以使程序简洁，紧凑，高效。每一个学习和使用C语言的人，都应当深入学习和掌握指针。可以说，不掌握指针就是没有掌握C的精华。<br><a id="more"></a></p>
 <h1 id="指针和指针变量的概念"><a href="#指针和指针变量的概念" class="headerlink" title="指针和指针变量的概念"></a>指针和指针变量的概念</h1><h2 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h2><p>地址：内存单元中的每个字节都有一个编号，称为地址，对变量值的存取都是通过地址进行的。<br><code>scanf(&quot;%d&quot;,&amp;i);</code>把键盘输入的值送到地址为&amp;i(2000)开始的整型存储单元；<br><code>printf(&quot;%d&quot;,i);</code>编译时通过变量名找到存储单元的地址，然后通过地址取出存储单元的内容并输出。</p>
 <h2 id="直接访问和间接访问"><a href="#直接访问和间接访问" class="headerlink" title="直接访问和间接访问"></a>直接访问和间接访问</h2><p>直接访问：变量名与变量的地址有一一对应关系，直接按变量名进行的访问就是直接通过变量名找到存储单元的地址，然后通过地址存取存储单元的内容。<br>间接访问：将变量 i 的地址存放在另一变量中，先通过该变量取出变量 i的地址(2000)，然后找到以 2000 字节开始的内存单元，最后在这个内存单元中取出 i 的值，如：i_pointer=&amp;i。</p>
 <h2 id="指针和指针变量"><a href="#指针和指针变量" class="headerlink" title="指针和指针变量"></a>指针和指针变量</h2><p>指针：由于地址指向内存单元，所以被形象化的称为指针，即一个变量的地址称为该变量的指针，通过指针能找到以它为地址的内存单元。<br>指针变量：一个变量专门用来存放另一变量的地址(指针)，该变量称为指针变量。<br>区别：指针就是地址，而指针变量是存放指针(地址)的变量。    </p>
