@@ -98,7 +98,7 @@
 <meta property="og:site_name" content="林夕相心编程者">
 <meta property="og:description" content="在编程语言中，最基本的，不可再分的数据类型称为基本类型，例如整型，浮点型；根据语法规则由基本类型组合而成的类型称为复合类型，数组就是一种复合类型，这一篇内容将介绍另一种复合类型－结构体。先来讲下数组和结构体概念上的区别：  数组：由多个同类型的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类型 结构体：可以由多个不同类型的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类">
 <meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-08%20上午11.04.47.png">
-<meta property="og:updated_time" content="2017-10-08T03:21:32.442Z">
+<meta property="og:updated_time" content="2017-10-08T03:34:19.976Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C09-结构体">
 <meta name="twitter:description" content="在编程语言中，最基本的，不可再分的数据类型称为基本类型，例如整型，浮点型；根据语法规则由基本类型组合而成的类型称为复合类型，数组就是一种复合类型，这一篇内容将介绍另一种复合类型－结构体。先来讲下数组和结构体概念上的区别：  数组：由多个同类型的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类型 结构体：可以由多个不同类型的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类">
@@ -422,16 +422,27 @@
         <p>在编程语言中，最基本的，不可再分的数据类型称为基本类型，例如整型，浮点型；根据语法规则由基本类型组合而成的类型称为复合类型，数组就是一种复合类型，这一篇内容将介绍另一种复合类型－结构体。先来讲下数组和结构体概念上的区别：</p>
 <ul>
 <li>数组：由多个<strong>同类型</strong>的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类型</li>
-<li>结构体：可以由多个<strong>不同类型</strong>的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类型<a id="more"></a>
-<h1 id="定义和使用结构体变量"><a href="#定义和使用结构体变量" class="headerlink" title="定义和使用结构体变量"></a>定义和使用结构体变量</h1></li>
+<li>结构体：可以由多个<strong>不同类型</strong>的数据组合而成，成员数据的类型不一定是基本类型，也可以是自定义类型</li>
 </ul>
-<p>声明一个结构体类型的一般形式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct 结构体名</div><div class="line">&#123;</div><div class="line">	成员列表</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="定义和使用结构体变量"><a href="#定义和使用结构体变量" class="headerlink" title="定义和使用结构体变量"></a>定义和使用结构体变量</h1><p>声明一个结构体类型的一般形式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">struct 结构体名</div><div class="line">&#123;</div><div class="line">	成员列表</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
 <p>结构体类型的名字：“struct 结构体名”</p>
 <p>在编译时，对类型是不分配空间的，而只对变量分配空间。在初始化结构体变量时，可以采用初始化列表对结构体成员依次赋值，且只能对最低级的成员进行赋值或存取以及运算 ，其中未被指定初值的数值型变量默认为0，char 型默认为’\0’，指针类型默认为NULL。</p>
 <p>“.”是成员运算符，它在所有的运算符中优先级最高<br>“-&gt;”是指向运算符，(*p).name ↔ p-&gt;name</p>
 <h1 id="用-typedef-定义类型"><a href="#用-typedef-定义类型" class="headerlink" title="用 typedef 定义类型"></a>用 typedef 定义类型</h1><p>typedef 是用来给已存在的类型起一个别名，并不能创造新类型，如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">typedef int              INTEGER;        /*指定用 INTEGER 代替 int 类型*/</div><div class="line">typedef int              NUM[100];       /*声明 NUM 为整形数组类型*/</div><div class="line">typedef char *           STRING;         /*声明 STRING 为字符指针类型*/</div><div class="line">typedef int            (*POINTER)();     /*声明 POINTER 为指向函数的指针类型,返回int*/</div><div class="line">typedef struct Student   stu_t;          /*声明 stu_t 为结构体类型*/ </div><div class="line">typedef stu_t *          stu_p;          /*声明stu_p为结构体指针类型*/</div></pre></td></tr></table></figure></p>
 <p>归纳，声明一个新类型名的方法：<br>(1) 先按定义变量形式书写，如 int (<em>f)();<br>(2) 将变量名换成指定的新类型名，如 int (</em>POINTER)();<br>(3) 在前面加上 typedef，得到 typedef int (*POINTER)();<br>(4) 用来定义变量，如 POINTER p1;</p>
-<p><strong>对比typedef 和#define 的区别</strong>，例如：typedef int COUNT;和#define COUNT int;<br>都是用 COUNT 来代替 int，但二者是不同的，#define 是在预编译时处理的，只能作简单的字符串替；而 typedef 是在编译时处理的，而且不是作简单的字符串替换，而是采用如同定义变量的方法来声明类型。<br>当不同源文件都要用到同一类型数据时，可以用 typedef 声明一些数据类型，并单独的放到一个文件中，在需要用的文件中用#include 包含此文件即可，使用 typedef 有利于程序的通用和移植，在移植时只需改动 typedef 定义体即可，如：typedef int INTEGER; → typedef long INTEGER;</p>
+<table>
+<thead>
+<tr>
+<th><strong>对比typedef 和#define 的区别</strong>，例如：typedef int COUNT;和#define COUNT int;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>都是用 COUNT 来代替 int，但二者是不同的，#define 是在预编译时处理的，只能作简单的字符串替；而 typedef 是在编译时处理的，而且不是作简单的字符串替换，而是采用如同定义变量的方法来声明类型。当不同源文件都要用到同一类型数据时，可以用 typedef 声明一些数据类型，并单独的放到一个文件中，在需要用的文件中用#include 包含此文件即可，使用 typedef 有利于程序的通用和移植，在移植时只需改动 typedef 定义体即可，如：typedef int INTEGER; → typedef long INTEGER;</td>
+</tr>
+</tbody>
+</table>
 <h1 id="结构体变量内存分配规则"><a href="#结构体变量内存分配规则" class="headerlink" title="结构体变量内存分配规则"></a>结构体变量内存分配规则</h1><p>(1) 存放每个成员的起始地址必须是该成员访问方式的整数倍；<br>(2) 所有成员必须遵循以最高访问方式对齐的规律；</p>
 <p>实例：统计 stu_t 结构体变量所占字节数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">typedef struct stu_info </div><div class="line">&#123;</div><div class="line">	char  sex;  /*存放在以1的整数倍开始的地址*/</div><div class="line">	int   num;  /*存放在以4的整数倍开始的地址*/</div><div class="line">	short age;  /*存放在以2的整数倍开始的地址*/</div><div class="line">  </div><div class="line">    /*sex,num,age 三变量存储时遵循4字节对齐*/ </div><div class="line">&#125;stu_t;</div></pre></td></tr></table></figure></p>
 <p><img src="/images/shot/屏幕快照 2017-10-08 上午11.04.47.png" alt="屏幕快照 2017-10-08 上午11.04.47"><br>由上图可见，一个 stu_t 变量在内存中共占 12 个字节。</p>
