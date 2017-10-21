@@ -90,17 +90,19 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="ANSI C 标准规定可在 C 源程序中加入“预处理命令”，用来改进程序设计环境，提高编程效率。预处理命令不是 C 语句，不能直接对它进行编译，必须在对程序编译之前，对这些特殊命令做“预处理”。若用#define 命令定义一个符号常量 A，则预处理时会将程序中所有的 A 都置换为指定的字符串；若程序中用#include 命令包含一个头文件，则预处理时会用头文件中的实际内容代替该命令。经过预处理后的">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C10-预处理">
 <meta property="og:url" content="http://yoursite.com/2017/09/24/标准C10-预处理/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:47:00.000Z">
+<meta property="og:description" content="ANSI C 标准规定可在 C 源程序中加入“预处理命令”，用来改进程序设计环境，提高编程效率。预处理命令不是 C 语句，不能直接对它进行编译，必须在对程序编译之前，对这些特殊命令做“预处理”。若用#define 命令定义一个符号常量 A，则预处理时会将程序中所有的 A 都置换为指定的字符串；若程序中用#include 命令包含一个头文件，则预处理时会用头文件中的实际内容代替该命令。经过预处理后的">
+<meta property="og:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-14%20下午3.06.21.png">
+<meta property="og:updated_time" content="2017-10-21T03:02:51.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C10-预处理">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="ANSI C 标准规定可在 C 源程序中加入“预处理命令”，用来改进程序设计环境，提高编程效率。预处理命令不是 C 语句，不能直接对它进行编译，必须在对程序编译之前，对这些特殊命令做“预处理”。若用#define 命令定义一个符号常量 A，则预处理时会将程序中所有的 A 都置换为指定的字符串；若程序中用#include 命令包含一个头文件，则预处理时会用头文件中的实际内容代替该命令。经过预处理后的">
+<meta name="twitter:image" content="http://yoursite.com/images/shot/屏幕快照%202017-10-14%20下午3.06.21.png">
 
 
 
@@ -383,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  4,348
                 </span>
               
 
@@ -399,7 +401,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  17
                 </span>
               
             </div>
@@ -417,7 +419,98 @@
       
 
       
-        
+        <p>ANSI C 标准规定可在 C 源程序中加入“预处理命令”，用来改进程序设计环境，提高编程效率。<br>预处理命令不是 C 语句，不能直接对它进行编译，必须在对程序编译之前，对这些特殊命令做“预处理”。<br>若用#define 命令定义一个符号常量 A，则预处理时会将程序中所有的 A 都置换为指定的字符串；若程序中用#include 命令包含一个头文件，则预处理时会用头文件中的实际内容代替该命令。经过预处理后的程序就不再包括预处理命令了，最后再由编译程序对预处理后的源程序进行编译处理，进而得到可执行目标代码。<br>C 提供的预处理功能主要有 3 种：宏定义；文件包含；条件编译。这些命令都以”#”开头。<br>&lt;!—more–&gt;</p>
+<h1 id="预处理步骤"><a href="#预处理步骤" class="headerlink" title="预处理步骤"></a>预处理步骤</h1><p>我们先来了解一下C编译器做语法解析之前的预处理步骤：<br>第1步：把<a href="#三连符">三连符</a>替换成相应的单字符；<br>第2步：把用\字符续行的多行代码接成一行；例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define STR &quot;hello, &quot; \</div><div class="line">				&quot;world&quot;</div></pre></td></tr></table></figure></p>
+<p>经过这个预处理步骤之后接成一行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define STR &quot;hello, &quot;		&quot;world&quot;</div></pre></td></tr></table></figure></p>
+<p>这种续行的写法要求\后面紧跟换行，中间不能有其它空白字符。<br>第3步：把注释(不管是单行注释还是多行注释)都替换成一个空格。<br>第4步：经过以上两步之后去掉了一些换行，有的换行在续行过程中去掉了，有的换行在多行注释之中也随着注释一起去掉了，剩下的代码行称为<strong>逻辑代码行</strong>。然后预处理器把逻辑代码行划分成Token和空白字符，这时的Token称为预处理Token，包括标识符、整数常量、浮点数常量、字符常量、字符串、运算符和其它符号。继续上面的例子，两个源代码行被接成一个逻辑代码行，然后这个逻辑代码行被划分成Token和空白字符：#，define，空格，STR，空格，”hello, “，Tab，Tab，”world”。<br>第5步：在Token中识别出预处理指示，做相应的预处理动作，如果遇到#include预处理指示，则把相应的源文件包含进来，并对源文件做以上1-4步预处理。如果遇到宏定义则做宏展开。<br>第6步：找出字符常量或字符串中的转义序列，用相应的字节来替换它，比如把\n替换成字节0x0a。<br>第7步：把相邻的字符串连接起来。继续上面的例子,如果代码中有:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf(</div><div class="line">		STR);</div></pre></td></tr></table></figure></p>
+<p>经过第4步处理划分成以下Token：printf，(，换行，Tab，STR，)，；，换行。经过第5步宏展开后变成以下Token：printf，(，换行，Tab，”hello, “，Tab，Tab，”world”，)，；，换行。然后把相邻的字符串连接起来，变成以下Token：printf，(，换行，Tab，”hello, world”，)，；，换行。<br>第8步：经过以上处理之后，把空白字符丢掉，把Token交给C编译器做语法解析，这时就不再是预处理Token，而称为C Token了。这里丢掉的空白字符包括空格、换行、水平Tab、垂直Tab、分页符。继续上面的例子，最后交给C编译器做语法解析的Token是：printf，(，”hello, world”，)，；。</p>
+<p>现在给出预处理指示这个概念的严格定义：<strong>一条预处理指示由一个逻辑代码行组成，以#开头，后面跟若干个预处理Token，在预处理指示中允许使用的空白字符只有空格和Tab。</strong><br><strong>注意，把一个预处理指示写成多行要用\续行。</strong>因为根据定义，一条预处理指示只能由一个逻辑代码行组成，而把C代码写成多行则不需要用\续行，因为换行在C代码中只不过是一种空白字符，在做语法解析时所有空白字符都已经丢掉了。    </p>
+<p><span id="三连符">三连符 ：在某些特殊的终端上缺少某些字符，可以用三个连续的字符来表示一个字符，例如用??=表示#字符，即三连符是一种转义字符或特殊字符，它可以转为普通字符。</span></p>
+<h1 id="宏定义"><a href="#宏定义" class="headerlink" title="宏定义"></a>宏定义</h1><p>宏定义是宏名代替字符串，只做简单置换，不做正确性检查，只做字符替换，不分配内存空间。宏名的有效范围为定义命令之后到本源文件结束，当然可以用#undef 命令来终止宏定义的作用域。<br>宏定义名可以像变量一样在代码中使用称为变量式宏定义。宏定义名可以像函数调用一样在代码中使用称为函数式宏定义。    有关宏展开的语法规则本节将做全面讲解，因为它很重要也很常用。<br><img src="/images/shot/屏幕快照 2017-10-14 下午3.06.21.png" alt="屏幕快照 2017-10-14 下午3.06.21"></p>
+<h2 id="变量式宏定义"><a href="#变量式宏定义" class="headerlink" title="变量式宏定义"></a>变量式宏定义</h2><p>一般格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define 标识符 字符串</div></pre></td></tr></table></figure></p>
+<h2 id="函数式宏定义"><a href="#函数式宏定义" class="headerlink" title="函数式宏定义"></a>函数式宏定义</h2><p>一般格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define 宏名(参数表) 字符串</div></pre></td></tr></table></figure></p>
+<p>例如编写一个文件main.c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define MAX(a, b) ((a)&gt;(b)?(a):(b))</div><div class="line">k = MAX(i&amp;0x0f, j&amp;0x0f)</div></pre></td></tr></table></figure></p>
+<p>我们想看第二行的表达式展开成什么样，可以用gcc的-E选项或cpp命令，尽管这个C程序不合语法，但没关系，我们只做预处理而不编译，不会检查程序是否符合C语法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ cpp main.c</div><div class="line"># 1 &quot;main.c&quot;</div><div class="line"># 1 &quot;&lt;built-in&gt;&quot;</div><div class="line"># 1 &quot;&lt;command-line&gt;&quot; </div><div class="line"># 1 &quot;main.c&quot;</div><div class="line"></div><div class="line">k = ((i&amp;0x0f)&gt;(j&amp;0x0f)?(i&amp;0x0f):(j&amp;0x0f))</div></pre></td></tr></table></figure></p>
+<p>就像函数调用一样，把两个实参分别替换到宏定义中形参a和b的位置。<br>定义这种宏要格外小心，如果上面的定义写成#define MAX(a, b) (a&gt;b?a:b)，省去内层括号，则宏展开就成了k = (i&amp;0x0f&gt;j&amp;0x0f?i&amp;0x0f:j&amp;0x0f)，运算的优先级就错了。同样道理，这个宏定义的外层括号也是不能省的，想一想为什么。</p>
+<p>函数式宏定义经常写成这样的形式(取自内核代码include/linux/pm.h)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define device_init_wakeup(dev,val) \</div><div class="line">	do &#123; \</div><div class="line">		device_can_wakeup(dev) = !!(val); \</div><div class="line">		device_set_wakeup_enable(dev,val); \</div><div class="line">	&#125; while(0)</div></pre></td></tr></table></figure></p>
+<p>为什么要用do { … } while(0)括起来呢？不括起来会有什么问题呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define device_init_wakeup(dev,val) \</div><div class="line">               device_can_wakeup(dev) = !!(val); \</div><div class="line">               device_set_wakeup_enable(dev,val);</div><div class="line">if (n &gt; 0)</div><div class="line">	device_init_wakeup(d, v);</div></pre></td></tr></table></figure></p>
+<p>这样宏展开之后，函数体的第二条语句不在if条件中。那么简单地用{ … }括起来组成一个语句块不行吗？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#define device_init_wakeup(dev,val) \</div><div class="line">				&#123; device_can_wakeup(dev) = !!(val); \</div><div class="line">              	 device_set_wakeup_enable(dev,val); &#125;</div><div class="line">if (n &gt; 0)</div><div class="line">	device_init_wakeup(d, v);</div><div class="line">else</div><div class="line">	continue;</div></pre></td></tr></table></figure></p>
+<p>问题出在device_init_wakeup(d, v);末尾的;号，如果不允许写这个;号，看起来不像个函数调用，可如果写了这个;号，宏展开之后就有语法错误，if语句被这个;号结束掉了，没法跟else配对。因此，do { … } while(0)是一种比较好的解决办法。            </p>
+<p>函数式宏定义和函数调用的区别：</p>
+<ul>
+<li><strong>函数调用要求实参和形参类型保持一致；而调用函数式宏定义参数没有类型不做参数类型检查。</strong>因此调用函数式宏定义传参时要格外小心。</li>
+<li><strong>函数调用在编译时生成的指令是简单的传参指令和call指令；而调用函数式宏定义在编译时生成的指令相当于一个函数体。</strong>因此使用函数式宏定义编译生成的目标文件会比较大。</li>
+<li><strong>函数调用会先计算出实参表达式的值然后传给形参；而调用函数式宏定义预处理器只负责做形式上的替换。</strong>例如MAX(++a, ++b)，该表达式有Side Effect，如果MAX是个真正的函数则a和b只增加一次。但如果MAX是函数式宏定义，则要展开成k = ((++a)&gt;(++b)?(++a):(++b))，a和b就不一定是增加一次还是两次了。</li>
+</ul>
+<p>尽管函数式宏定义和真正的函数相比有很多缺点，但只要小心使用还是会显著提高代码的执行效率，毕竟省去了分配和释放栈帧、传参、传返回值等一系列工作，因此那些简短并且被频繁调用的函数经常用函数式宏定义来代替实现。例如C标准库的很多函数都提供两种实现，一种是真正的函数实现，一种是宏定义实现。</p>
+<h2 id="內联函数"><a href="#內联函数" class="headerlink" title="內联函数"></a>內联函数</h2><p>C99引入一个新关键字inline，用于定义内联函数(inline function)。这种用法在内核代码中很常见，例如include/linux/rwsem.h中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">static inline void down_read(struct rw_semaphore *sem)</div><div class="line">&#123;</div><div class="line">  	might_sleep();</div><div class="line">	rwsemtrace(sem,&quot;Entering down_read&quot;);</div><div class="line">	__down_read(sem);</div><div class="line">	rwsemtrace(sem,&quot;Leaving down_read&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>inline关键字告诉编译器，这个函数的调用要尽可能快，可以当普通的函数调用实现，也可以用宏展开的办法实现。</p>
+<h2 id="、-运算符和可变参数"><a href="#、-运算符和可变参数" class="headerlink" title="#、##运算符和可变参数"></a>#、##运算符和可变参数</h2><p>(1) 宏定义中的#运算符：仅限于在函数式宏定义中使用，用于创建字符串<br>(2) 宏定义中的##运算符：可在变量式和函数式宏定义中使用，用于将运算符前后两个预处理Token连接成一个预处理Token，不能出现在宏定义的开头或结尾</p>
+<p>在函数式宏定义中，#运算符用于创建字符串，#运算符后面应该跟一个形参(中间可以有空格或Tab)，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define STR(s) # s</div><div class="line">STR(hello 		world)</div></pre></td></tr></table></figure></p>
+<p>用cpp命令预处理之后是”hello world”，自动用”号把实参括起来成为一个字符串，并且实参中的连续多个空白字符被替换成一个空格。</p>
+<p>再比如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define STR(s) #s</div><div class="line">fputs(STR(strncmp(&quot;ab\&quot;c\0d&quot;, &quot;abc&quot;, &apos;\4&quot;&apos;)</div><div class="line">		== 0) STR(: @\n), s);</div></pre></td></tr></table></figure></p>
+<p>预处理之后是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">fputs(&quot;strncmp(\&quot;ab\\\&quot;c\\0d\&quot;, \&quot;abc\&quot;, &apos;\\4\&quot;&apos;) == 0&quot; &quot;: @\n&quot;, s);</div></pre></td></tr></table></figure></p>
+<p>注意如果实参中包含字符常量或字符串，则宏展开之后字符串的界定符”要替换成\”，字符常量或字符串中的\和”字符要替换成\ \和\”。</p>
+<p>在宏定义中可以用##运算符把前后两个预处理Token连接成一个预处理Token，和#运算符不同，##运算符不仅限于函数式宏定义，变量式宏定义也可以用。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define HASH_HASH # ## #</div></pre></td></tr></table></figure></p>
+<p>中间的##是运算符，宏展开时前后两个#号被这个运算符连接在一起。注意中间的两个空格是不可少的，如果写成####，会被划分成##和##两个Token，而根据定义##运算符用于连接前后两个预处理Token，不能出现在宏定义的开头或末尾，所以会报错。</p>
+<p>我们知道printf函数带有可变参数，函数式宏定义也可以带可变参数，同样是在参数列表中用…表示可变参数。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define showlist(...) printf(#__VA_ARGS__) </div><div class="line">#define report(test, ...) ((test)?printf(#test):\</div><div class="line">	printf(__VA_ARGS__))</div><div class="line">showlist(The first, second, and third items.); </div><div class="line">report(x&gt;y, &quot;x is %d but y is %d&quot;, x, y);</div></pre></td></tr></table></figure></p>
+<p>预处理之后变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf(&quot;The first, second, and third items.&quot;); </div><div class="line">((x&gt;y)?printf(&quot;x&gt;y&quot;): printf(&quot;x is %d but y is %d&quot;, x, y));</div></pre></td></tr></table></figure></p>
+<p>在宏定义中，可变参数的部分用<strong> VA_ARGS </strong> 表示，实参中对应…的几个参数可以看成一个参数替换到宏定义中<strong> VA_ARGS </strong>所在的地方。</p>
+<p>调用函数式宏定义允许传空参数，这一点和函数调用不同，通过下面几个例子理解空参数的用法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#define FOO() foo</div><div class="line">FOO()</div></pre></td></tr></table></figure></p>
+<p>预处理之后变成foo。FOO在定义时不带参数，在调用时也不允许传参数给它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define FOO(a) foo##a</div><div class="line">FOO(bar)</div><div class="line">FOO()</div></pre></td></tr></table></figure>
+<p>预处理之后变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">foobar </div><div class="line">foo</div></pre></td></tr></table></figure></p>
+<p>FOO在定义时带一个参数，在调用时必须传一个参数给它，如果不传参数则表示传了一个空参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#define FOO(a, b, c) a##b##c</div><div class="line">FOO(1,2,3)</div><div class="line">FOO(1,2,)</div><div class="line">FOO(1,,3)</div><div class="line">FOO(,,3)</div></pre></td></tr></table></figure>
+<p>预处理之后变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">123 </div><div class="line">12 </div><div class="line">13 </div><div class="line">3</div></pre></td></tr></table></figure></p>
+<p>FOO在定义时带三个参数，在调用时也必须传三个参数给它，空参数的位置可以空着，但必须给够三个参数，FOO(1,2)这样的调用是错误的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define FOO(a, ...) a##__VA_ARGS__</div><div class="line">FOO(1)</div><div class="line">FOO(1,2,3,)</div></pre></td></tr></table></figure>
+<p>预处理之后变成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1 </div><div class="line">12,3,</div></pre></td></tr></table></figure></p>
+<p>FOO(1)这个调用相当于可变参数部分传了一个空参数，FOO(1,2,3,)这个调用相当于可变参数部分传了三个参数，第三个是空参数。</p>
+<p>gcc有一种扩展语法，如果##运算符用在<strong> VA_ARGS </strong>前面，除了起连接作用之外还有特殊的含义，例如内核代码net/netfilter/nf_conntrack_proto_sctp.c中的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define DEBUGP(format, ...) printk(format, ## __VA_ARGS__)</div></pre></td></tr></table></figure></p>
+<p>printk这个内核函数相当于printf，也带有格式化字符串和可变参数，由于内核不能调用libc的函数，所以另外实现了一个打印函数。这个函数式宏定义可以这样调用:DEBUGP(“info no. %d”, 1)。也可以这样用:DEBUGP(“info”)。后者相当于可变参数部分传了一个空参数，但展开后并不是printk(“info”,)，而是printk(“info”)，当__VA_ARGS是空参数时，##运算符把它前面的，号“吃”掉了。</p>
+<h2 id="宏展开的步骤"><a href="#宏展开的步骤" class="headerlink" title="宏展开的步骤"></a>宏展开的步骤</h2><p>以上举的宏展开的例子都是最简单的，有些宏展开的过程要做多次替换，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#define sh(x) printf(&quot;n&quot; #x &quot;=%d, or %d\n&quot;,n##x,alt[x]) </div><div class="line">#define sub_z 26</div><div class="line">sh(sub_z)</div></pre></td></tr></table></figure></p>
+<p>sh(sub_z)要用sh(x)这个宏定义来展开，形参x对应的实参是sub_z，替换过程如下：</p>
+<ol>
+<li>#x要替换成”sub_z”。</li>
+<li>n##x要替换成nsub_z。</li>
+<li>除了带#和##运算符的参数之外，其它参数在替换之前要对实参本身做充分的展开，所以应该先把sub_z展开成26再替换到alt[x]中x的位置。</li>
+<li>现在展开成了printf(“n” “sub_z” “=%d, or %d\n”, nsub_z,alt[26])，所有参数都替换完了，这时编译器会再扫描一遍，再找出可以展开的宏定义来展开，假设nsub_z或alt是变量式宏定义，这时会进一步展开。</li>
+</ol>
+<p>再举一个例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#define x 3</div><div class="line">#define f(a) f(x * (a))</div><div class="line">#undef x</div><div class="line">#define x 2</div><div class="line">#define g f</div><div class="line">#define t(a) a</div><div class="line"></div><div class="line">t(t(g)(0) + t)(1);</div></pre></td></tr></table></figure></p>
+<p>展开的步骤是:</p>
+<ol>
+<li>先把g展开成f再替换到#define t(a) a中，得到t(f(0) + t)(1);。</li>
+<li>根据#define f(a) f(x <em> (a))，得到t(f(x </em> (0)) + t)(1);。</li>
+<li>把x替换成2,得到t(f(2 <em> (0)) + t)(1);。注意，一开始定义x为3，但是后来用#undef x取消了x的定义，又重新定义x为2。当处理到t(t(g)(0) + t)(1);这一行代码时x已经定义成2了，所以用2来替换。还要注意一点，现在得到的t(f(2 </em> (0)) + t)(1);中仍然有f，但不能再次根据#define f(a) f(x <em> (a))展开了，f(2 </em> (0))就是由展开f(0)得到的，这里面再遇到f就不展开了，这样规定可以避免无穷展开(类似于无穷递归)，因此我们可以放心地使用递归定义，例如#define a a[0]，#define a a.member等。</li>
+<li>根据#define t(a) a，最终展开成f(2 <em> (0)) + t(1);。这时不能再展开t(1)了，因为这里的t就是由展开t(f(2 </em> (0)) + t)得到的，所以不能再展开了。</li>
+</ol>
+<h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p>“文件包含”处理是指一个源文件可以将另一个源文件的全部内容包含进来。</p>
+<p>一般形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#include &lt;文件名&gt;</div><div class="line">#include &quot;文件名&quot;</div></pre></td></tr></table></figure></p>
+<p>文件包含时使用&lt;&gt; 和 “”的区别：</p>
+<ul>
+<li>&lt;&gt; 系统直接到存放 C 库函数头文件的目录(/usr/include)中寻找要包含的文件，这是标准方式；</li>
+<li>“”  系统会先在当前目录下寻找要包含的文件，若找不到再按标准方式查找；</li>
+</ul>
+<p>编译和预编译处理：<br>编译预处理：将#include 命令包含的文件全部内容复制到本文件该命令处。<br>编译：将经过编译预处理之后的文件作为一个源文件单位进行编译。</p>
+<p><strong>头文件中一般写的内容：宏定义+函数原型+类型声明。</strong></p>
+<p>注意：全局变量最好定义在.c 文件中，若想在头文件中定义需加 static 声明，否则会报“重复编译”。</p>
+<h1 id="条件编译（条件预处理指示）"><a href="#条件编译（条件预处理指示）" class="headerlink" title="条件编译（条件预处理指示）"></a>条件编译（条件预处理指示）</h1><p>条件编译是对程序中某部分内容指定编译条件，满足条件才对该部分语句进行编译。</p>
+<p>条件编译命令的形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#ifdef 标识符</div><div class="line">	程序段</div><div class="line">#else</div><div class="line">	程序段</div><div class="line">#endif</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#ifndef 标识符</div><div class="line">	程序段</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#if 表达式</div><div class="line">	程序段</div><div class="line">#elif 表达式</div><div class="line">	程序段</div><div class="line">#else</div><div class="line">	程序段</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#if defined 表达式</div><div class="line">	程序段</div><div class="line">#elif defined 表达式</div><div class="line">	程序段</div><div class="line">#else</div><div class="line">	程序段</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#if !defined 表达式</div><div class="line">	程序段</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>#if defined x相当于#ifdef x，#if !defined x相当于#ifndef x</li>
+<li>#if的表达式必须在编译时求值，其中包含的名字只能是宏定义。</li>
+<li>ifdef或#if可以嵌套使用</li>
+<li>预处理指示通常都顶头写不缩进</li>
+<li>要定义一个宏不一定非得在代码中用#define定义，gcc的-D选项可以定义一个宏</li>
+</ol>
+<p>example：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#undef VERSION</div><div class="line">#define VERSION 	2</div><div class="line">#if defined x || y || VERSION &lt; 3 /*等价于：#if defined 0 || 0 || 2 &lt; 3，等价于#if 1条件成立*/</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -536,8 +629,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -628,6 +730,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#预处理步骤"><span class="nav-number">1.</span> <span class="nav-text">预处理步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏定义"><span class="nav-number">2.</span> <span class="nav-text">宏定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量式宏定义"><span class="nav-number">2.1.</span> <span class="nav-text">变量式宏定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数式宏定义"><span class="nav-number">2.2.</span> <span class="nav-text">函数式宏定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#內联函数"><span class="nav-number">2.3.</span> <span class="nav-text">內联函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、-运算符和可变参数"><span class="nav-number">2.4.</span> <span class="nav-text">#、##运算符和可变参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#宏展开的步骤"><span class="nav-number">2.5.</span> <span class="nav-text">宏展开的步骤</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件包含"><span class="nav-number">3.</span> <span class="nav-text">文件包含</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#条件编译（条件预处理指示）"><span class="nav-number">4.</span> <span class="nav-text">条件编译（条件预处理指示）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
