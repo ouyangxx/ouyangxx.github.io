@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="description" content="这篇文章来介绍如何使用C语言的库函数做字符串的初始化、取长度、拷贝、连接、比较、搜索、分割等基本操作。">
 <meta name="keywords" content="标准C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="标准C11-字符串操作">
 <meta property="og:url" content="http://yoursite.com/2017/10/01/标准C11-字符串操作/index.html">
 <meta property="og:site_name" content="林夕相心编程者">
-<meta property="og:description" content="一笔一划练神韵, 一撇一捺树人生">
-<meta property="og:updated_time" content="2017-05-23T15:47:22.000Z">
+<meta property="og:description" content="这篇文章来介绍如何使用C语言的库函数做字符串的初始化、取长度、拷贝、连接、比较、搜索、分割等基本操作。">
+<meta property="og:updated_time" content="2017-10-22T02:06:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="标准C11-字符串操作">
-<meta name="twitter:description" content="一笔一划练神韵, 一撇一捺树人生">
+<meta name="twitter:description" content="这篇文章来介绍如何使用C语言的库函数做字符串的初始化、取长度、拷贝、连接、比较、搜索、分割等基本操作。">
 
 
 
@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  0
+                  3,560
                 </span>
               
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  1
+                  14
                 </span>
               
             </div>
@@ -417,7 +417,72 @@
       
 
       
-        
+        <p>这篇文章来介绍如何使用C语言的库函数做字符串的初始化、取长度、拷贝、连接、比较、搜索、分割等基本操作。</p>
+<a id="more"></a>
+<h1 id="初始化字符串"><a href="#初始化字符串" class="headerlink" title="初始化字符串"></a>初始化字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 将s所指内存前n字节初始化为c的值</div><div class="line"> */</div><div class="line">void *memset(void *s, int c, size_t n)</div><div class="line">&#123;</div><div class="line">	char *p = (char *)s;</div><div class="line"></div><div class="line">	while (n--) </div><div class="line">		*p++ = (char)c;</div><div class="line">	return s;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>memset函数把s所指的内存地址开始的n个字节都填充为c的值。通常c的值为0，把一块内存区清0。例如定char buf[10]; 如果它是全局变量或静态变量，则自动初始化为0（位于.bss段），如果它是函数的局部变量，则初值不确定，可以用memset(buf, 0, 10)清零，由malloc分配的内存初值也是不确定的，也可以用memset清零。</p>
+<h1 id="取字符串长度"><a href="#取字符串长度" class="headerlink" title="取字符串长度"></a>取字符串长度</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 从s所指内存开始找&apos;\0&apos;字符，一旦找到返回长度</div><div class="line"> * 注意：</div><div class="line"> * 	1.长度不包括&apos;\0&apos;字符</div><div class="line"> * 	2.调用时必须保证s所指空间内容以&apos;\0&apos;结束,否则数组访问越界</div><div class="line"> */</div><div class="line">size_t strlen(const char *s)</div><div class="line">&#123;</div><div class="line">	size_t i = 0;</div><div class="line"></div><div class="line">	while (s[i] != &apos;\0&apos;)</div><div class="line">		i++;</div><div class="line">	return i;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>strlen函数返回s所指的字符串的长度。该函数从s所指的第一个字符开始找’\0’字符，一旦找到就返回，返回的长度不包括’\0’字符在内。例如定义char buf[] = “hello”; 则strlen(buf)的值是5，但要注意，如果定义char buf[5] = “hello”; 则调用strlen(buf)是危险的，会造成数组访问越界。    </p>
+<h1 id="拷贝字符串"><a href="#拷贝字符串" class="headerlink" title="拷贝字符串"></a>拷贝字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 把src所指字符串拷贝到dest所指空间</div><div class="line"> * 注意：</div><div class="line"> * 	1.调用时必须保证src所指空间以&apos;\0&apos;结束，否则读越界</div><div class="line"> * 	2.调用时必须保证dest所指空间足够大，否则可能造成缓冲区溢出(写越界)</div><div class="line"> * 	3.调用时必须保证src所指空间和dest不能有重叠</div><div class="line"> */</div><div class="line">char *strcpy(char *dest, const char *src)</div><div class="line">&#123;</div><div class="line">	size_t i;</div><div class="line"></div><div class="line">	for (i=0; src[i]!=&apos;\0&apos;; i++)</div><div class="line">		dest[i] = src[i];</div><div class="line">	dest[i] = &apos;\0&apos;;</div><div class="line">	return dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 最多拷贝src所指空间前n字节到dest所指空间中</div><div class="line"> * 注意：</div><div class="line"> * 	1.调用该函数后最好立即加一行代码: buf[n-1] =&apos;\0&apos;; 因为strncpy不能保证dest以&apos;\0&apos;结束</div><div class="line"> * 	2.调用时必须保证src所指空间和dest不能有重叠</div><div class="line"> */</div><div class="line">char *strncpy(char *dest, const char *src, size_t n)</div><div class="line">&#123;</div><div class="line">	size_t i;</div><div class="line"></div><div class="line">	for (i=0; i&lt;n&amp;&amp;src[i]!=&apos;\0&apos;; i++) </div><div class="line">		dest[i] = src[i];</div><div class="line">	for (; i&lt;n; i++)</div><div class="line">		dest[i] = &apos;\0&apos;;</div><div class="line">	return dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 从src所指内存地址拷贝n字节到dest所指内存地址</div><div class="line"> * 注意：</div><div class="line"> * 	1.用char*操作，以1字节为单位拷贝</div><div class="line"> * 	  用int*操作， 以4字节为单位拷贝</div><div class="line"> * 	2.调用时必须保证src所指空间和dest不能有重叠</div><div class="line"> */</div><div class="line">void *memcpy(void *dest, const void *src, size_t n)</div><div class="line">&#123;</div><div class="line">	char *d = (char *)dest;</div><div class="line">	const char *s = (const char *)src;</div><div class="line">	int *di;</div><div class="line">	const int *si;</div><div class="line">	int r = n % 4;</div><div class="line"></div><div class="line">	while (r--)</div><div class="line">		*d++ = *s++;</div><div class="line">	r = n / 4;</div><div class="line">	di = (int *)d;</div><div class="line">	si = (int *)s;</div><div class="line">	while (r--)</div><div class="line">		*di++ = *si++;</div><div class="line">	return dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 从src所指内存地址拷贝n字节到dest所指内存地址</div><div class="line"> * 注意：</div><div class="line"> * 	1.用char*操作，以1字节为单位拷贝</div><div class="line"> * 	2.用temp[n],可以解决 src 和 dest 所指空间有重叠时的正确拷贝</div><div class="line"> */</div><div class="line">void *memmove(void *dest, const void *src, size_t n)</div><div class="line">&#123;</div><div class="line">	size_t i;</div><div class="line">	char temp[n];</div><div class="line">	char *d = (char *)dest;</div><div class="line">	const char *s = (const char *)src;</div><div class="line"></div><div class="line">	for (i=0; i&lt;n; i++)</div><div class="line">		temp[i] = s[i];</div><div class="line">	for (i=0; i&lt;n; i++)</div><div class="line">		d[i] = temp[i];</div><div class="line">	return dest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>memcpy函数从src所指的内存地址拷贝n个字节到dest所指的内存地址，和strncpy不同，memcpy并不是遇到’\0’就结束，而是一定会拷贝完n个字节。这里的命名规律是，以str开头的函数处理以’\0’结尾的字符串，而以mem开头的函数则不关心’\0’字符，或者说这些函数并不把参数当字符串看待，因此参数的指针类型是void <em>而非char </em>。</p>
+<p>memmove也是从src所指的内存地址拷贝n个字节到dest所指的内存地址，虽然叫move但其实也是拷贝而非移动。但是和memcpy有一点不同，memcpy的两个参数src和dest所指的内存区间如果重叠则无法保证正确拷贝，而memmove却可以正确拷贝。假设定义了一个数组char buf[20] = “hello world\n”; 如果想把其中的字符串往后移动一个字节（变成”hhello world\n”），调用memcpy(buf+1, buf, 13)是无法保证正确拷贝的。</p>
+<p>example: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	char buf[20] = &quot;hello world\n&quot;;</div><div class="line">	memcpy(buf + 1, buf, 13);//错误的memcpy调用</div><div class="line">	printf(buf);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>只要把代码中的memcpy改成memmove则可以保证正确拷贝。</p>
+<h1 id="连接字符串"><a href="#连接字符串" class="headerlink" title="连接字符串"></a>连接字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 把src所指的字符串连接到dest所指的字符串后面</div><div class="line"> * 注意： </div><div class="line"> * 	1.调用时必须保证src所指空间以&apos;\0&apos;结束，否则读越界</div><div class="line"> * 	2.调用时必须保证dest所指空间足够大，否则可能造成缓冲区溢出(写越界)</div><div class="line"> */</div><div class="line">char *strcat(char *dest, const char *src)</div><div class="line">&#123;</div><div class="line">	size_t i=0, j=0;</div><div class="line"></div><div class="line">	while (dest[i] != &apos;\0&apos;)</div><div class="line">		i++;</div><div class="line">	while (src[j] != &apos;\0&apos;) </div><div class="line">		dest[i++] = src[j++];</div><div class="line">	dest[i] = &apos;\0&apos;;</div><div class="line">	return dest;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 最多连接src所指字符串前n字节到dest所指字符串后面</div><div class="line"> * 注意：</div><div class="line"> * 	1.strncat可以保证dest以&apos;\0&apos;结束，而strncpy不能</div><div class="line"> * 	2.调用时必须保证dest内存空间大小至少为strlen(dest)+n+1</div><div class="line"> */</div><div class="line">char *strncat(char *dest, const char *src, size_t n)</div><div class="line">&#123;</div><div class="line">	size_t i;</div><div class="line">	size_t dest_len = mystrlen(dest);</div><div class="line"></div><div class="line">	for (i=0; i&lt;n&amp;&amp;src[i]!=&apos;\0&apos;; i++)</div><div class="line">		dest[dest_len + i] = src[i];</div><div class="line">	dest[dest_len + i] = &apos;\0&apos;;</div><div class="line">	return dest;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>strncat如果src中前n个字符没有出现’\0’，则取前n个字符再加一个’\0’连接到dest后面，所以strncat总是保证dest缓冲区以’\0’结尾，这一点和strncpy不同，strncpy并不保证dest缓冲区以’\0’结尾。所以提供给strncat函数的dest缓冲区的大小至少应该是strlen(dest)+n+1个字节，才能保证不溢出。    </p>
+<h1 id="比较字符串"><a href="#比较字符串" class="headerlink" title="比较字符串"></a>比较字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 比较字符串s1和s2</div><div class="line"> */</div><div class="line">int strcmp(const char *s1, const char *s2)</div><div class="line">&#123;</div><div class="line">	size_t i;</div><div class="line">	for (i=0; s1[i]!=&apos;\0&apos;&amp;&amp;s2[i]!=&apos;\0&apos;&amp;&amp;s1[i]==s2[i]; i++) &#123; &#125;</div><div class="line">	return s1[i] - s2[i];</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * function: 从前到后逐个比较缓冲区s1和s2的前n个字节 [不管里面有没有&apos;\0&apos;]</div><div class="line"> */</div><div class="line">int memcmp(const void *s1, const void *s2, size_t n)</div><div class="line">&#123;</div><div class="line">	size_t i = 0;</div><div class="line">	char *p1 = (char *)s1;</div><div class="line">	const char *p2 = (const char *)s2;</div><div class="line"></div><div class="line">	while (i &lt; n-1 &amp;&amp; *p1 == *p2) &#123;</div><div class="line">		i++;</div><div class="line">		p1++;</div><div class="line">		p2++;</div><div class="line">	&#125;</div><div class="line">	return *p1 &gt; *p2 ? 1 : (*p1 == *p2 ? 0 : -1);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>memcmp从前到后逐个比较缓冲区s1和s2的前n个字节（不管里面有没有’\0’），如果s1和s2的前n个字节全都一样就返回0，如果遇到不一样的字节，s1的字节比s2小就返回负值，s1的字节比s2大就返回正值。</p>
+<p>strcmp把s1和s2当字符串比较，在其中一个字符串中遇到’\0’时结束。</p>
+<p>比较字符串时也可以忽略大小写，有两个函数（<strong>注意这两个函数不属于C标准库而是POSIX标准定义的</strong>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#include &lt;strings.h&gt;</div><div class="line"></div><div class="line">int strcasecmp(const char *s1, const char *s2);</div><div class="line">int strncasecmp(const char *s1, const char *s2, size_t n); </div><div class="line">返回值: 负值表示s1小于s2, 0表示s1等于s2, 正值表示s1大于s2</div></pre></td></tr></table></figure>
+<h1 id="搜索字符串"><a href="#搜索字符串" class="headerlink" title="搜索字符串"></a>搜索字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">char *strchr(const char *s, int c);</div><div class="line">char *strrchr(const char *s, int c);</div><div class="line">返回值: 如果找到字符c, 返回字符串s中指向字符c的指针, 如果找不到就返回NULL</div></pre></td></tr></table></figure>
+<p>strchr在字符串s中从前到后查找字符c，找到字符c第一次出现的位置时就返回，返回值指向这个位置，如果找不到字符c就返回NULL。strrchr和strchr类似，但是从右向左找字符c，找到字符c第一次出现的位置就返回，函数名中间多了一个字母r可以理解为Right-to-left。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">char *strstr(const char *haystack, const char *needle);</div><div class="line">返回值: 如果找到子串, 返回值指向子串的开头, 如果找不到就返回NULL</div></pre></td></tr></table></figure>
+<p>strstr在一个长字符串中从前到后找一个子串，找到子串第一次出现的位置就返回，返回值指向子串的开头，如果找不到就返回NULL。这两个参数名很形象，在干草堆haystack中找一根针needle，按中文的说法叫大海捞针，显然haystack是长字符串，needle是要找的子串。</p>
+<h1 id="分割字符串"><a href="#分割字符串" class="headerlink" title="分割字符串"></a>分割字符串</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">char *strtok(char *str, const char *delim);</div><div class="line">返回值: 返回指向下一个Token的指针, 如果没有下一个Token了就返回NULL</div></pre></td></tr></table></figure>
+<p>很多文件格式或协议格式中会规定一些分隔符或者叫界定符，例如/etc/passwd文件中保存着系统的帐号信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ cat /etc/passwd </div><div class="line">root:x:0:0:root:/root:/bin/bash </div><div class="line">daemon:x:1:1:daemon:/usr/sbin:/bin/sh </div><div class="line">bin:x:2:2:bin:/bin:/bin/sh</div><div class="line">...</div></pre></td></tr></table></figure>
+<p>每条记录占一行，也就是说记录之间的分隔符是换行符，每条记录又由若干个字段组成，这些字段包括用户名、密码、用户id、组id、个人信息、主目录、登录Shell，字段之间的分隔符是:号。解析这样的字符串需要根据分隔符把字符串分割成几段，C标准库提供的strtok函数可以很方便地完成分割字符串的操作。tok是Token的缩写，分割出来的每一段字符串称为一个Token。</p>
+<p>参数str是待分割的字符串，delim是分隔符，可以指定一个或多个分隔符，strtok遇到其中任何一个分隔符就会分割字符串。看下面的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">	char info[] = &quot;root:x::0:root:/root:/bin/bash:&quot;;</div><div class="line">	char *token;</div><div class="line">	char *str = info;</div><div class="line">	while ((token = strtok(str, &quot;:&quot;)) != NULL)</div><div class="line">	&#123;</div><div class="line">		printf(&quot;%s\n&quot;, token);</div><div class="line">		str = NULL;</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ ./a.out</div><div class="line">root</div><div class="line">x</div><div class="line">0</div><div class="line">root</div><div class="line">/root</div><div class="line">/bin/bash</div></pre></td></tr></table></figure>
+<p>结合这个例子，strtok的行为可以这样理解：冒号是分隔符，把”root: x::0:root:/root:/bin/bash:”这个字符串分隔成”root”、”x”、””、”0”、”root”、”/root”、”/bin/bash”、””等几个Token，但空字符串的Token被忽略。第一次调用要把字符串首地址传给strtok的第一个参数，以后每次调用第一个参数只要传NULL就可以了，strtok函数自己会记住上次处理到字符串的什么位置（显然这是通过strtok函数中的一个静态指针变量记住的）。</p>
+<p>由于strtok函数内部实现有静态指针那么它就是非线程安全的（不可重入函数）。strtok_r()函数也用于分割字符串但strtok_r是strtok函数的线程安全版（可重入函数），<strong>注意这个函数不属于C标准库而是POSIX标准定义的</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">char *strtok_r(char *str, const char *delim, char **saveptr);</div><div class="line">返回值: 返回指向下一个Token的指针, 如果没有下一个Token了就返回NULL</div></pre></td></tr></table></figure>
+<p>strtok_r函数内部实现没有静态变量，调用者需要自己分配一个指针变量来维护字符串中的当前处理位置，每次调用时把这个指针变量的地址传给strtok_r的第三个参数，告诉strtok_r从哪里开始处理，strtok_r返回时再把新的处理位置写回到这个指针变量中（这是一个Value-result参数）。strtok_r末尾的r就表示可重入的。</p>
+<p>str为要分解的字符串，delim为分隔符字符串。char <em>*saveptr参数是一个指向char </em>的指针变量，用来在strtok_r内部保存切分时的上下文，以应对连续调用分解相同源字符串。第一次调用strtok_r时，str参数必须指向待提取的字符串，saveptr参数的值可以忽略。连续调用时，str赋值为NULL，saveptr为上次调用后返回的值，不要修改。一系列不同的字符串可能会同时连续调用strtok_r进行提取，要为不同的调用传递不同的saveptr参数。strtok_r实际上就是将strtok内部隐式保存的this指针以参数的形式与函数外部进行交互。由调用者进行传递、保存甚至是修改。需要调用者在连续切分相同源字符串时，除了将str参数赋值为NULL，还要传递上次切分时保存下的saveptr。看下面的例子。</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(void)
+{
+    int counter = 0, i;
+    char info[] = &quot;Fred male 25,John male 62,Anna female 16&quot;;
+    char *tok[20];
+    char *str = info;
+    char *outer_saveptr = NULL;
+    char *inner_saveptr = NULL;
+    while ((tok[counter] = strtok_r(str, &quot;,&quot;, &amp;outer_saveptr)) != NULL)
+    {
+        str = tok[counter];
+        while((tok[counter] = strtok_r(str, &quot; &quot;, &amp;inner_saveptr)) != NULL)
+        {
+            counter++;
+            str = NULL;
+        }
+        str = NULL;
+    }
+    printf(&quot;Here we have %d strings\n&quot;,counter);
+    for (i=0; i&lt;counter; i++)
+    {
+        printf(&quot;%s\n&quot;,tok[i]);
+    }
+    return 0;
+}
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ ./a.out</div><div class="line">Here we have 9 strings</div><div class="line">Fred</div><div class="line">male</div><div class="line">25</div><div class="line">John</div><div class="line">male</div><div class="line">62</div><div class="line">Anna</div><div class="line">female</div><div class="line">16</div></pre></td></tr></table></figure>
+<p>这个调用strtok_r的示例中有两个指针比较重要，outer_saveptr和inner_saveptr。outer_saveptr用于标记每个人的提取位置，即外循环；inner_saveptr用于标记每个人内部每项信息的提取位置，即内循环。具体过程如下：<br>(1) 第1次外循环，outer_saveptr忽略，对整个源串提取，提取出”Fred male 25”，分隔符’,’ 被修改为了’\0’，outer_saveptr返回指向’J’。<br>(2) 第一次内循环，inner_saveptr忽略，对第1次外循环的提取结果”Fred male 25”进行提取，提取出了”Fred”，分隔符’ ‘被修改为了’\0’，inner_saveptr返回指向’m’。<br>(3) 第二次内循环，传递第一次内循环返回的inner_saveptr，第一个参数为NULL，从inner_saveptr指向的位置’m’开始提取，提取出了”male”，分隔符 ‘ ‘被修改为了’\0’，inner_saveptr返回指向’2’。<br>(4) 第三次内循环，传递第二次内循环返回的inner_saveptr，第一个参数为NULL，从inner_saveptr指向的位置’2’开始提取，提取出了”25”，因为没有找到’ ‘，inner_saveptr返回指向25后的’\0’。<br>(5) 第四次内循环，传递第三次内循环返回的inner_saveptr，第一个参数为NULL，因为inner_saveptr指向的位置为’\0’，无法提取，返回空值。结束内循环。<br>(6) 第2次外循环，传递第1次外循环返回的outer_saveptr，第一个参数为NULL，从outer_saveptr指向的位置’J’开始提取，提取出”John male 62”，分隔符’,’被修改为了’\0’，outer_saveptr返回指向’A’。（调用strtok则卡死在了这一步）<br>……以此类推，外循环一次提取一个人的全部信息，内循环从外循环的提取结果中，二次提取个人单项信息。<br>可以看到strtok_r将原内部指针显示化，提供了saveptr这个参数。增加了函数的灵活性和安全性。</p>
+
       
     </div>
 
@@ -536,8 +601,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -628,6 +702,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化字符串"><span class="nav-number">1.</span> <span class="nav-text">初始化字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#取字符串长度"><span class="nav-number">2.</span> <span class="nav-text">取字符串长度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#拷贝字符串"><span class="nav-number">3.</span> <span class="nav-text">拷贝字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连接字符串"><span class="nav-number">4.</span> <span class="nav-text">连接字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#比较字符串"><span class="nav-number">5.</span> <span class="nav-text">比较字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索字符串"><span class="nav-number">6.</span> <span class="nav-text">搜索字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割字符串"><span class="nav-number">7.</span> <span class="nav-text">分割字符串</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
